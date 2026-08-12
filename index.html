@@ -1,0 +1,286 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Smart Test Reviewer System</title>
+  <!-- Google Fonts: Inter & Outfit -->
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+  <link href="https://fonts.googleapis.com/css2?family=Inter:wght@300;400;500;600;700&family=Outfit:wght@500;600;700;800&display=swap" rel="stylesheet">
+  <!-- FontAwesome Icons -->
+  <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css">
+  <!-- Custom Styles -->
+  <link rel="stylesheet" href="styles.css">
+</head>
+<body class="dark-theme">
+  <!-- Main Header Navigation -->
+  <header class="app-header">
+    <div class="header-container">
+      <div class="brand-logo">
+        <div class="logo-icon"><i class="fa-solid fa-graduation-cap"></i></div>
+        <div class="logo-text">
+          <h1>TestReviewer<span class="logo-accent">Pro</span></h1>
+          <p class="logo-tagline">Interactive Study & Google-Forms Exam System</p>
+        </div>
+      </div>
+
+      <!-- Module Selection (Isolated Modules) -->
+      <div class="module-switcher-container">
+        <span class="switcher-label"><i class="fa-solid fa-layer-group"></i> Active Module:</span>
+        <div class="module-toggle-group">
+          <button class="module-btn active" data-module="network-security" id="mod-btn-ns">
+            <i class="fa-solid fa-shield-halved"></i>
+            <span>Network Security</span>
+          </button>
+          <button class="module-btn" data-module="system-admin" id="mod-btn-sam">
+            <i class="fa-solid fa-server"></i>
+            <span>System Admin & Maintenance</span>
+          </button>
+        </div>
+      </div>
+
+      <!-- Right Header Actions -->
+      <div class="header-actions">
+        <button id="theme-toggle-btn" class="icon-btn" title="Toggle Light/Dark Theme">
+          <i class="fa-solid fa-moon"></i>
+        </button>
+        <button id="history-modal-btn" class="header-pill-btn" title="View Score History">
+          <i class="fa-solid fa-clock-rotate-left"></i>
+          <span>Score History</span>
+        </button>
+      </div>
+    </div>
+  </header>
+
+  <!-- Module Hero Banner -->
+  <section class="module-hero" id="module-hero">
+    <div class="hero-content">
+      <div class="hero-badge" id="hero-badge">Cybersecurity</div>
+      <h2 id="hero-title">Network Security</h2>
+      <p id="hero-subtitle">Complete Study Reviewer & Practice Examination</p>
+      <div class="hero-stats">
+        <span class="stat-pill"><i class="fa-solid fa-book-open"></i> <span id="stat-study-count">2 Study Parts</span></span>
+        <span class="stat-pill"><i class="fa-solid fa-clipboard-question"></i> <span id="stat-exam-count">35 Questions</span></span>
+        <span class="stat-pill"><i class="fa-solid fa-trophy"></i> Best Score: <strong id="stat-best-score">--%</strong></span>
+      </div>
+    </div>
+  </section>
+
+  <!-- Navigation Tabs: Review Material vs Take Exam vs Results -->
+  <nav class="app-nav-tabs">
+    <div class="nav-container">
+      <button class="nav-tab active" data-tab="study" id="tab-study">
+        <i class="fa-solid fa-book-bookmark"></i>
+        <span>Study & Review Material</span>
+      </button>
+      <button class="nav-tab" data-tab="exam" id="tab-exam">
+        <i class="fa-solid fa-file-signature"></i>
+        <span>Take Practice Test</span>
+        <span class="form-badge">Google Forms Style</span>
+      </button>
+      <button class="nav-tab" data-tab="results" id="tab-results" disabled>
+        <i class="fa-solid fa-chart-pie"></i>
+        <span>Test Results & Review</span>
+      </button>
+    </div>
+  </nav>
+
+  <!-- Main View Container -->
+  <main class="main-content">
+    
+    <!-- VIEW 1: STUDY & REVIEW MODULE -->
+    <section class="tab-view active" id="view-study">
+      <div class="study-controls">
+        <div class="search-box">
+          <i class="fa-solid fa-magnifying-glass"></i>
+          <input type="text" id="study-search" placeholder="Search study notes, definitions, or exam points...">
+        </div>
+        <div class="study-mode-toggles">
+          <button class="filter-chip active" data-study-filter="all">All Topics</button>
+          <button class="filter-chip" data-study-filter="high-yield"><i class="fa-solid fa-bolt"></i> High Yield Points</button>
+          <button id="collapse-study-btn" class="secondary-btn"><i class="fa-solid fa-compress"></i> Toggle Collapse</button>
+        </div>
+      </div>
+
+      <!-- Study Sections Dynamic Container -->
+      <div class="study-sections-list" id="study-sections-list">
+        <!-- Rendered via app.js -->
+      </div>
+    </section>
+
+    <!-- VIEW 2: GOOGLE FORMS STYLE EXAM MODULE -->
+    <section class="tab-view" id="view-exam">
+      <!-- Exam Config Bar -->
+      <div class="exam-config-card">
+        <div class="config-item">
+          <label for="exam-filter-select"><i class="fa-solid fa-filter"></i> Exam Mode / Filter:</label>
+          <select id="exam-filter-select">
+            <option value="all">Full Exam (All Questions)</option>
+            <option value="mcq">Multiple Choice Only</option>
+            <option value="identification">Identification Only</option>
+            <option value="tf">True / False Only</option>
+            <option value="scenario">Scenario Analysis Only</option>
+          </select>
+        </div>
+        <div class="config-item">
+          <label><i class="fa-solid fa-shuffle"></i> Question Order:</label>
+          <div class="toggle-switch-wrapper">
+            <input type="checkbox" id="shuffle-toggle">
+            <label for="shuffle-toggle" class="toggle-slider"></label>
+            <span id="shuffle-label">Original Order</span>
+          </div>
+        </div>
+        <button id="start-reset-exam-btn" class="primary-btn">
+          <i class="fa-solid fa-rotate-right"></i> Reset Form
+        </button>
+      </div>
+
+      <!-- Google Forms Style Container -->
+      <div class="forms-wrapper">
+        <!-- Google Forms Top Banner Card -->
+        <div class="forms-header-card" id="forms-header-card">
+          <div class="forms-banner-strip" id="forms-banner-strip"></div>
+          <div class="forms-header-body">
+            <h2 id="form-doc-title">Network Security Practice Examination</h2>
+            <p id="form-doc-description">This test is styled after Google Forms. Please select or type your answer for each question. Once completed, submit your test at the bottom to calculate your score and view detailed explanations.</p>
+            <div class="form-meta-row">
+              <span class="required-note">* Indicates required question</span>
+              <span class="form-progress-indicator" id="form-progress-text">0 of 35 answered</span>
+            </div>
+            <!-- Sticky Progress Bar -->
+            <div class="progress-bar-container">
+              <div class="progress-bar-fill" id="form-progress-fill"></div>
+            </div>
+          </div>
+        </div>
+
+        <!-- Dynamic Questions List (Google Forms Card Layout) -->
+        <form id="google-exam-form" class="forms-questions-list">
+          <!-- Questions rendered via app.js -->
+        </form>
+
+        <!-- Floating Submit Footer Bar -->
+        <div class="forms-footer-card">
+          <div class="unanswered-warning" id="unanswered-warning" style="display: none;">
+            <i class="fa-solid fa-triangle-exclamation"></i>
+            <span id="unanswered-count-text">You have 0 unanswered questions.</span>
+            <button type="button" id="jump-unanswered-btn" class="text-link-btn">Jump to first unanswered</button>
+          </div>
+          <div class="footer-actions">
+            <button type="button" id="clear-form-btn" class="secondary-btn">Clear form</button>
+            <button type="submit" id="submit-exam-btn" class="forms-submit-btn">
+              <i class="fa-solid fa-paper-plane"></i> Submit Test
+            </button>
+          </div>
+        </div>
+      </div>
+    </section>
+
+    <!-- VIEW 3: TEST RESULTS & DETAILED REVIEW MODULE -->
+    <section class="tab-view" id="view-results">
+      <!-- Results Overview Dashboard -->
+      <div class="results-dashboard">
+        <div class="score-card" id="score-card">
+          <div class="score-circle-wrapper">
+            <svg class="score-svg" viewBox="0 0 120 120">
+              <circle class="score-circle-bg" cx="60" cy="60" r="52"></circle>
+              <circle class="score-circle-progress" id="score-circle-progress" cx="60" cy="60" r="52"></circle>
+            </svg>
+            <div class="score-center-text">
+              <span class="score-percentage" id="score-percentage-text">0%</span>
+              <span class="score-fraction" id="score-fraction-text">0/0</span>
+            </div>
+          </div>
+          <div class="score-badge-label" id="score-badge-label">PASSED</div>
+        </div>
+
+        <div class="results-summary-card">
+          <h3><i class="fa-solid fa-trophy"></i> Performance Breakdown</h3>
+          <div class="stats-grid">
+            <div class="stat-box correct">
+              <i class="fa-solid fa-circle-check"></i>
+              <div class="stat-info">
+                <span class="stat-num" id="res-correct-num">0</span>
+                <span class="stat-lbl">Correct Answers</span>
+              </div>
+            </div>
+            <div class="stat-box incorrect">
+              <i class="fa-solid fa-circle-xmark"></i>
+              <div class="stat-info">
+                <span class="stat-num" id="res-incorrect-num">0</span>
+                <span class="stat-lbl">Incorrect Answers</span>
+              </div>
+            </div>
+            <div class="stat-box skipped">
+              <i class="fa-solid fa-circle-minus"></i>
+              <div class="stat-info">
+                <span class="stat-num" id="res-skipped-num">0</span>
+                <span class="stat-lbl">Unanswered / Skipped</span>
+              </div>
+            </div>
+            <div class="stat-box time">
+              <i class="fa-solid fa-stopwatch"></i>
+              <div class="stat-info">
+                <span class="stat-num" id="res-time-text">0s</span>
+                <span class="stat-lbl">Time Taken</span>
+              </div>
+            </div>
+          </div>
+
+          <div class="results-action-row">
+            <button id="retake-test-btn" class="primary-btn">
+              <i class="fa-solid fa-rotate-left"></i> Retake Test
+            </button>
+            <button id="study-review-btn" class="secondary-btn">
+              <i class="fa-solid fa-book-open"></i> Review Materials
+            </button>
+          </div>
+        </div>
+      </div>
+
+      <!-- Question Review Filter Controls -->
+      <div class="review-filter-bar">
+        <div class="filter-title"><i class="fa-solid fa-list-check"></i> Detailed Answer Key & Explanations:</div>
+        <div class="filter-buttons">
+          <button class="review-chip active" data-review-filter="all" id="rf-all">All Questions</button>
+          <button class="review-chip" data-review-filter="incorrect" id="rf-incorrect">
+            <i class="fa-solid fa-triangle-exclamation"></i> Incorrect Only
+          </button>
+          <button class="review-chip" data-review-filter="correct" id="rf-correct">
+            <i class="fa-solid fa-circle-check"></i> Correct Only
+          </button>
+        </div>
+      </div>
+
+      <!-- Review Questions List -->
+      <div class="review-questions-list" id="review-questions-list">
+        <!-- Rendered via app.js -->
+      </div>
+    </section>
+
+  </main>
+
+  <!-- Score History Modal -->
+  <div class="modal-overlay" id="history-modal">
+    <div class="modal-card">
+      <div class="modal-header">
+        <h3><i class="fa-solid fa-clock-rotate-left"></i> Score History & Performance Logs</h3>
+        <button id="close-modal-btn" class="icon-btn">&times;</button>
+      </div>
+      <div class="modal-body">
+        <div class="history-list" id="history-list-container">
+          <!-- Rendered via app.js -->
+        </div>
+      </div>
+      <div class="modal-footer">
+        <button id="clear-history-btn" class="danger-btn"><i class="fa-solid fa-trash-can"></i> Clear History</button>
+      </div>
+    </div>
+  </div>
+
+  <!-- Scripts -->
+  <script src="data.js"></script>
+  <script src="app.js"></script>
+</body>
+</html>

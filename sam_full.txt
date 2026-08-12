@@ -1,0 +1,352 @@
+--- PAGE 1 ---
+SYSTEM ADMINISTRATION & MAINTENANCE
+Reviewer + Exam-Like Questionnaire
+Based on Week 1: Introduction to System Administration and Network Administration and Lesson 2: Operating System
+Installation and Configuration.
+PART I — INTRODUCTION TO SYSTEM & NETWORK ADMINISTRATION
+System Administration: Management, maintenance, and support of computer systems, servers, and IT infrastructure to
+ensure reliable and secure operation.
+Key responsibilities: Install operating systems; create user accounts; manage permissions; perform backups; apply
+updates and patches; troubleshoot system problems.
+Memory: System Admin = Systems / Servers / Software
+Network Administration
+Focuses on managing network devices and communication between systems.
+Key responsibilities: Configure routers and switches; manage IP addressing; monitor network performance; maintain
+connectivity; implement network security; troubleshoot network issues.
+Memory: Network Admin = Network Devices / IP / Connectivity
+System Administrator vs Network Administrator
+System Administrator Network Administrator
+Manages servers Manages routers & switches
+Creates users Configures IPs
+Maintains operating systems Configures VLANs
+Performs backups Monitors traffic
+Installs applications Configures routing
+Enterprise Network Overview
+Internet fi Router fi Switch fi PCs / Servers
+Router: connects different networks.
+Switch: connects devices in a LAN.
+Firewall: filters and protects traffic.
+Server: provides services to clients.
+Why Learn Cisco?
+Cisco technologies are widely used in enterprises. Benefits include industry-recognized skills, hands-on networking
+experience, preparation for CCST / CCNA, better employability, and understanding real-world networks.
+Career opportunities: System Administrator, Network Administrator, IT Support Engineer, Cloud Administrator.
+PART II — OPERATING SYSTEM INSTALLATION & CONFIGURATION
+Hardware Assessment
+--- PAGE 2 ---
+Before installation, confirm CPU speed, RAM capacity, and disk space meet OS requirements. Cross-reference hardware
+with manufacturer specifications to avoid driver and firmware conflicts. Prepare bootable USB/DVD media or configure a
+network PXE server.
+Pre-Installation: Three Critical Decisions
+1. Boot Sequence: Configure BIOS/UEFI to prioritize installation media.
+2. Installation Strategy: Choose Clean Install, Upgrade, or Multi-boot.
+3. Deployment Environment: Decide between physical hardware and virtualization.
+Disk Partitioning
+Partitioning divides a physical disk into logically independent volumes. MBR is legacy, has a 2 TB limit, and supports up to
+four primary partitions. GPT is modern and supports larger disks. An extended partition can contain multiple logical
+partitions. A swap area is a dedicated partition used for virtual memory.
+File Systems & Formatting
+Formatting: prepares a partition to store system files.
+NTFS: default for Windows; supports encryption, compression, and large volumes.
+ext4: standard for Linux; reliable, journaling-enabled, and widely adopted.
+Installation Process
+1. Launch Installer: Windows setup.exe or Anaconda on Linux distributions.
+2. Regional Settings: language, time zone, keyboard layout, and regional preferences.
+3. Licensing: enter product key and verify software licensing.
+Initial System Configuration
+Network: configure IP addressing, DNS, and firewall/security policies.
+System Services: enable essential services and set startup parameters.
+Startup Optimization: use msconfig (Windows) or systemd (Linux) to disable unnecessary background tasks and improve
+boot time.
+User & Group Account Management
+Principle of Least Privilege: users should only have the access they need.
+Administrator: full system control; use sparingly and protect with strong credentials.
+Standard User: limited privileges reduce risk.
+Guest: temporary, highly restricted access; should be disabled in production.
+User Groups: organize users to manage permissions efficiently.
+Maintenance & System Security
+Updates & Patches: install critical OS updates to close known vulnerabilities.
+System Logs: monitor kernel events, service failures, and security incidents.
+Admin Tools: Device Manager and Disk Cleanup help maintain hardware health and free storage.
+System Lifecycle
+1. New: freshly installed, fully patched, optimally configured.
+2. Configured: customized for production; routine defragmentation and error checking applied.
+3. Degraded: performance declining; verify backups and assess hardware for replacement.
+4. Renewed: re-imaged, upgraded, or replaced to restore integrity and performance.
+Memory: New fi Configured fi Degraded fi Renewed
+--- PAGE 3 ---
+HIGH-YIELD EXAM POINTS
+(cid:127) System Admin fi servers, OS, users, backups.
+(cid:127) Network Admin fi routers, switches, IPs, VLANs, routing.
+(cid:127) Router fi connects different networks.
+(cid:127) Switch fi connects devices in a LAN.
+(cid:127) Firewall fi filters/protects traffic.
+(cid:127) Server fi provides services to clients.
+(cid:127) MBR fi legacy, 2 TB limit, up to 4 primary partitions.
+(cid:127) GPT fi modern, supports larger disks.
+(cid:127) NTFS fi Windows.
+(cid:127) ext4 fi Linux.
+(cid:127) Least Privilege fi only necessary access.
+(cid:127) Administrator fi full control.
+(cid:127) Standard User fi limited privileges.
+(cid:127) Guest fi temporary/restricted; disable in production.
+(cid:127) Windows startup tool fi msconfig.
+(cid:127) Linux system/service manager fi systemd.
+(cid:127) Lifecycle fi New fi Configured fi Degraded fi Renewed.
+EXAM-LIKE QUESTIONNAIRE
+Part A — Multiple Choice
+1. What is the primary purpose of system administration?
+A. Designing websites
+B. Managing, maintaining, and supporting computer systems and IT infrastructure
+C. Creating mobile applications
+D. Designing network cables
+2. Which task is primarily performed by a system administrator?
+A. Configuring VLANs
+B. Configuring routing
+C. Creating user accounts
+D. Monitoring network traffic
+3. Which task is primarily associated with a network administrator?
+A. Installing applications
+B. Performing backups
+C. Creating user accounts
+D. Configuring routers and switches
+4. Which device connects different networks?
+--- PAGE 4 ---
+A. Switch
+B. Router
+C. Server
+D. Firewall
+5. Which device connects devices within a LAN?
+A. Router
+B. Server
+C. Switch
+D. Firewall
+6. Which device filters and protects network traffic?
+A. Switch
+B. Server
+C. Router
+D. Firewall
+7. Which device provides services to clients?
+A. Server
+B. Switch
+C. Router
+D. Firewall
+8. Which sequence represents the basic enterprise network overview?
+A. Switch fi Internet fi Router fi PCs
+B. Internet fi Router fi Switch fi PCs/Servers
+C. Internet fi Switch fi Router fi PCs
+D. Router fi Internet fi Switch fi Servers
+9. Before installing an operating system, which should be checked?
+A. CPU, RAM, and storage
+B. Keyboard color
+C. Monitor size only
+D. Wallpaper resolution
+10. What should be configured to prioritize installation media during boot?
+A. Firewall
+B. BIOS/UEFI
+C. Device Manager
+D. Disk Cleanup
+11. Which is NOT an installation strategy mentioned?
+A. Clean Install
+B. Upgrade
+C. Multi-boot
+--- PAGE 5 ---
+D. Dual Firewall
+12. Which partitioning scheme is modern?
+A. MBR
+B. GPT
+C. FAT
+D. NTFS
+13. What is the MBR disk size limit stated in the lesson?
+A. 500 GB
+B. 1 TB
+C. 2 TB
+D. 4 TB
+14. How many primary partitions can MBR support according to the lesson?
+A. 2
+B. 4
+C. 8
+D. Unlimited
+15. What is the purpose of an extended partition?
+A. It provides internet access
+B. It contains multiple logical partitions
+C. It encrypts the entire disk
+D. It replaces the BIOS
+16. Which file system is the default/common choice for Windows?
+A. ext4
+B. NTFS
+C. GPT
+D. MBR
+17. Which file system is standard for Linux?
+A. NTFS
+B. FAT32
+C. ext4
+D. MBR
+18. What does formatting do?
+A. Connects a computer to the internet
+B. Prepares a partition to store system files
+C. Creates a user account
+D. Configures a router
+19. Which is an example of installation media?
+A. Bootable USB
+--- PAGE 6 ---
+B. Mouse
+C. Keyboard
+D. Monitor
+20. Which Windows tool can be used to optimize startup?
+A. systemd
+B. Anaconda
+C. msconfig
+D. BIOS
+21. Which Linux component is mentioned for managing system startup/services?
+A. msconfig
+B. systemd
+C. Device Manager
+D. setup.exe
+22. What does the Principle of Least Privilege mean?
+A. Everyone should have administrator access
+B. Users should only have the access they need
+C. Users should never have passwords
+D. Guests should have full access
+23. Which account has full system control?
+A. Guest
+B. Standard User
+C. Administrator
+D. Group User
+24. Which account has limited privileges to reduce risk?
+A. Administrator
+B. Standard User
+C. Root Router
+D. Guest Administrator
+25. What should happen to a Guest Account in production?
+A. Give it administrator access
+B. Make it the default account
+C. Disable it
+D. Use it for backups
+26. Why are user groups useful?
+A. They increase CPU speed
+B. They organize users for efficient permission management
+C. They replace operating systems
+D. They configure routers
+--- PAGE 7 ---
+27. Why should critical OS updates be installed?
+A. To change the wallpaper
+B. To close known vulnerabilities
+C. To increase monitor resolution
+D. To create VLANs
+28. What can system logs help monitor?
+A. Kernel events and service failures
+B. Monitor brightness
+C. Keyboard layout only
+D. CPU brand
+29. Which tool is mentioned for maintaining hardware health?
+A. Device Manager
+B. Router Manager
+C. CCNA
+D. Anaconda
+30. What is the correct system lifecycle order?
+A. New fi Degraded fi Configured fi Renewed
+B. Configured fi New fi Renewed fi Degraded
+C. New fi Configured fi Degraded fi Renewed
+D. Renewed fi New fi Configured fi Degraded
+--- PAGE 8 ---
+Part B — Identification
+31. The management and maintenance of computer systems, servers, and IT infrastructure.
+32. The administration role focused on network devices and communication between systems.
+33. A device that connects different networks.
+34. A device that connects devices within a LAN.
+35. A device that filters and protects traffic.
+36. The modern disk partitioning scheme that supports larger disks.
+37. The legacy partitioning scheme with a stated 2 TB limit.
+38. The Windows file system discussed in the lesson.
+39. The Linux file system discussed in the lesson.
+40. The principle where users receive only the access they need.
+41. The Windows tool mentioned for optimizing startup.
+42. The Linux system component mentioned for startup/service management.
+43. The lifecycle phase where system performance is declining.
+44. The lifecycle phase where a system is re-imaged, upgraded, or replaced.
+45. A dedicated partition used for virtual memory.
+Part C — True or False
+46. A system administrator primarily configures routers and switches.
+47. A network administrator may manage IP addressing.
+48. A switch connects devices in a LAN.
+49. A router connects different networks.
+50. A firewall filters and protects traffic.
+51. GPT is described as a legacy partitioning scheme.
+52. MBR has a 2 TB limit according to the lesson.
+53. NTFS is associated with Windows.
+54. ext4 is a standard Linux file system.
+55. The Principle of Least Privilege gives every user full administrator access.
+56. Guest accounts should be disabled in production environments.
+57. System logs can help identify service failures.
+58. Critical updates can help close known vulnerabilities.
+59. A degraded system has declining performance.
+60. The final lifecycle phase listed is Renewed.
+Part D — Scenario-Based Questions
+61. Employees cannot log into their Windows accounts. Which administrator should investigate first, and why?
+--- PAGE 9 ---
+62. The office cannot access the internet because the router is misconfigured. Which administrator should handle the
+problem?
+63. A company needs to install Windows Server on a new machine. Which role is primarily responsible?
+64. Users cannot communicate between VLAN 10 and VLAN 20. Which administrator should investigate?
+65. A server's hard drive must be backed up before maintenance. Which administrator's responsibility is this?
+66. A switch suddenly stops forwarding network traffic. Which administrator should investigate?
+67. You are installing an OS from a USB, but the computer boots directly into the existing OS. What should you check?
+68. A user asks for administrator privileges even though they only need to use a basic application. What security principle
+should guide your decision?
+69. A computer has declining performance, and its backups have been verified. Which system lifecycle phase is it in, and
+what should be considered next?
+70. A university suddenly loses internet access. List the basic troubleshooting steps/devices you would check based on the
+concepts in the lessons.
+--- PAGE 10 ---
+ANSWER KEY
+Part A — Multiple Choice
+1-B 2-C 3-D 4-B 5-C 6-D 7-A 8-B 9-A 10-B
+11-D 12-B 13-C 14-B 15-B 16-B 17-C 18-B 19-A 20-C
+21-B 22-B 23-C 24-B 25-C 26-B 27-B 28-A 29-A 30-C
+Part B — Identification
+31. System Administration
+32. Network Administration
+33. Router
+34. Switch
+35. Firewall
+36. GPT
+37. MBR
+38. NTFS
+39. ext4
+40. Principle of Least Privilege
+41. msconfig
+42. systemd
+43. Degraded
+44. Renewed
+45. Swap Area
+Part C — True or False
+46. False
+47. True
+48. True
+49. True
+50. True
+51. False
+52. True
+53. True
+54. True
+55. False
+56. True
+57. True
+58. True
+--- PAGE 11 ---
+59. True
+60. True
+Part D — Scenario Answers
+61. System Administrator — the issue involves user accounts/OS access.
+62. Network Administrator — the problem involves a router and network connectivity.
+63. System Administrator — installing and configuring an operating system is a system administration task.
+64. Network Administrator — VLANs and network communication fall under network administration.
+65. System Administrator — backups are a listed system administration responsibility.
+66. Network Administrator — a switch is a network device.
+67. Check the BIOS/UEFI boot sequence and ensure the USB installation media has priority.
+68. Principle of Least Privilege — give the user only the permissions required for their work.
+69. Degraded — performance is declining; assess hardware for possible replacement after verifying backups.
+70. Check connectivity; check the router and switch; determine whether one or many computers are affected; check
+IP/network configuration; identify where communication fails; if the router is faulty, consider an appropriate temporary
+solution while awaiting repair/replacement.
