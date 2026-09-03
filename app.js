@@ -111,11 +111,35 @@
 
   // Initialize App
   function init() {
-    applyTheme(state.theme);
-    bindEvents();
-    renderStudySections();
-    resetExam();
-    updateBestScoreStat();
+    try {
+      applyTheme(state.theme);
+      bindEvents();
+      ensureDataReady(() => {
+        renderStudySections();
+        resetExam();
+        updateBestScoreStat();
+      });
+    } catch (err) {
+      console.error("Initialization error:", err);
+    }
+  }
+
+  function ensureDataReady(callback) {
+    if (window.REVIEWER_DATA && window.REVIEWER_DATA.modules && window.REVIEWER_DATA.modules.length > 0) {
+      callback();
+      return;
+    }
+    let attempts = 0;
+    const interval = setInterval(() => {
+      attempts++;
+      if (window.REVIEWER_DATA && window.REVIEWER_DATA.modules && window.REVIEWER_DATA.modules.length > 0) {
+        clearInterval(interval);
+        callback();
+      } else if (attempts > 50) {
+        clearInterval(interval);
+        console.error("REVIEWER_DATA failed to load.");
+      }
+    }, 100);
   }
 
   // Theme Toggle
@@ -858,59 +882,175 @@
   // ==========================================================================
 
   function bindEvents() {
-    // Theme Toggle
-    DOM.themeBtn.addEventListener('click', () => {
-      applyTheme(state.theme === 'dark' ? 'light' : 'dark');
-    });
+    // Global Event Delegation for all clicks
+    document.addEventListener('click', (e) => {
+      // 1. Theme toggle
+      if (e.target.closest('#theme-toggle-btn')) {
+        e.preventDefault();
+        applyTheme(state.theme === 'dark' ? 'light' : 'dark');
+        return;
+      }
 
-    // Header Module Switcher Buttons
-    document.querySelectorAll('.module-btn').forEach(btn => {
-      btn.addEventListener('click', () => {
-        const modId = btn.dataset.module;
+      // 2. Navigation Tabs
+      const tab = e.target.closest('.nav-tab');
+      if (tab) {
+        e.preventDefault();
+        const tabName = tab.dataset.tab;
+        if (tabName) switchTab(tabName);
+        return;
+      }
+
+      // 3. Header Module Switcher Buttons
+      const modBtn = e.target.closest('.module-btn');
+      if (modBtn) {
+        e.preventDefault();
+        const modId = modBtn.getAttribute('data-module') || modBtn.dataset.module;
         if (modId) {
           selectStudyModule(modId);
           switchTab('study');
         }
-      });
-    });
+        return;
+      }
 
-    // Modular Reviewer Selector Chips in Study Tab
-    document.querySelectorAll('.study-module-chip').forEach(chip => {
-      chip.addEventListener('click', () => {
-        const modId = chip.dataset.studyMod;
+      // 4. Modular Reviewer Selector Chips in Study Tab
+      const studyChip = e.target.closest('.study-module-chip');
+      if (studyChip) {
+        e.preventDefault();
+        const modId = studyChip.getAttribute('data-study-mod') || studyChip.dataset.studyMod;
         if (modId) {
           selectStudyModule(modId);
         }
-      });
+        return;
+      }
+
+      // 5. Study Collapse Toggle
+      if (e.target.closest('#collapse-study-btn')) {
+        e.preventDefault();
+        const cards = document.querySelectorAll('.study-card');
+        const allCollapsed = Array.from(cards).every(c => c.classList.contains('collapsed'));
+        cards.forEach(c => c.classList.toggle('collapsed', !allCollapsed));
+        return;
+      }
+
+      // 6. Study Topic Filter Chips
+      const sfc = e.target.closest('[data-study-filter]');
+      if (sfc) {
+        e.preventDefault();
+        document.querySelectorAll('[data-study-filter]').forEach(c => c.classList.remove('active'));
+        sfc.classList.add('active');
+        state.studyFilter = sfc.dataset.studyFilter;
+        renderStudySections();
+        return;
+      }
+
+      // 7. Retake Test
+      if (e.target.closest('#retake-test-btn')) {
+        e.preventDefault();
+        resetExam();
+        switchTab('exam');
+        return;
+      }
+
+      // 8. Study Review Button from Results
+      if (e.target.closest('#study-review-btn')) {
+        e.preventDefault();
+        switchTab('study');
+        return;
+      }
+
+      // 9. Results Review Filters
+      const rfc = e.target.closest('[data-review-filter]');
+      if (rfc) {
+        e.preventDefault();
+        document.querySelectorAll('[data-review-filter]').forEach(c => c.classList.remove('active'));
+        rfc.classList.add('active');
+        state.reviewFilter = rfc.dataset.reviewFilter;
+        renderReviewQuestions();
+        return;
+      }
+
+      // 10. History Modal Trigger
+      if (e.target.closest('#history-modal-btn')) {
+        e.preventDefault();
+        renderHistoryModal();
+        if (DOM.historyModal) DOM.historyModal.classList.add('open');
+        return;
+      }
+
+      // 11. Close Modal
+      if (e.target.closest('#close-modal-btn') || e.target === DOM.historyModal) {
+        e.preventDefault();
+        if (DOM.historyModal) DOM.historyModal.classList.remove('open');
+        return;
+      }
+
+      // 12. Clear History
+      if (e.target.closest('#clear-history-btn')) {
+        e.preventDefault();
+        if (confirm('Clear test score history for this exam scope?')) {
+          clearHistory();
+        }
+        return;
+      }
+
+      // 13. Jump Unanswered Question
+      if (e.target.closest('#jump-unanswered-btn')) {
+        e.preventDefault();
+        jumpToFirstUnanswered();
+        return;
+      }
+
+      // 14. Clear Form
+      if (e.target.closest('#clear-form-btn')) {
+        e.preventDefault();
+        if (confirm('Are you sure you want to clear all selections on this form?')) {
+          state.userAnswers = {};
+          updateFormProgress();
+          renderGoogleFormsQuestions();
+        }
+        return;
+      }
+
+      // 15. Reset Exam Form
+      if (e.target.closest('#start-reset-exam-btn')) {
+        e.preventDefault();
+        if (Object.keys(state.userAnswers).length > 0) {
+          if (confirm('Reset this test? All current answers will be cleared.')) {
+            resetExam();
+          }
+        } else {
+          resetExam();
+        }
+        return;
+      }
+
+      // 16. Submit Exam
+      if (e.target.closest('#submit-exam-btn')) {
+        e.preventDefault();
+        const answered = Object.keys(state.userAnswers).length;
+        const total = state.examQuestions.length;
+
+        if (answered < total) {
+          const remaining = total - answered;
+          if (!confirm(`You have ${remaining} unanswered question(s). Are you sure you want to submit?`)) {
+            jumpToFirstUnanswered();
+            return;
+          }
+        }
+
+        submitExam();
+        return;
+      }
     });
 
-    // Navigation Tabs
-    DOM.tabStudy.addEventListener('click', () => switchTab('study'));
-    DOM.tabExam.addEventListener('click', () => switchTab('exam'));
-    DOM.tabResults.addEventListener('click', () => switchTab('results'));
-
-    // Study Controls
-    DOM.studySearch.addEventListener('input', (e) => {
-      state.studySearchQuery = e.target.value;
-      renderStudySections();
-    });
-
-    DOM.studyFilterChips.forEach(chip => {
-      chip.addEventListener('click', () => {
-        DOM.studyFilterChips.forEach(c => c.classList.remove('active'));
-        chip.classList.add('active');
-        state.studyFilter = chip.dataset.studyFilter;
+    // Inputs & Selects
+    if (DOM.studySearch) {
+      DOM.studySearch.addEventListener('input', (e) => {
+        state.studySearchQuery = e.target.value;
         renderStudySections();
       });
-    });
+    }
 
-    DOM.collapseStudyBtn.addEventListener('click', () => {
-      const cards = document.querySelectorAll('.study-card');
-      const allCollapsed = Array.from(cards).every(c => c.classList.contains('collapsed'));
-      cards.forEach(c => c.classList.toggle('collapsed', !allCollapsed));
-    });
-
-    // Exam Controls
     if (DOM.examModuleSelect) {
       DOM.examModuleSelect.addEventListener('change', (e) => {
         state.examModuleFilter = e.target.value;
@@ -926,88 +1066,15 @@
       });
     }
 
-    DOM.shuffleToggle.addEventListener('change', (e) => {
-      state.shuffleEnabled = e.target.checked;
-      DOM.shuffleLabel.textContent = state.shuffleEnabled ? 'Random Shuffled' : 'Original Order';
-      resetExam();
-    });
-
-    DOM.startResetExamBtn.addEventListener('click', () => {
-      if (Object.keys(state.userAnswers).length > 0) {
-        if (confirm('Reset this test? All current answers will be cleared.')) {
-          resetExam();
+    if (DOM.shuffleToggle) {
+      DOM.shuffleToggle.addEventListener('change', (e) => {
+        state.shuffleEnabled = e.target.checked;
+        if (DOM.shuffleLabel) {
+          DOM.shuffleLabel.textContent = state.shuffleEnabled ? 'Random Shuffled' : 'Original Order';
         }
-      } else {
         resetExam();
-      }
-    });
-
-    DOM.jumpUnansweredBtn.addEventListener('click', jumpToFirstUnanswered);
-
-    DOM.clearFormBtn.addEventListener('click', () => {
-      if (confirm('Are you sure you want to clear all selections on this form?')) {
-        state.userAnswers = {};
-        updateFormProgress();
-        renderGoogleFormsQuestions();
-      }
-    });
-
-    DOM.submitExamBtn.addEventListener('click', () => {
-      const answered = Object.keys(state.userAnswers).length;
-      const total = state.examQuestions.length;
-
-      if (answered < total) {
-        const remaining = total - answered;
-        if (!confirm(`You have ${remaining} unanswered question(s). Are you sure you want to submit?`)) {
-          jumpToFirstUnanswered();
-          return;
-        }
-      }
-
-      submitExam();
-    });
-
-    // Results Actions
-    DOM.retakeTestBtn.addEventListener('click', () => {
-      resetExam();
-      switchTab('exam');
-    });
-
-    DOM.studyReviewBtn.addEventListener('click', () => {
-      switchTab('study');
-    });
-
-    // Review Filters
-    DOM.reviewFilterChips.forEach(chip => {
-      chip.addEventListener('click', () => {
-        DOM.reviewFilterChips.forEach(c => c.classList.remove('active'));
-        chip.classList.add('active');
-        state.reviewFilter = chip.dataset.reviewFilter;
-        renderReviewQuestions();
       });
-    });
-
-    // Score History Modal
-    DOM.historyModalBtn.addEventListener('click', () => {
-      renderHistoryModal();
-      DOM.historyModal.classList.add('open');
-    });
-
-    DOM.closeModalBtn.addEventListener('click', () => {
-      DOM.historyModal.classList.remove('open');
-    });
-
-    DOM.historyModal.addEventListener('click', (e) => {
-      if (e.target === DOM.historyModal) {
-        DOM.historyModal.classList.remove('open');
-      }
-    });
-
-    DOM.clearHistoryBtn.addEventListener('click', () => {
-      if (confirm('Clear test score history for this exam scope?')) {
-        clearHistory();
-      }
-    });
+    }
   }
 
   // Helpers

@@ -11,7 +11,53 @@
   <!-- FontAwesome Icons -->
   <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css">
   <!-- Custom Styles -->
-  <link rel="stylesheet" href="styles.css">
+  <link rel="stylesheet" href="styles.css?v=20260904_2">
+  <style>
+    /* Critical Inline Fallback for Modular Navigation */
+    .reviewer-module-nav {
+      display: flex !important;
+      gap: 8px !important;
+      flex-wrap: wrap !important;
+      margin-bottom: 20px !important;
+      padding: 8px 12px !important;
+      background: var(--bg-card, #131b2e) !important;
+      border: 1px solid var(--border-color, #1e293b) !important;
+      border-radius: var(--radius-md, 12px) !important;
+    }
+    .study-module-chip {
+      background: transparent !important;
+      border: 1px solid transparent !important;
+      color: var(--text-muted, #94a3b8) !important;
+      padding: 8px 16px !important;
+      border-radius: 9999px !important;
+      font-size: 0.85rem !important;
+      font-weight: 600 !important;
+      cursor: pointer !important;
+      display: inline-flex !important;
+      align-items: center !important;
+      gap: 8px !important;
+      transition: all 0.2s ease !important;
+    }
+    .study-module-chip:hover {
+      color: var(--text-main, #f8fafc) !important;
+      background: var(--bg-card-hover, #1e293b) !important;
+    }
+    .study-module-chip.active {
+      background: var(--module-primary, #6366f1) !important;
+      color: white !important;
+      box-shadow: 0 2px 8px var(--module-glow, rgba(99, 102, 241, 0.35)) !important;
+    }
+    .q-module-tag {
+      font-size: 0.72rem !important;
+      font-weight: 700 !important;
+      padding: 3px 10px !important;
+      border-radius: 9999px !important;
+      background: rgba(99, 102, 241, 0.15) !important;
+      color: #818cf8 !important;
+      border: 1px solid rgba(99, 102, 241, 0.3) !important;
+      margin-right: 6px !important;
+    }
+  </style>
 </head>
 <body class="dark-theme">
   <!-- Main Header Navigation -->
@@ -331,7 +377,7 @@
   </div>
 
   <!-- Scripts -->
-  <script src="data.js"></script>
-  <script src="app.js"></script>
+  <script src="data.js?v=20260904_2"></script>
+  <script src="app.js?v=20260904_2"></script>
 </body>
 </html>
