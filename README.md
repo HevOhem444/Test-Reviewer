@@ -1,6 +1,6 @@
 # 🎓 Smart Test Reviewer System
 
-An interactive, modern web-based **Test Reviewer & Google Forms Style Exam System** built from study materials and practice exam questionnaires for **Network Security** and **System Administration & Maintenance**.
+An interactive, modern web-based **Test Reviewer & Google Forms Style Exam System** built from official learning sheets and practice exam questionnaires for **BSIT MELEC 9: System Need Analysis**.
 
 ![Test Reviewer Banner](https://img.shields.io/badge/Status-Active-emerald?style=for-the-badge)
 ![HTML5](https://img.shields.io/badge/HTML5-E34F26?style=for-the-badge&logo=html5&logoColor=white)
@@ -11,17 +11,23 @@ An interactive, modern web-based **Test Reviewer & Google Forms Style Exam Syste
 
 ## ✨ Features
 
-- 🛡️ **Two Isolated Modules**:
-  - **Network Security Module** (35 Questions + Comprehensive Study Notes on CIA Triad, AAA, Perimeters, Threats, Security Controls, Cryptography & PKI).
-  - **System Administration & Maintenance Module** (70 Questions + Comprehensive Study Notes on Admin Roles, Hardware Specs, Boot/PXE, MBR/GPT Partitioning, NTFS/ext4 File Systems, Principle of Least Privilege, and System Logging).
-- 📝 **Google Forms-Style Test Engine**:
-  - Clean form cards, sticky progress bar, section headers, radio options, and identification text inputs.
-  - Exam filter modes (*Full Exam*, *Multiple Choice*, *Identification*, *True/False*, *Scenario Analysis*) & question shuffling.
-  - Floating unanswered question alert with smooth auto-scroll.
-- 📊 **Automated Score Grading & Explanations**:
-  - Real-time score calculation with percentage gauge circle and Pass/Fail status.
-  - Question-by-question review displaying your answer, the correct answer, and **step-by-step detailed explanations**.
-  - Review filters (*All Questions*, *Incorrect Only*, *Correct Only*).
+- 📚 **Individual Modular Study Reviewers**:
+  - **Module 1: Introduction to Systems Analysis and Design (SAD)** (5 System Components [Input, Process, Output, Feedback, Control], Analysis vs. Design matrix, Analyst roles & 4 skill sets, and 10 strategic benefits).
+  - **Module 2: Software Development Lifecycle (SDLC)** (7 SDLC phases & deliverables, SRS & SDD specifications, 4 testing levels [Unit, Integration, System, UAT], and sequential lifecycle trade-offs).
+  - **Module 3: Project Planning and Feasibility Study** (6 project plan components, project team roles, Scope Creep management, and the complete TELOS feasibility framework [Technical, Economic, Legal, Operational, Schedule]).
+  - **Module 4: Requirements Gathering Techniques** (4 primary elicitation techniques [Interviews, Observation & Hawthorne Effect, Questionnaires, Document Analysis], selection matrices, and hybrid triangulation strategy).
+  - Individual quick-filter chips so you can study each module independently or browse all combined.
+
+- 📝 **100-Item Comprehensive Examination (Google Forms Style)**:
+  - Unified board-style exam pooling all 4 modules (100 items total: 44 MCQs, 24 Identification/Matching/TELOS, 24 True/False, 8 Scenario/Case Studies).
+  - **Exam Scope Selector**: Take the *Comprehensive Exam (All 4 Modules — 100 Items)* or isolate to *Module 1*, *Module 2*, *Module 3*, or *Module 4* (25 items each).
+  - **Question Type Filter**: Practice *Multiple Choice*, *Identification / Matching / TELOS*, *True/False*, or *Scenario Applications*.
+  - Sticky live progress bar, unanswered question alerts, and shuffle support.
+
+- 📊 **Automated Score Grading & Module Mastery Breakdown**:
+  - Instant score grading with circular SVG gauge and Pass/Fail benchmark.
+  - **Module Mastery Breakdown Grid**: Visual performance breakdown per module (e.g. Module 1: 24/25, Module 2: 23/25, etc.) so you know exactly which module to re-study.
+  - In-depth answer keys with model rationales, memory anchors, and review filters.
 - 🌙 **Dark & Light Mode Support** with `localStorage` score history logs.
 
 ---
@@ -48,13 +54,19 @@ Then visit `http://localhost:8080` in your web browser.
 ## 📁 Repository Structure
 
 ```
-├── index.html        # Web app markup & Google Forms UI layout
-├── styles.css        # Custom CSS styling (dark/light themes, form cards, animations)
-├── app.js            # Quiz engine, automated grading logic, and state management
-├── data.js           # Full 105-question dataset + study notes
-├── build_ns.py       # Dataset generator for Network Security
-├── build_sam.py      # Dataset generator for System Administration
-└── combine_data.py   # Data compiler script
+├── BSIT_LS_MELEC9_N01_Reviewer_and_Exam.pdf  # Module 1 Source PDF
+├── BSIT_LS_MELEC9_N02_Reviewer_and_Exam.pdf  # Module 2 Source PDF
+├── BSIT_LS_MELEC9_N03_Reviewer_and_Exam.pdf  # Module 3 Source PDF
+├── BSIT_LS_MELEC9_N04_Reviewer_and_Exam.pdf  # Module 4 Source PDF
+├── index.html                                # Web app markup & Google Forms UI layout
+├── styles.css                                # Custom styling (dark/light themes, form cards, animations)
+├── app.js                                    # Quiz engine, automated grading logic, and state management
+├── data.js                                   # Full 88-question dataset + comprehensive study notes
+├── generate_m1.py                            # Dataset generator for Module 1 (SAD)
+├── generate_m2.py                            # Dataset generator for Module 2 (SDLC)
+├── generate_m3.py                            # Dataset generator for Module 3 (Planning & Feasibility)
+├── generate_m4.py                            # Dataset generator for Module 4 (Requirements)
+└── combine_data.py                           # Central data compiler script
 ```
 
 ---

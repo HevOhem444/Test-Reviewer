@@ -3,7 +3,7 @@
 <head>
   <meta charset="UTF-8">
   <meta name="viewport" content="width=device-width, initial-scale=1.0">
-  <title>Smart Test Reviewer System</title>
+  <title>BSIT MELEC 9: System Need Analysis - Interactive Reviewer & Exam System</title>
   <!-- Google Fonts: Inter & Outfit -->
   <link rel="preconnect" href="https://fonts.googleapis.com">
   <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
@@ -25,17 +25,29 @@
         </div>
       </div>
 
-      <!-- Module Selection (Isolated Modules) -->
+      <!-- Module Selection & Scope Switcher -->
       <div class="module-switcher-container">
-        <span class="switcher-label"><i class="fa-solid fa-layer-group"></i> Active Module:</span>
-        <div class="module-toggle-group">
-          <button class="module-btn active" data-module="network-security" id="mod-btn-ns">
-            <i class="fa-solid fa-shield-halved"></i>
-            <span>Network Security</span>
+        <span class="switcher-label"><i class="fa-solid fa-layer-group"></i> Active Reviewer:</span>
+        <div class="module-toggle-group" id="module-toggle-group">
+          <button class="module-btn active" data-module="all" id="scope-btn-all" title="All 4 Modules">
+            <i class="fa-solid fa-book-open"></i>
+            <span>All Modules</span>
           </button>
-          <button class="module-btn" data-module="system-admin" id="mod-btn-sam">
-            <i class="fa-solid fa-server"></i>
-            <span>System Admin & Maintenance</span>
+          <button class="module-btn" data-module="module-1-sad" id="mod-btn-m1" title="Module 1: Introduction to SAD">
+            <i class="fa-solid fa-diagram-project"></i>
+            <span>Module 1</span>
+          </button>
+          <button class="module-btn" data-module="module-2-sdlc" id="mod-btn-m2" title="Module 2: Software Development Lifecycle">
+            <i class="fa-solid fa-arrows-spin"></i>
+            <span>Module 2</span>
+          </button>
+          <button class="module-btn" data-module="module-3-planning" id="mod-btn-m3" title="Module 3: Project Planning & Feasibility">
+            <i class="fa-solid fa-list-check"></i>
+            <span>Module 3</span>
+          </button>
+          <button class="module-btn" data-module="module-4-requirements" id="mod-btn-m4" title="Module 4: Requirements Gathering">
+            <i class="fa-solid fa-comments"></i>
+            <span>Module 4</span>
           </button>
         </div>
       </div>
@@ -56,12 +68,12 @@
   <!-- Module Hero Banner -->
   <section class="module-hero" id="module-hero">
     <div class="hero-content">
-      <div class="hero-badge" id="hero-badge">Cybersecurity</div>
-      <h2 id="hero-title">Network Security</h2>
-      <p id="hero-subtitle">Complete Study Reviewer & Practice Examination</p>
+      <div class="hero-badge" id="hero-badge">BSIT MELEC 9 • Prelim Coverage</div>
+      <h2 id="hero-title">System Need Analysis</h2>
+      <p id="hero-subtitle">Comprehensive 100-Item Examination & 4 Modular Study Reviewers</p>
       <div class="hero-stats">
-        <span class="stat-pill"><i class="fa-solid fa-book-open"></i> <span id="stat-study-count">2 Study Parts</span></span>
-        <span class="stat-pill"><i class="fa-solid fa-clipboard-question"></i> <span id="stat-exam-count">35 Questions</span></span>
+        <span class="stat-pill"><i class="fa-solid fa-book-open"></i> <span id="stat-study-count">4 Modular Reviewers</span></span>
+        <span class="stat-pill"><i class="fa-solid fa-clipboard-question"></i> <span id="stat-exam-count">100 Comprehensive Questions</span></span>
         <span class="stat-pill"><i class="fa-solid fa-trophy"></i> Best Score: <strong id="stat-best-score">--%</strong></span>
       </div>
     </div>
@@ -76,7 +88,7 @@
       </button>
       <button class="nav-tab" data-tab="exam" id="tab-exam">
         <i class="fa-solid fa-file-signature"></i>
-        <span>Take Practice Test</span>
+        <span>Take Comprehensive Exam</span>
         <span class="form-badge">Google Forms Style</span>
       </button>
       <button class="nav-tab" data-tab="results" id="tab-results" disabled>
@@ -91,6 +103,25 @@
     
     <!-- VIEW 1: STUDY & REVIEW MODULE -->
     <section class="tab-view active" id="view-study">
+      <!-- Modular Reviewer Selector Bar -->
+      <div class="reviewer-module-nav" id="reviewer-module-nav">
+        <button class="study-module-chip active" data-study-mod="all">
+          <i class="fa-solid fa-layer-group"></i> All Reviewers (Combined)
+        </button>
+        <button class="study-module-chip" data-study-mod="module-1-sad">
+          <i class="fa-solid fa-diagram-project"></i> Module 1: SAD
+        </button>
+        <button class="study-module-chip" data-study-mod="module-2-sdlc">
+          <i class="fa-solid fa-arrows-spin"></i> Module 2: SDLC
+        </button>
+        <button class="study-module-chip" data-study-mod="module-3-planning">
+          <i class="fa-solid fa-list-check"></i> Module 3: Planning & TELOS
+        </button>
+        <button class="study-module-chip" data-study-mod="module-4-requirements">
+          <i class="fa-solid fa-comments"></i> Module 4: Requirements
+        </button>
+      </div>
+
       <div class="study-controls">
         <div class="search-box">
           <i class="fa-solid fa-magnifying-glass"></i>
@@ -114,13 +145,23 @@
       <!-- Exam Config Bar -->
       <div class="exam-config-card">
         <div class="config-item">
-          <label for="exam-filter-select"><i class="fa-solid fa-filter"></i> Exam Mode / Filter:</label>
+          <label for="exam-module-select"><i class="fa-solid fa-layer-group"></i> Exam Scope:</label>
+          <select id="exam-module-select">
+            <option value="all">Comprehensive Exam (All 4 Modules — 100 Items)</option>
+            <option value="module-1-sad">Module 1: Introduction to SAD (25 Items)</option>
+            <option value="module-2-sdlc">Module 2: Software Development Lifecycle (25 Items)</option>
+            <option value="module-3-planning">Module 3: Project Planning & Feasibility (25 Items)</option>
+            <option value="module-4-requirements">Module 4: Requirements Gathering (25 Items)</option>
+          </select>
+        </div>
+        <div class="config-item">
+          <label for="exam-filter-select"><i class="fa-solid fa-filter"></i> Question Type:</label>
           <select id="exam-filter-select">
-            <option value="all">Full Exam (All Questions)</option>
+            <option value="all">All Question Types</option>
             <option value="mcq">Multiple Choice Only</option>
-            <option value="identification">Identification Only</option>
+            <option value="identification">Identification / Matching / TELOS Only</option>
             <option value="tf">True / False Only</option>
-            <option value="scenario">Scenario Analysis Only</option>
+            <option value="scenario">Scenario / Case Analysis Only</option>
           </select>
         </div>
         <div class="config-item">
@@ -225,6 +266,16 @@
                 <span class="stat-num" id="res-time-text">0s</span>
                 <span class="stat-lbl">Time Taken</span>
               </div>
+            </div>
+          </div>
+
+          <!-- Per-Module Score Breakdown -->
+          <div class="module-breakdown-container">
+            <div class="module-breakdown-title">
+              <i class="fa-solid fa-chart-simple"></i> Module Mastery Breakdown:
+            </div>
+            <div class="module-breakdown-grid" id="module-breakdown-grid">
+              <!-- Dynamically populated per module -->
             </div>
           </div>
 

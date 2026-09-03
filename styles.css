@@ -448,6 +448,116 @@ body {
   align-items: center;
 }
 
+/* Reviewer Modular Navigation (Study tab) */
+.reviewer-module-nav {
+  display: flex;
+  gap: 8px;
+  flex-wrap: wrap;
+  margin-bottom: 20px;
+  padding: 8px 12px;
+  background: var(--bg-card);
+  border: 1px solid var(--border-color);
+  border-radius: var(--radius-md);
+}
+
+.study-module-chip {
+  background: transparent;
+  border: 1px solid transparent;
+  color: var(--text-muted);
+  padding: 8px 16px;
+  border-radius: var(--radius-pill);
+  font-size: 0.85rem;
+  font-weight: 600;
+  cursor: pointer;
+  display: flex;
+  align-items: center;
+  gap: 8px;
+  transition: all var(--transition-fast);
+}
+
+.study-module-chip:hover {
+  color: var(--text-main);
+  background: var(--bg-card-hover);
+}
+
+.study-module-chip.active {
+  background: var(--module-primary);
+  color: white;
+  box-shadow: 0 2px 8px var(--module-glow);
+}
+
+/* Module Badge in Google Forms Question Cards */
+.q-module-tag {
+  font-size: 0.72rem;
+  font-weight: 700;
+  padding: 3px 10px;
+  border-radius: var(--radius-pill);
+  background: rgba(99, 102, 241, 0.15);
+  color: #818cf8;
+  border: 1px solid rgba(99, 102, 241, 0.3);
+  margin-right: 6px;
+}
+
+/* Module Score Breakdown Grid in Results View */
+.module-breakdown-container {
+  margin-top: 20px;
+  padding-top: 18px;
+  border-top: 1px solid var(--border-color);
+}
+
+.module-breakdown-title {
+  font-size: 0.95rem;
+  font-weight: 700;
+  color: var(--text-main);
+  margin-bottom: 12px;
+  display: flex;
+  align-items: center;
+  gap: 8px;
+}
+
+.module-breakdown-grid {
+  display: grid;
+  grid-template-columns: repeat(auto-fit, minmax(200px, 1fr));
+  gap: 12px;
+}
+
+.module-score-card {
+  background: var(--bg-primary);
+  border: 1px solid var(--border-color);
+  border-radius: var(--radius-sm);
+  padding: 12px 14px;
+  display: flex;
+  flex-direction: column;
+  gap: 4px;
+  transition: border-color var(--transition-fast);
+}
+
+.module-score-card:hover {
+  border-color: var(--module-primary);
+}
+
+.module-score-name {
+  font-size: 0.82rem;
+  font-weight: 600;
+  color: var(--text-muted);
+}
+
+.module-score-val {
+  font-size: 1.15rem;
+  font-weight: 800;
+  color: var(--text-main);
+  font-family: 'Outfit', sans-serif;
+  display: flex;
+  align-items: baseline;
+  gap: 8px;
+}
+
+.module-score-pct {
+  font-size: 0.85rem;
+  font-weight: 600;
+  color: var(--module-primary);
+}
+
 .filter-chip {
   background: var(--bg-card);
   border: 1px solid var(--border-color);

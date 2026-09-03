@@ -1,7 +1,7 @@
 /* ==========================================================================
    Smart Test Reviewer System - Application Logic
-   Handles module isolation, study note rendering, Google Forms test taking,
-   automated grading, detailed explanations reveal, and score history.
+   BSIT MELEC 9: System Need Analysis
+   Comprehensive 100-Item Examination & 4 Modular Study Reviewers
    ========================================================================== */
 
 (function () {
@@ -9,17 +9,17 @@
 
   // State Management
   const state = {
-    activeModuleId: 'network-security', // 'network-security' or 'system-admin'
     activeTab: 'study', // 'study', 'exam', 'results'
-    currentModuleData: null,
+    studyModuleFilter: 'all', // 'all', 'module-1-sad', 'module-2-sdlc', 'module-3-planning', 'module-4-requirements'
+    examModuleFilter: 'all', // 'all', 'module-1-sad', 'module-2-sdlc', 'module-3-planning', 'module-4-requirements'
+    examTypeFilter: 'all', // 'all', 'mcq', 'identification', 'tf', 'scenario'
+    shuffleEnabled: false,
     
     // Exam state
     examQuestions: [],
     userAnswers: {}, // questionId -> selectedOption/text
     examStartTime: null,
     examEndTime: null,
-    examFilter: 'all',
-    shuffleEnabled: false,
     
     // Results state
     lastResults: null,
@@ -39,8 +39,7 @@
     themeBtn: document.getElementById('theme-toggle-btn'),
     
     // Header & Hero
-    modBtnNs: document.getElementById('mod-btn-ns'),
-    modBtnSam: document.getElementById('mod-btn-sam'),
+    moduleToggleGroup: document.getElementById('module-toggle-group'),
     heroBadge: document.getElementById('hero-badge'),
     heroTitle: document.getElementById('hero-title'),
     heroSubtitle: document.getElementById('hero-subtitle'),
@@ -57,12 +56,14 @@
     viewResults: document.getElementById('view-results'),
     
     // Study View
+    reviewerModuleNav: document.getElementById('reviewer-module-nav'),
     studySearch: document.getElementById('study-search'),
     studyFilterChips: document.querySelectorAll('[data-study-filter]'),
     collapseStudyBtn: document.getElementById('collapse-study-btn'),
     studySectionsList: document.getElementById('study-sections-list'),
     
     // Exam View
+    examModuleSelect: document.getElementById('exam-module-select'),
     examFilterSelect: document.getElementById('exam-filter-select'),
     shuffleToggle: document.getElementById('shuffle-toggle'),
     shuffleLabel: document.getElementById('shuffle-label'),
@@ -92,6 +93,7 @@
     resIncorrectNum: document.getElementById('res-incorrect-num'),
     resSkippedNum: document.getElementById('res-skipped-num'),
     resTimeText: document.getElementById('res-time-text'),
+    moduleBreakdownGrid: document.getElementById('module-breakdown-grid'),
     
     retakeTestBtn: document.getElementById('retake-test-btn'),
     studyReviewBtn: document.getElementById('study-review-btn'),
@@ -111,7 +113,9 @@
   function init() {
     applyTheme(state.theme);
     bindEvents();
-    loadModule(state.activeModuleId);
+    renderStudySections();
+    resetExam();
+    updateBestScoreStat();
   }
 
   // Theme Toggle
@@ -129,44 +133,8 @@
     }
   }
 
-  // Load Module Data
-  function loadModule(moduleId) {
-    state.activeModuleId = moduleId;
-    const modules = window.REVIEWER_DATA ? window.REVIEWER_DATA.modules : [];
-    state.currentModuleData = modules.find(m => m.id === moduleId) || modules[0];
-
-    if (!state.currentModuleData) return;
-
-    // Update Header Switcher Buttons
-    DOM.modBtnNs.classList.toggle('active', moduleId === 'network-security');
-    DOM.modBtnSam.classList.toggle('active', moduleId === 'system-admin');
-
-    // Update Root Theme Colors
-    document.documentElement.style.setProperty('--module-primary', state.currentModuleData.themeColor);
-    document.documentElement.style.setProperty('--module-accent-gradient', state.currentModuleData.accentGradient);
-    
-    // Update Hero Content
-    DOM.heroBadge.textContent = state.currentModuleData.badge;
-    DOM.heroTitle.textContent = state.currentModuleData.title;
-    DOM.heroSubtitle.textContent = state.currentModuleData.subtitle;
-    DOM.statStudyCount.textContent = `${state.currentModuleData.study.length} Study Parts`;
-    DOM.statExamCount.textContent = `${state.currentModuleData.questions.length} Questions`;
-    
-    updateBestScoreStat();
-
-    // Render Study Notes
-    renderStudySections();
-
-    // Reset Exam State
-    resetExam();
-
-    // Reset Results Tab state if changing module
-    DOM.tabResults.disabled = true;
-    switchTab('study');
-  }
-
   function updateBestScoreStat() {
-    const history = getScoreHistory(state.activeModuleId);
+    const history = getScoreHistory(state.examModuleFilter);
     if (history.length > 0) {
       const best = Math.max(...history.map(h => h.percentage));
       DOM.statBestScore.textContent = `${best}%`;
@@ -197,78 +165,126 @@
   }
 
   // ==========================================================================
-  // STUDY MODULE LOGIC
+  // STUDY & REVIEW MATERIAL LOGIC
   // ==========================================================================
 
-  function renderStudySections() {
-    if (!state.currentModuleData || !state.currentModuleData.study) return;
-    
-    let sections = state.currentModuleData.study;
-    const query = state.studySearchQuery.toLowerCase().trim();
+  function selectStudyModule(moduleId) {
+    state.studyModuleFilter = moduleId;
 
-    if (state.studyFilter === 'high-yield') {
-      sections = sections.filter(s => s.id.includes('high-yield'));
+    // Update study chips active state
+    document.querySelectorAll('.study-module-chip').forEach(chip => {
+      chip.classList.toggle('active', chip.dataset.studyMod === moduleId);
+    });
+
+    // Update header buttons active state
+    document.querySelectorAll('.module-btn').forEach(btn => {
+      btn.classList.toggle('active', btn.dataset.module === moduleId);
+    });
+
+    renderStudySections();
+  }
+
+  function renderStudySections() {
+    if (!window.REVIEWER_DATA || !window.REVIEWER_DATA.modules) return;
+    
+    let targetModules = [];
+    if (state.studyModuleFilter === 'all') {
+      targetModules = window.REVIEWER_DATA.modules;
+    } else {
+      const found = window.REVIEWER_DATA.modules.find(m => m.id === state.studyModuleFilter);
+      targetModules = found ? [found] : window.REVIEWER_DATA.modules;
     }
 
     DOM.studySectionsList.innerHTML = '';
+    const query = state.studySearchQuery.toLowerCase().trim();
 
-    sections.forEach(sec => {
-      // Check search match
-      const titleMatch = sec.title.toLowerCase().includes(query);
-      const textMatch = JSON.stringify(sec.sections).toLowerCase().includes(query);
+    targetModules.forEach(mod => {
+      let sections = mod.study || [];
 
-      if (query && !titleMatch && !textMatch) return;
+      if (state.studyFilter === 'high-yield') {
+        sections = sections.filter(s => s.id.includes('high-yield'));
+      }
 
-      const card = document.createElement('div');
-      card.className = 'study-card';
-      
-      let subsectionsHTML = '';
-
-      sec.sections.forEach(sub => {
-        let contentHTML = '';
-
-        if (sub.content) {
-          contentHTML += formatMarkdownText(sub.content);
-        }
-
-        if (sub.table) {
-          contentHTML += buildTableHTML(sub.table);
-        }
-
-        subsectionsHTML += `
-          <div class="subsection">
-            <h4>${sub.subtitle}</h4>
-            ${contentHTML}
+      // If viewing multiple modules, show module section banner
+      if (state.studyModuleFilter === 'all' && sections.length > 0) {
+        const modBanner = document.createElement('div');
+        modBanner.className = 'study-module-header-banner';
+        modBanner.style.cssText = `
+          margin: 32px 0 16px 0;
+          padding: 14px 20px;
+          background: rgba(255,255,255,0.03);
+          border-left: 4px solid ${mod.themeColor || 'var(--module-primary)'};
+          border-radius: var(--radius-sm);
+          display: flex;
+          align-items: center;
+          gap: 14px;
+        `;
+        modBanner.innerHTML = `
+          <i class="fa-solid ${mod.icon || 'fa-book'}" style="color: ${mod.themeColor || 'var(--module-primary)'}; font-size: 1.35rem;"></i>
+          <div>
+            <h3 style="margin: 0; font-size: 1.15rem; color: var(--text-main); font-weight: 700;">${mod.title}</h3>
+            <p style="margin: 3px 0 0 0; font-size: 0.82rem; color: var(--text-muted);">${mod.subtitle}</p>
           </div>
         `;
-      });
+        DOM.studySectionsList.appendChild(modBanner);
+      }
 
-      card.innerHTML = `
-        <div class="study-card-header">
-          <div class="study-card-title">
-            <i class="fa-solid ${sec.icon || 'fa-book'}"></i>
-            <h3>${sec.title}</h3>
+      sections.forEach(sec => {
+        const titleMatch = sec.title.toLowerCase().includes(query);
+        const textMatch = JSON.stringify(sec.sections).toLowerCase().includes(query);
+
+        if (query && !titleMatch && !textMatch) return;
+
+        const card = document.createElement('div');
+        card.className = 'study-card';
+        
+        let subsectionsHTML = '';
+
+        sec.sections.forEach(sub => {
+          let contentHTML = '';
+
+          if (sub.content) {
+            contentHTML += formatMarkdownText(sub.content);
+          }
+
+          if (sub.table) {
+            contentHTML += buildTableHTML(sub.table);
+          }
+
+          subsectionsHTML += `
+            <div class="subsection">
+              <h4>${sub.subtitle}</h4>
+              ${contentHTML}
+            </div>
+          `;
+        });
+
+        card.innerHTML = `
+          <div class="study-card-header">
+            <div class="study-card-title">
+              <i class="fa-solid ${sec.icon || 'fa-book'}"></i>
+              <h3>${sec.title}</h3>
+            </div>
+            <i class="fa-solid fa-chevron-down toggle-icon"></i>
           </div>
-          <i class="fa-solid fa-chevron-down toggle-icon"></i>
-        </div>
-        <div class="study-card-body">
-          ${subsectionsHTML}
-        </div>
-      `;
+          <div class="study-card-body">
+            ${subsectionsHTML}
+          </div>
+        `;
 
-      // Collapse header click handler
-      card.querySelector('.study-card-header').addEventListener('click', () => {
-        card.classList.toggle('collapsed');
+        card.querySelector('.study-card-header').addEventListener('click', () => {
+          card.classList.toggle('collapsed');
+        });
+
+        DOM.studySectionsList.appendChild(card);
       });
-
-      DOM.studySectionsList.appendChild(card);
     });
 
     if (DOM.studySectionsList.children.length === 0) {
       DOM.studySectionsList.innerHTML = `
-        <div class="study-card" style="padding: 32px; text-align: center; color: var(--text-muted);">
-          <i class="fa-solid fa-folder-open" style="font-size: 2rem; margin-bottom: 12px; display: block;"></i>
-          <p>No study notes matching your search query.</p>
+        <div class="study-card" style="padding: 36px; text-align: center; color: var(--text-muted);">
+          <i class="fa-solid fa-folder-open" style="font-size: 2.2rem; margin-bottom: 12px; display: block;"></i>
+          <p>No study notes matching your query.</p>
         </div>
       `;
     }
@@ -291,7 +307,7 @@
 
     lines.forEach(line => {
       const trimmed = line.trim();
-      if (trimmed.startswith && trimmed.startswith('- ') || trimmed.startsWith('- ') || trimmed.startsWith('• ')) {
+      if (trimmed.startsWith('- ') || trimmed.startsWith('• ')) {
         if (!inList) {
           inList = true;
           listHTML += '<ul>';
@@ -304,7 +320,7 @@
           listHTML += '</ul>';
         }
         if (trimmed.startsWith('#### ')) {
-          listHTML += `<h5 style="color: var(--text-main); font-size: 0.95rem; margin: 12px 0 6px 0;">${trimmed.replace('#### ', '')}</h5>`;
+          listHTML += `<h5 style="color: var(--text-main); font-size: 0.95rem; margin: 14px 0 6px 0;">${trimmed.replace('#### ', '')}</h5>`;
         } else if (trimmed) {
           listHTML += `<p style="margin-bottom: 8px;">${trimmed}</p>`;
         }
@@ -336,17 +352,24 @@
   }
 
   // ==========================================================================
-  // GOOGLE FORMS EXAM LOGIC
+  // GOOGLE FORMS COMPREHENSIVE EXAM LOGIC
   // ==========================================================================
 
   function resetExam() {
-    if (!state.currentModuleData) return;
+    if (!window.REVIEWER_DATA) return;
 
-    let qList = [...state.currentModuleData.questions];
+    let qList = [];
 
-    // Filter questions if requested
-    if (state.examFilter !== 'all') {
-      qList = qList.filter(q => q.type === state.examFilter);
+    if (state.examModuleFilter === 'all') {
+      qList = [...(window.REVIEWER_DATA.comprehensiveQuestions || [])];
+    } else {
+      const mod = window.REVIEWER_DATA.modules.find(m => m.id === state.examModuleFilter);
+      qList = mod ? [...mod.questions] : [...(window.REVIEWER_DATA.comprehensiveQuestions || [])];
+    }
+
+    // Filter questions by type if requested
+    if (state.examTypeFilter !== 'all') {
+      qList = qList.filter(q => q.type === state.examTypeFilter);
     }
 
     // Shuffle if requested
@@ -358,8 +381,16 @@
     state.userAnswers = {};
     state.examStartTime = null;
 
-    DOM.formDocTitle.textContent = `${state.currentModuleData.title} Practice Examination`;
-    DOM.formDocDescription.textContent = `Google Forms style interactive test containing ${state.examQuestions.length} questions. Complete each question and click Submit Test at the end.`;
+    let titleText = 'BSIT MELEC 9: System Need Analysis — Comprehensive Examination';
+    if (state.examModuleFilter !== 'all') {
+      const selectedMod = window.REVIEWER_DATA.modules.find(m => m.id === state.examModuleFilter);
+      if (selectedMod) {
+        titleText = `${selectedMod.title} Practice Examination`;
+      }
+    }
+
+    DOM.formDocTitle.textContent = titleText;
+    DOM.formDocDescription.textContent = `Google Forms style interactive exam containing ${state.examQuestions.length} questions across BSIT MELEC 9. Complete each question and click Submit Test at the end.`;
 
     updateFormProgress();
     renderGoogleFormsQuestions();
@@ -370,8 +401,8 @@
 
     if (state.examQuestions.length === 0) {
       DOM.googleExamForm.innerHTML = `
-        <div class="form-question-card" style="text-align: center; color: var(--text-muted);">
-          <p>No questions available for the selected filter.</p>
+        <div class="form-question-card" style="text-align: center; color: var(--text-muted); padding: 32px;">
+          <p>No questions available for the selected scope/filter.</p>
         </div>
       `;
       return;
@@ -390,8 +421,9 @@
       );
 
       let optionsHTML = '';
+      const hasOptions = (q.options && q.options.length > 0) || q.type === 'mcq' || q.type === 'tf' || q.type === 'scenario';
 
-      if (q.type === 'mcq' || q.type === 'tf' || q.type === 'scenario') {
+      if (hasOptions) {
         const opts = q.options || (q.type === 'tf' ? ['True', 'False'] : []);
         
         optionsHTML = `
@@ -410,14 +442,14 @@
             }).join('')}
           </div>
         `;
-      } else if (q.type === 'identification') {
+      } else {
         const val = state.userAnswers[q.id] || '';
         optionsHTML = `
           <div class="form-text-input-group">
             <input type="text" 
                    class="google-text-input" 
                    name="${q.id}" 
-                   placeholder="Your answer..." 
+                   placeholder="Type your answer here..." 
                    value="${val}"
                    autocomplete="off">
           </div>
@@ -428,6 +460,7 @@
         <div class="question-header">
           <div class="question-meta">
             <span class="q-number">Question ${idx + 1} of ${state.examQuestions.length}</span>
+            <span class="q-module-tag">${q.moduleTitle || 'MELEC 9'}</span>
             <span class="q-category-tag">${categoryBadge}</span>
           </div>
           <div class="q-title">${q.question} <span class="req-star">*</span></div>
@@ -436,11 +469,13 @@
       `;
 
       // Event listeners for choices / inputs
-      if (q.type === 'identification') {
+      if (!hasOptions) {
         const input = qCard.querySelector('input[type="text"]');
-        input.addEventListener('input', (e) => {
-          onAnswerInput(q.id, e.target.value);
-        });
+        if (input) {
+          input.addEventListener('input', (e) => {
+            onAnswerInput(q.id, e.target.value);
+          });
+        }
       } else {
         const radios = qCard.querySelectorAll('input[type="radio"]');
         radios.forEach(radio => {
@@ -541,9 +576,38 @@
     const percentage = totalQuestions > 0 ? Math.round((correctCount / totalQuestions) * 100) : 0;
     const timeSpentSeconds = state.examStartTime ? Math.round((state.examEndTime - state.examStartTime) / 1000) : 0;
 
+    // Calculate Per-Module Scores
+    const moduleStats = {};
+    if (window.REVIEWER_DATA && window.REVIEWER_DATA.modules) {
+      window.REVIEWER_DATA.modules.forEach(m => {
+        moduleStats[m.id] = {
+          title: m.title.split(':')[0] || m.title,
+          fullTitle: m.title,
+          total: 0,
+          correct: 0,
+          percentage: 0
+        };
+      });
+    }
+
+    detailedResults.forEach(item => {
+      const mId = item.question.moduleId;
+      if (mId && moduleStats[mId]) {
+        moduleStats[mId].total++;
+        if (item.isCorrect) {
+          moduleStats[mId].correct++;
+        }
+      }
+    });
+
+    Object.keys(moduleStats).forEach(key => {
+      const st = moduleStats[key];
+      st.percentage = st.total > 0 ? Math.round((st.correct / st.total) * 100) : 0;
+    });
+
     state.lastResults = {
-      moduleId: state.activeModuleId,
-      moduleTitle: state.currentModuleData.title,
+      moduleId: state.examModuleFilter,
+      moduleTitle: state.examModuleFilter === 'all' ? 'Comprehensive All-Modules Exam' : (window.REVIEWER_DATA.modules.find(m => m.id === state.examModuleFilter)?.title || 'MELEC 9'),
       date: new Date().toISOString(),
       totalQuestions,
       correctCount,
@@ -551,6 +615,7 @@
       skippedCount,
       percentage,
       timeSpentSeconds,
+      moduleStats,
       details: detailedResults
     };
 
@@ -566,22 +631,15 @@
   function evaluateAnswer(q, userAns) {
     if (!userAns) return false;
 
-    if (q.type === 'mcq' || q.type === 'tf' || q.type === 'scenario') {
-      // Clean string comparison (e.g. "B. System Administrator" vs "B. System Administrator")
-      return cleanText(userAns) === cleanText(q.answer);
-    } else if (q.type === 'identification') {
-      // Fuzzy string comparison for identification questions
-      const userClean = cleanText(userAns);
-      const targetClean = cleanText(q.answer);
+    const userClean = cleanText(userAns);
+    const targetClean = cleanText(q.answer);
 
-      if (userClean === targetClean) return true;
+    if (userClean === targetClean) return true;
 
-      // Allow key sub-phrase matches (e.g., "System Admin" matches "System Administrator")
-      if (targetClean.includes(userClean) && userClean.length >= 4) return true;
-      if (userClean.includes(targetClean) && targetClean.length >= 4) return true;
+    // Allow key sub-phrase matches (e.g. "A. Control" matches "Control")
+    if (targetClean.includes(userClean) && userClean.length >= 3) return true;
+    if (userClean.includes(targetClean) && targetClean.length >= 3) return true;
 
-      return false;
-    }
     return false;
   }
 
@@ -616,6 +674,25 @@
     DOM.resIncorrectNum.textContent = res.incorrectCount;
     DOM.resSkippedNum.textContent = res.skippedCount;
     DOM.resTimeText.textContent = formatTime(res.timeSpentSeconds);
+
+    // Render Per-Module Mastery Breakdown
+    if (DOM.moduleBreakdownGrid && res.moduleStats) {
+      DOM.moduleBreakdownGrid.innerHTML = '';
+      Object.keys(res.moduleStats).forEach(mId => {
+        const ms = res.moduleStats[mId];
+        if (ms.total === 0) return;
+        const card = document.createElement('div');
+        card.className = 'module-score-card';
+        card.innerHTML = `
+          <span class="module-score-name">${ms.title}</span>
+          <div class="module-score-val">
+            <span>${ms.correct} / ${ms.total}</span>
+            <span class="module-score-pct">${ms.percentage}%</span>
+          </div>
+        `;
+        DOM.moduleBreakdownGrid.appendChild(card);
+      });
+    }
 
     // Render Review List
     renderReviewQuestions();
@@ -663,12 +740,13 @@
       rCard.className = `review-card ${statusClass}`;
 
       let userAnsDisplay = d.isAnswered ? d.userAnswer : '(No answer provided)';
-      let userAnsClass = d.isCorrect ? 'correct-text' : (d.isAnswered ? 'wrong-text' : 'wrong-text');
+      let userAnsClass = d.isCorrect ? 'correct-text' : 'wrong-text';
 
       rCard.innerHTML = `
         <div style="display: flex; justify-content: space-between; align-items: center; flex-wrap: wrap; gap: 8px;">
           <div class="question-meta">
-            <span class="q-number">Question #${q.number || (idx + 1)}</span>
+            <span class="q-number">Question #${idx + 1}</span>
+            <span class="q-module-tag">${q.moduleTitle || 'MELEC 9'}</span>
             <span class="q-category-tag">${q.category || q.type}</span>
           </div>
           ${badgeHTML}
@@ -699,10 +777,10 @@
   // SCORE HISTORY & STORAGE
   // ==========================================================================
 
-  function getScoreHistory(moduleId) {
+  function getScoreHistory(scopeId) {
     try {
       const histories = JSON.parse(localStorage.getItem('reviewer_score_history') || '{}');
-      return histories[moduleId] || [];
+      return histories[scopeId] || [];
     } catch (e) {
       return [];
     }
@@ -731,14 +809,14 @@
   }
 
   function renderHistoryModal() {
-    const history = getScoreHistory(state.activeModuleId);
+    const history = getScoreHistory(state.examModuleFilter);
     DOM.historyListContainer.innerHTML = '';
 
     if (history.length === 0) {
       DOM.historyListContainer.innerHTML = `
         <div style="text-align: center; color: var(--text-muted); padding: 24px;">
           <i class="fa-solid fa-history" style="font-size: 2rem; margin-bottom: 10px;"></i>
-          <p>No score history logged for this module yet. Take a test to record your score!</p>
+          <p>No score history logged for this exam scope yet. Take a test to record your score!</p>
         </div>
       `;
       return;
@@ -752,10 +830,12 @@
       el.className = 'history-item';
       el.innerHTML = `
         <div class="history-meta">
-          <h4>${item.percentage >= 70 ? 'Passed' : 'Needs Practice'} (${item.correctCount}/${item.totalQuestions} Correct)</h4>
-          <span><i class="fa-solid fa-calendar"></i> ${formattedDate} &bull; <i class="fa-solid fa-clock"></i> ${formatTime(item.timeSpentSeconds)}</span>
+          <span class="history-date"><i class="fa-solid fa-calendar"></i> ${formattedDate}</span>
+          <span class="history-score">${item.correctCount}/${item.totalQuestions} (${item.percentage}%)</span>
         </div>
-        <div class="history-score">${item.percentage}%</div>
+        <div class="history-bar-bg">
+          <div class="history-bar-fill" style="width: ${item.percentage}%;"></div>
+        </div>
       `;
       DOM.historyListContainer.appendChild(el);
     });
@@ -764,27 +844,13 @@
   function clearHistory() {
     try {
       const histories = JSON.parse(localStorage.getItem('reviewer_score_history') || '{}');
-      delete histories[state.activeModuleId];
+      delete histories[state.examModuleFilter];
       localStorage.setItem('reviewer_score_history', JSON.stringify(histories));
       renderHistoryModal();
       updateBestScoreStat();
-    } catch (e) {}
-  }
-
-  function formatTime(totalSeconds) {
-    if (!totalSeconds) return '0s';
-    const m = Math.floor(totalSeconds / 60);
-    const s = totalSeconds % 60;
-    return m > 0 ? `${m}m ${s}s` : `${s}s`;
-  }
-
-  function shuffleArray(arr) {
-    const copy = [...arr];
-    for (let i = copy.length - 1; i > 0; i--) {
-      const j = Math.floor(Math.random() * (i + 1));
-      [copy[i], copy[j]] = [copy[j], copy[i]];
+    } catch (e) {
+      console.error(e);
     }
-    return copy;
   }
 
   // ==========================================================================
@@ -797,9 +863,26 @@
       applyTheme(state.theme === 'dark' ? 'light' : 'dark');
     });
 
-    // Module Switchers
-    DOM.modBtnNs.addEventListener('click', () => loadModule('network-security'));
-    DOM.modBtnSam.addEventListener('click', () => loadModule('system-admin'));
+    // Header Module Switcher Buttons
+    document.querySelectorAll('.module-btn').forEach(btn => {
+      btn.addEventListener('click', () => {
+        const modId = btn.dataset.module;
+        if (modId) {
+          selectStudyModule(modId);
+          switchTab('study');
+        }
+      });
+    });
+
+    // Modular Reviewer Selector Chips in Study Tab
+    document.querySelectorAll('.study-module-chip').forEach(chip => {
+      chip.addEventListener('click', () => {
+        const modId = chip.dataset.studyMod;
+        if (modId) {
+          selectStudyModule(modId);
+        }
+      });
+    });
 
     // Navigation Tabs
     DOM.tabStudy.addEventListener('click', () => switchTab('study'));
@@ -828,49 +911,60 @@
     });
 
     // Exam Controls
-    DOM.examFilterSelect.addEventListener('change', (e) => {
-      state.examFilter = e.target.value;
-      resetExam();
-    });
+    if (DOM.examModuleSelect) {
+      DOM.examModuleSelect.addEventListener('change', (e) => {
+        state.examModuleFilter = e.target.value;
+        resetExam();
+        updateBestScoreStat();
+      });
+    }
+
+    if (DOM.examFilterSelect) {
+      DOM.examFilterSelect.addEventListener('change', (e) => {
+        state.examTypeFilter = e.target.value;
+        resetExam();
+      });
+    }
 
     DOM.shuffleToggle.addEventListener('change', (e) => {
       state.shuffleEnabled = e.target.checked;
-      DOM.shuffleLabel.textContent = state.shuffleEnabled ? 'Shuffled' : 'Original Order';
+      DOM.shuffleLabel.textContent = state.shuffleEnabled ? 'Random Shuffled' : 'Original Order';
       resetExam();
     });
 
     DOM.startResetExamBtn.addEventListener('click', () => {
-      if (confirm('Reset form and restart exam?')) {
+      if (Object.keys(state.userAnswers).length > 0) {
+        if (confirm('Reset this test? All current answers will be cleared.')) {
+          resetExam();
+        }
+      } else {
         resetExam();
       }
     });
 
+    DOM.jumpUnansweredBtn.addEventListener('click', jumpToFirstUnanswered);
+
     DOM.clearFormBtn.addEventListener('click', () => {
-      if (confirm('Clear all answered questions?')) {
+      if (confirm('Are you sure you want to clear all selections on this form?')) {
         state.userAnswers = {};
         updateFormProgress();
         renderGoogleFormsQuestions();
       }
     });
 
-    DOM.jumpUnansweredBtn.addEventListener('click', jumpToFirstUnanswered);
+    DOM.submitExamBtn.addEventListener('click', () => {
+      const answered = Object.keys(state.userAnswers).length;
+      const total = state.examQuestions.length;
 
-    // Form Submit
-    DOM.googleExamForm.addEventListener('submit', (e) => {
-      e.preventDefault();
-      const unansweredCount = state.examQuestions.length - Object.keys(state.userAnswers).length;
-      
-      if (unansweredCount > 0) {
-        if (!confirm(`You still have ${unansweredCount} unanswered question(s). Are you sure you want to submit?`)) {
+      if (answered < total) {
+        const remaining = total - answered;
+        if (!confirm(`You have ${remaining} unanswered question(s). Are you sure you want to submit?`)) {
           jumpToFirstUnanswered();
           return;
         }
       }
-      submitExam();
-    });
 
-    DOM.submitExamBtn.addEventListener('click', () => {
-      DOM.googleExamForm.dispatchEvent(new Event('submit', { cancelable: true, bubbles: true }));
+      submitExam();
     });
 
     // Results Actions
@@ -883,6 +977,7 @@
       switchTab('study');
     });
 
+    // Review Filters
     DOM.reviewFilterChips.forEach(chip => {
       chip.addEventListener('click', () => {
         DOM.reviewFilterChips.forEach(c => c.classList.remove('active'));
@@ -892,30 +987,48 @@
       });
     });
 
-    // History Modal
+    // Score History Modal
     DOM.historyModalBtn.addEventListener('click', () => {
       renderHistoryModal();
-      DOM.historyModal.classList.add('active');
+      DOM.historyModal.classList.add('open');
     });
 
     DOM.closeModalBtn.addEventListener('click', () => {
-      DOM.historyModal.classList.remove('active');
-    });
-
-    DOM.clearHistoryBtn.addEventListener('click', () => {
-      if (confirm('Clear all recorded score history for this module?')) {
-        clearHistory();
-      }
+      DOM.historyModal.classList.remove('open');
     });
 
     DOM.historyModal.addEventListener('click', (e) => {
       if (e.target === DOM.historyModal) {
-        DOM.historyModal.classList.remove('active');
+        DOM.historyModal.classList.remove('open');
+      }
+    });
+
+    DOM.clearHistoryBtn.addEventListener('click', () => {
+      if (confirm('Clear test score history for this exam scope?')) {
+        clearHistory();
       }
     });
   }
 
-  // Run Init when DOM Ready
+  // Helpers
+  function shuffleArray(array) {
+    const arr = [...array];
+    for (let i = arr.length - 1; i > 0; i--) {
+      const j = Math.floor(Math.random() * (i + 1));
+      [arr[i], arr[j]] = [arr[j], arr[i]];
+    }
+    return arr;
+  }
+
+  function formatTime(seconds) {
+    if (!seconds || seconds <= 0) return '0s';
+    const m = Math.floor(seconds / 60);
+    const s = seconds % 60;
+    if (m === 0) return `${s}s`;
+    return `${m}m ${s}s`;
+  }
+
+  // Run on DOM ready
   if (document.readyState === 'loading') {
     document.addEventListener('DOMContentLoaded', init);
   } else {

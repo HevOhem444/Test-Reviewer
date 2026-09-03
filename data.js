@@ -1,1622 +1,4002 @@
 window.REVIEWER_DATA = {
+  "subject": {
+    "id": "melec-9",
+    "code": "BSIT MELEC 9",
+    "title": "System Need Analysis",
+    "subtitle": "Comprehensive Prelim Examination & Modular Study Reviewers",
+    "description": "Comprehensive unified study reviewers and 100-item practice examination covering Systems Analysis & Design (SAD), SDLC Phases & Testing, Project Planning & TELOS Feasibility, and Requirements Gathering Techniques.",
+    "badge": "BSIT MELEC 9 • Prelim Examination",
+    "themeColor": "#6366f1",
+    "accentGradient": "linear-gradient(135deg, #4f46e5 0%, #7c3aed 50%, #06b6d4 100%)"
+  },
   "modules": [
     {
-      "id": "network-security",
-      "title": "Network Security",
-      "subtitle": "Complete Study Reviewer & Practice Examination",
-      "description": "Comprehensive guide covering CIA Triad, AAA Framework, Perimeters, Threats, Security Controls, and Cryptography (Symmetric, Asymmetric, Hashing, PKI).",
-      "icon": "fa-shield-halved",
-      "badge": "Cybersecurity",
-      "themeColor": "#0ea5e9",
-      "accentGradient": "linear-gradient(135deg, #0284c7 0%, #06b6d4 100%)",
+      "id": "module-1-sad",
+      "title": "Module 1: Intro to Systems Analysis & Design (SAD)",
+      "subtitle": "Foundations, System Components, Roles & Core Skills",
+      "description": "Comprehensive guide covering the 5 system components (Input, Process, Output, Feedback, Control), Analysis vs Design boundary, System Analyst bridge role & 4 core skill sets, and 10 strategic benefits of SAD.",
+      "icon": "fa-diagram-project",
+      "badge": "MELEC 9: System Need Analysis",
+      "themeColor": "#3b82f6",
+      "accentGradient": "linear-gradient(135deg, #2563eb 0%, #38bdf8 100%)",
       "study": [
         {
-          "id": "ns-part1",
-          "title": "Module 1: Introduction to Network Security & Fundamentals",
-          "icon": "fa-shield-halved",
+          "id": "m1-part1",
+          "title": "I. Core Concepts & Foundations",
+          "icon": "fa-cubes",
           "sections": [
             {
-              "subtitle": "Definition & Organizational Importance",
-              "content": "\nNetwork Security involves protecting data, devices, and networks from unauthorized access, attacks, or damage, ensuring the **confidentiality**, **integrity**, and **availability** of information resources across an organization.\n"
+              "subtitle": "1. What is a System?",
+              "content": "\nA **system** is a collection of interrelated components working together toward a common goal by accepting inputs, processing them, and producing structured outputs.\n\nInformation systems combine hardware, software, data, procedures, and people to collect, store, process, and distribute information to support decision-making and operational control.\n"
             },
             {
-              "subtitle": "The CIA Triad & AAA Model",
-              "content": "\n- **Confidentiality**: Ensures sensitive information is accessible *only to authorized individuals*, preventing data breaches and unauthorized disclosure (e.g. Encryption, Access Controls, File Permissions).\n- **Integrity**: Safeguards data accuracy and completeness by preventing *unauthorized modification or tampering* (e.g. Hashing, Digital Signatures, Versioning).\n- **Availability**: Guarantees that systems, networks, and data are *accessible to authorized users whenever needed* (e.g. Redundancy, Load Balancing, DDoS Mitigation, Backups).\n\n#### The AAA Security Framework:\n- **Authentication**: Verifies *who you are* (e.g. Passwords, Multi-Factor Authentication / MFA, Biometrics).\n- **Authorization**: Determines *what you can do / access* (e.g. Role-Based Access Control / RBAC, File ACLs).\n- **Accounting**: Tracks and records *what you did* (e.g. Audit Logs, Session Timelines, Event logs).\n"
-            },
-            {
-              "subtitle": "Network Architecture & Security Perimeters",
-              "content": "\n- **LAN vs WAN**: Local Area Networks (LAN) cover limited geographical spaces (offices, homes) while Wide Area Networks (WAN) span larger distances (connecting branch offices over the internet).\n- **Demilitarized Zone (DMZ)**: A perimeter subnetwork that isolates an organization's internal network from untrusted external networks (Internet). Public-facing servers (Web, Mail, DNS) are placed in the DMZ.\n- **Firewalls**: Security devices or software that inspect incoming and outgoing network traffic based on predefined security rules.\n- **Network Segmentation**: Dividing a network into subnetworks or VLANs to contain breaches and restrict lateral movement.\n"
-            },
-            {
-              "subtitle": "Threats, Attacks & Vulnerabilities Taxonomy",
+              "subtitle": "The Five (5) Components of a System",
               "table": {
                 "headers": [
-                  "Threat / Attack Type",
-                  "Key Characteristics & Operational Impact"
+                  "Component",
+                  "Core Function / Definition",
+                  "School Enrollment System Example"
                 ],
                 "rows": [
                   [
-                    "Virus",
-                    "Malicious code attached to clean host files; requires human interaction/execution to spread."
+                    "1. Input",
+                    "Data, materials, or resources entered into the system.",
+                    "Student personal info, selected subjects, payment slips."
                   ],
                   [
-                    "Worm",
-                    "Self-replicating standalone malware; spreads automatically across network vulnerabilities without user intervention."
+                    "2. Process",
+                    "Activities and transformations applied to input data.",
+                    "Validating credentials, calculating tuition, assigning subjects."
                   ],
                   [
-                    "Trojan Horse",
-                    "Disguises itself as legitimate software to trick users into executing malicious code."
+                    "3. Output",
+                    "The resulting information, reports, or services produced.",
+                    "Certificate of Registration (COR), class schedule, official receipt."
                   ],
                   [
-                    "Ransomware",
-                    "Encrypts victim files/systems and demands payment for the decryption key."
+                    "4. Feedback",
+                    "Evaluation data used to assess performance and make adjustments.",
+                    "Student verifies enrollment details; system logs error prompts."
                   ],
                   [
-                    "Spyware",
-                    "Secretly monitors user activity, keystrokes, and credentials without authorization."
-                  ],
-                  [
-                    "Man-in-the-Middle (MitM)",
-                    "Attacker intercepts and optionally alters communication between two unsuspecting parties."
-                  ],
-                  [
-                    "DDoS Attack",
-                    "Floods network bandwidth or server capacity with traffic from multiple botnets to compromise Availability."
-                  ],
-                  [
-                    "Phishing",
-                    "Social engineering attack using deceptive emails or links to trick users into revealing credentials."
+                    "5. Control",
+                    "Rules, permissions, and procedures that govern correct operations.",
+                    "Only authorized registrar/cashier staff can approve enrollment transactions."
                   ]
                 ]
               }
             },
             {
-              "subtitle": "Security Controls Taxonomy",
-              "content": "\n- **Preventive Controls**: Block unauthorized activity before it occurs (Firewalls, Encryption, Access Controls).\n- **Detective Controls**: Identify and alert on malicious activity during or after occurrence (IDS, Log Monitoring, Antivirus scans).\n- **Corrective Controls**: Restore systems and repair damage after a security incident (Backups, Patching, Disaster Recovery).\n- **Deterrent Controls**: Discourage potential attackers (Warning Banners, Security Cameras, Legal Notices).\n- **Technical Controls**: Implemented through hardware or software technology (Firewalls, MFA, Passwords).\n- **Administrative Controls**: Policies, procedures, awareness training, and guidelines.\n- **Physical Controls**: Physical barriers protecting hardware (Fences, Locks, Biometric Scanners, Security Guards).\n"
+              "subtitle": "Exam Tip / Critical Concept: Input vs. Output vs. Control",
+              "content": "\n- **Input**: Raw data and resources injected into the system.\n- **Process**: Computation, transformation logic, algorithms, and business rules.\n- **Output**: Finished information, printable documents, receipts, dashboards, and reports.\n- **Feedback**: Reactive signals, user validation, telemetry, and error logging used to adjust performance.\n- **Control**: Security policies, user role privileges (RBAC), auditing, and approval safeguards.\n"
             }
           ]
         },
         {
-          "id": "ns-part2",
-          "title": "Module 2: Cryptography Fundamentals",
-          "icon": "fa-key",
+          "id": "m1-part2",
+          "title": "II. Differentiating Analysis from Design",
+          "icon": "fa-code-compare",
           "sections": [
             {
-              "subtitle": "Core Cryptographic Concepts",
-              "content": "\n- **Plaintext**: Unencrypted, human-readable data.\n- **Ciphertext**: Encrypted, unreadable data generated by a cipher algorithm.\n- **Cipher**: Mathematical algorithm used for encryption and decryption.\n"
+              "subtitle": "The Analysis (What?) vs. Design (How?) Boundary",
+              "content": "\nUnderstanding the fundamental boundary between the **Analysis** phase and the **Design** phase is one of the most critical exam topics:\n"
             },
             {
-              "subtitle": "Symmetric vs. Asymmetric Encryption Matrix",
+              "subtitle": "Comprehensive Comparison Matrix",
               "table": {
                 "headers": [
-                  "Feature",
-                  "Symmetric Encryption",
-                  "Asymmetric Encryption"
+                  "Criterion",
+                  "System Analysis (What?)",
+                  "System Design (How?)"
                 ],
                 "rows": [
                   [
-                    "Key Usage",
-                    "Single shared secret key for encryption & decryption",
-                    "Key pair: Public key (encrypts) & Private key (decrypts)"
+                    "Core Focus",
+                    "Understanding the problem, existing processes, and business requirements.",
+                    "Creating the technical blueprint and specification for the solution."
                   ],
                   [
-                    "Speed & Efficiency",
-                    "Extremely fast; high performance for bulk data",
-                    "Slower; computationally intensive"
+                    "Guiding Question",
+                    "\"What does the organization and user need the system to do?\"",
+                    "\"How will the system physically fulfill those requirements?\""
                   ],
                   [
-                    "Key Distribution",
-                    "Challenging (key must be shared securely beforehand)",
-                    "Easy (Public key shared openly, Private key kept secret)"
+                    "Primary Activities",
+                    "Interviews, observations, surveys, analyzing legacy documents, workflows.",
+                    "Designing user interfaces (UI), database schemas (ERD), process models, security."
                   ],
                   [
-                    "Primary Use Cases",
-                    "Data at rest (disk encryption), bulk data transmission",
-                    "Key exchange, digital signatures, SSL/TLS handshakes"
+                    "Primary Deliverables",
+                    "Problem statement, Software Requirements Specification (SRS), user stories.",
+                    "Wireframes, mockups, data flow diagrams (DFD), database tables, architecture charts."
                   ],
                   [
-                    "Common Algorithms",
-                    "AES, DES, 3DES, Blowfish",
-                    "RSA, ECC, Diffie-Hellman, DSA"
+                    "Target Audience",
+                    "Business owners, end-users, domain specialists, management.",
+                    "Software engineers, database administrators, UI/UX designers, developers."
                   ]
                 ]
               }
-            },
-            {
-              "subtitle": "Hash Functions & Integrity Verification",
-              "content": "\nA **Hash Function** takes an input of arbitrary length and transforms it into a fixed-length string of characters (digest). \n\n#### Properties of Cryptographic Hashes:\n1. **One-Way (Pre-image Resistance)**: Infeasible to reverse ciphertext back to original plaintext.\n2. **Deterministic**: Same input always produces the exact same hash output.\n3. **Collision Resistant**: Practically impossible for two different inputs to yield the identical hash output.\n4. **Avalanche Effect**: Minor change in input drastically changes the resulting hash output.\n\n#### Common Hash Algorithms:\n- **MD5**: Legacy 128-bit hash algorithm; now considered cryptographically broken due to collision vulnerabilities.\n- **SHA-1**: Legacy 160-bit hash algorithm; deprecated due to theoretical and practical collision attacks.\n- **SHA-256 (SHA-2 Family)**: Secure 256-bit hash standard widely used in digital certificates, Bitcoin, and TLS/SSL.\n"
-            },
-            {
-              "subtitle": "Digital Signatures & Public Key Infrastructure (PKI)",
-              "content": "\n- **Digital Signatures**: Provide **Authenticity**, **Integrity**, and **Non-Repudiation**.\n  - *Sender* signs data using their **Private Key**.\n  - *Receiver* verifies signature using sender's **Public Key**.\n- **Non-Repudiation**: Prevents the sender from denying having sent a message or originating a transaction.\n- **Public Key Infrastructure (PKI)**: Framework of hardware, software, policies, and Certificate Authorities (CAs) that manage digital certificates and public key pairs.\n"
             }
           ]
-        }
-      ],
-      "questions": [
-        {
-          "id": "ns-q1",
-          "number": 1,
-          "type": "mcq",
-          "category": "Multiple Choice",
-          "question": "Which pillar of the CIA triad is compromised during a Distributed Denial of Service (DDoS) attack?",
-          "options": [
-            "a) Confidentiality",
-            "b) Integrity",
-            "c) Availability",
-            "d) Non-repudiation"
-          ],
-          "answer": "c) Availability",
-          "explanation": "DDoS floods network capacity or service endpoints with bogus traffic, taking system services offline and directly violating Availability."
         },
         {
-          "id": "ns-q2",
-          "number": 2,
-          "type": "mcq",
-          "category": "Multiple Choice",
-          "question": "An attacker intercepts communication between two users, secretly altering data packets in transit. What type of attack is occurring?",
-          "options": [
-            "a) Phishing attack",
-            "b) Man-in-the-Middle (MitM) attack",
-            "c) Zero-Day exploit",
-            "d) Ransomware attack"
-          ],
-          "answer": "b) Man-in-the-Middle (MitM) attack",
-          "explanation": "In a MitM attack, an unauthorized entity sits between communicating endpoints to eavesdrop on or manipulate transmitted packets."
-        },
-        {
-          "id": "ns-q3",
-          "number": 3,
-          "type": "mcq",
-          "category": "Multiple Choice",
-          "question": "Which malware type replicates automatically across network vulnerabilities without requiring user intervention?",
-          "options": [
-            "a) Virus",
-            "b) Spyware",
-            "c) Worm",
-            "d) Trojan Horse"
-          ],
-          "answer": "c) Worm",
-          "explanation": "Worms are self-propagating programs that exploit network flaws to spread autonomously, whereas viruses require human file execution."
-        },
-        {
-          "id": "ns-q4",
-          "number": 4,
-          "type": "mcq",
-          "category": "Multiple Choice",
-          "question": "What is the principal operational difference between an Intrusion Detection System (IDS) and an Intrusion Prevention System (IPS)?",
-          "options": [
-            "a) IDS operates in inline mode to block threats; IPS operates out-of-band.",
-            "b) IDS monitors and alerts on traffic; IPS actively blocks detected malicious traffic inline.",
-            "c) IDS encrypts network traffic; IPS generates public key certificates.",
-            "d) IDS requires hardware; IPS is purely software."
-          ],
-          "answer": "b) IDS monitors and alerts on traffic; IPS actively blocks detected malicious traffic inline.",
-          "explanation": "IDS is a passive monitor that generates security alerts; IPS sits inline in the traffic path to proactively filter and drop malicious packets."
-        },
-        {
-          "id": "ns-q5",
-          "number": 5,
-          "type": "mcq",
-          "category": "Multiple Choice",
-          "question": "Which security control category best describes mandatory security awareness training for all employees?",
-          "options": [
-            "a) Technical Control",
-            "b) Administrative Control",
-            "c) Physical Control",
-            "d) Compensating Control"
-          ],
-          "answer": "b) Administrative Control",
-          "explanation": "Administrative controls consist of organizational policies, operational procedures, security guidelines, and employee training."
-        },
-        {
-          "id": "ns-q6",
-          "number": 6,
-          "type": "mcq",
-          "category": "Multiple Choice",
-          "question": "Which characteristic is a major operational challenge of symmetric key cryptography?",
-          "options": [
-            "a) Slow processing speed",
-            "b) Inability to encrypt large files",
-            "c) Secure key distribution across untrusted channels",
-            "d) Requirement of public key certificates"
-          ],
-          "answer": "c) Secure key distribution across untrusted channels",
-          "explanation": "Symmetric encryption uses the exact same key for encryption and decryption; securely transmitting that secret key to remote parties is a classic challenge."
-        },
-        {
-          "id": "ns-q7",
-          "number": 7,
-          "type": "mcq",
-          "category": "Multiple Choice",
-          "question": "In asymmetric cryptography, if User A wants to send a confidential encrypted message to User B, which key must User A use?",
-          "options": [
-            "a) User A's private key",
-            "b) User A's public key",
-            "c) User B's public key",
-            "d) User B's private key"
-          ],
-          "answer": "c) User B's public key",
-          "explanation": "Messages encrypted with User B's public key can only be decrypted by User B's corresponding private key, guaranteeing confidentiality."
-        },
-        {
-          "id": "ns-q8",
-          "number": 8,
-          "type": "mcq",
-          "category": "Multiple Choice",
-          "question": "Which statement accurately describes a cryptographic hash function property?",
-          "options": [
-            "a) It allows easy decryption of hash outputs back to plaintext.",
-            "b) It produces a fixed-length digest regardless of input size.",
-            "c) It uses public-private key pairs to scramble plaintext.",
-            "d) It generates variable-length outputs for fixed inputs."
-          ],
-          "answer": "b) It produces a fixed-length digest regardless of input size.",
-          "explanation": "Cryptographic hash functions take arbitrary input lengths and produce a fixed-size hash digest (e.g. SHA-256 always outputs 256 bits)."
-        },
-        {
-          "id": "ns-q9",
-          "number": 9,
-          "type": "mcq",
-          "category": "Multiple Choice",
-          "question": "Which asymmetric algorithm offers equivalent cryptographic security to RSA but with significantly smaller key sizes and lower computational overhead?",
-          "options": [
-            "a) AES-256",
-            "b) Elliptic Curve Cryptography (ECC)",
-            "c) Triple DES (3DES)",
-            "d) Blowfish"
-          ],
-          "answer": "b) Elliptic Curve Cryptography (ECC)",
-          "explanation": "ECC provides robust security with much smaller key lengths (e.g., 256-bit ECC matches ~3072-bit RSA), making it ideal for mobile devices and high-speed TLS."
-        },
-        {
-          "id": "ns-q10",
-          "number": 10,
-          "type": "mcq",
-          "category": "Multiple Choice",
-          "question": "What primary security objective does a digital signature achieve that simple symmetric encryption alone cannot guarantee?",
-          "options": [
-            "a) Speed optimization",
-            "b) Non-repudiation and proof of origin",
-            "c) High-capacity bandwidth expansion",
-            "d) Password hashing"
-          ],
-          "answer": "b) Non-repudiation and proof of origin",
-          "explanation": "Digital signatures bind a sender's private key to the message, proving authenticity and preventing the sender from denying message creation."
-        },
-        {
-          "id": "ns-q11",
-          "number": 11,
-          "type": "identification",
-          "category": "Identification",
-          "question": "The pillar of the CIA triad that guarantees sensitive information is accessible only to authorized personnel.",
-          "answer": "Confidentiality",
-          "explanation": "Confidentiality ensures that secret or sensitive data cannot be viewed by unauthorized entities."
-        },
-        {
-          "id": "ns-q12",
-          "number": 12,
-          "type": "identification",
-          "category": "Identification",
-          "question": "The AAA security element responsible for recording user actions, timestamps, and session activity in log files.",
-          "answer": "Accounting",
-          "explanation": "Accounting maintains detailed logs of user actions, login events, and resource consumption for security audits."
-        },
-        {
-          "id": "ns-q13",
-          "number": 13,
-          "type": "identification",
-          "category": "Identification",
-          "question": "A perimeter network subnetwork that isolates public-facing servers (Web, Mail) from the internal organization network.",
-          "answer": "DMZ (Demilitarized Zone)",
-          "explanation": "A DMZ isolates public services from internal LAN resources to prevent external compromises from pivoting inward."
-        },
-        {
-          "id": "ns-q14",
-          "number": 14,
-          "type": "identification",
-          "category": "Identification",
-          "question": "Malware that encrypts victim files and demands financial payment in exchange for the decryption key.",
-          "answer": "Ransomware",
-          "explanation": "Ransomware locks victim data using strong encryption and extorts money for access restoration."
-        },
-        {
-          "id": "ns-q15",
-          "number": 15,
-          "type": "identification",
-          "category": "Identification",
-          "question": "Security control category implemented through software code, firewall rules, or hardware mechanisms.",
-          "answer": "Technical Control",
-          "explanation": "Technical controls utilize hardware or software mechanisms (firewalls, encryption, authentication) to protect assets."
-        },
-        {
-          "id": "ns-q16",
-          "number": 16,
-          "type": "identification",
-          "category": "Identification",
-          "question": "The encryption paradigm that uses a single secret key for both encryption and decryption operations.",
-          "answer": "Symmetric Encryption",
-          "explanation": "Symmetric encryption relies on a shared secret key used symmetrically by sender and receiver."
-        },
-        {
-          "id": "ns-q17",
-          "number": 17,
-          "type": "identification",
-          "category": "Identification",
-          "question": "The mathematical algorithm used in asymmetric encryption to generate public and private key pairs.",
-          "answer": "RSA",
-          "explanation": "RSA (Rivest-Shamir-Adleman) is a widely used asymmetric algorithm based on prime number factorization."
-        },
-        {
-          "id": "ns-q18",
-          "number": 18,
-          "type": "identification",
-          "category": "Identification",
-          "question": "Legacy 128-bit hash algorithm that is no longer recommended due to collision vulnerabilities.",
-          "answer": "MD5",
-          "explanation": "MD5 generates 128-bit hash digests but has known collision flaws and is deprecated for security purposes."
-        },
-        {
-          "id": "ns-q19",
-          "number": 19,
-          "type": "identification",
-          "category": "Identification",
-          "question": "Trusted third-party entity that issues and signs digital certificates within a Public Key Infrastructure.",
-          "answer": "Certificate Authority (CA)",
-          "explanation": "A Certificate Authority (CA) verifies identities and issues signed digital certificates."
-        },
-        {
-          "id": "ns-q20",
-          "number": 20,
-          "type": "identification",
-          "category": "Identification",
-          "question": "Control measure that divides a physical network into separate subnets or VLANs to contain security breaches.",
-          "answer": "Network Segmentation",
-          "explanation": "Network segmentation partitions networks into isolated zones to stop lateral attack propagation."
-        },
-        {
-          "id": "ns-q21",
-          "number": 21,
-          "type": "tf",
-          "category": "True / False",
-          "question": "Asymmetric encryption is faster and computationally lighter than symmetric encryption for bulk file data.",
-          "options": [
-            "True",
-            "False"
-          ],
-          "answer": "False",
-          "explanation": "False: Symmetric encryption is significantly faster and less computationally intensive than asymmetric encryption."
-        },
-        {
-          "id": "ns-q22",
-          "number": 22,
-          "type": "tf",
-          "category": "True / False",
-          "question": "Cryptographic hash functions are designed as one-way mathematical functions that cannot be decrypted back into original plaintext.",
-          "options": [
-            "True",
-            "False"
-          ],
-          "answer": "True",
-          "explanation": "True: Hash algorithms are inherently one-way mathematical transformations; they cannot be reversed."
-        },
-        {
-          "id": "ns-q23",
-          "number": 23,
-          "type": "tf",
-          "category": "True / False",
-          "question": "Public keys must be kept strictly confidential, while private keys are freely distributed to the public.",
-          "options": [
-            "True",
-            "False"
-          ],
-          "answer": "False",
-          "explanation": "False: Public keys are shared openly with everyone; private keys MUST be kept strictly secret."
-        },
-        {
-          "id": "ns-q24",
-          "number": 24,
-          "type": "tf",
-          "category": "True / False",
-          "question": "Insider threats include both malicious employees and negligent staff who accidentally expose sensitive credentials.",
-          "options": [
-            "True",
-            "False"
-          ],
-          "answer": "True",
-          "explanation": "True: Insider threats encompass both malicious intent (sabotage) and negligent errors (falling for phishing)."
-        },
-        {
-          "id": "ns-q25",
-          "number": 25,
-          "type": "tf",
-          "category": "True / False",
-          "question": "A digital signature is created using the sender's public key.",
-          "options": [
-            "True",
-            "False"
-          ],
-          "answer": "False",
-          "explanation": "False: A digital signature is generated using the sender's PRIVATE key and verified by receivers using the sender's PUBLIC key."
-        },
-        {
-          "id": "ns-q26",
-          "number": 26,
-          "type": "tf",
-          "category": "True / False",
-          "question": "SHA-256 produces a fixed 256-bit output hash digest regardless of the input data size.",
-          "options": [
-            "True",
-            "False"
-          ],
-          "answer": "True",
-          "explanation": "True: SHA-256 generates a 256-bit (32-byte) hash output regardless of whether input is 1 byte or 1 Terabyte."
-        },
-        {
-          "id": "ns-q27",
-          "number": 27,
-          "type": "tf",
-          "category": "True / False",
-          "question": "An Intrusion Prevention System (IPS) passively monitors traffic and only generates alert logs.",
-          "options": [
-            "True",
-            "False"
-          ],
-          "answer": "False",
-          "explanation": "False: An IPS actively sits inline to block and drop malicious packets. IDS is the passive monitoring tool."
-        },
-        {
-          "id": "ns-q28",
-          "number": 28,
-          "type": "tf",
-          "category": "True / False",
-          "question": "Multi-Factor Authentication (MFA) requires presenting two or more independent authentication factors (e.g. password + TOTP code).",
-          "options": [
-            "True",
-            "False"
-          ],
-          "answer": "True",
-          "explanation": "True: MFA mandates two or more distinct categories (Something you know, Something you have, Something you are)."
-        },
-        {
-          "id": "ns-q29",
-          "number": 29,
-          "type": "tf",
-          "category": "True / False",
-          "question": "MD5 is recommended for high-security applications like modern digital certificates.",
-          "options": [
-            "True",
-            "False"
-          ],
-          "answer": "False",
-          "explanation": "False: MD5 is vulnerable to collision attacks and is deprecated; SHA-256 or SHA-3 are required."
-        },
-        {
-          "id": "ns-q30",
-          "number": 30,
-          "type": "tf",
-          "category": "True / False",
-          "question": "Non-repudiation ensures a sender cannot deny originating a digitally signed transmission.",
-          "options": [
-            "True",
-            "False"
-          ],
-          "answer": "True",
-          "explanation": "True: Non-repudiation cryptographically proves the origin of a message so the sender cannot claim it was forged."
-        },
-        {
-          "id": "ns-q31",
-          "number": 31,
-          "type": "scenario",
-          "category": "Scenario Analysis",
-          "question": "A web application server was overwhelmed by billions of requests from multiple infected host machines across the globe, causing legitimate customers to experience connection timeouts. What attack occurred and which CIA pillar was breached?",
-          "options": [
-            "A. Phishing attack breaching Confidentiality",
-            "B. Distributed Denial of Service (DDoS) breaching Availability",
-            "C. Man-in-the-Middle attack breaching Integrity",
-            "D. Ransomware attack breaching Authorization"
-          ],
-          "answer": "B. Distributed Denial of Service (DDoS) breaching Availability",
-          "explanation": "DDoS attacks use botnet floods to exhaust server resources, denying access to legitimate users and violating Availability."
-        },
-        {
-          "id": "ns-q32",
-          "number": 32,
-          "type": "scenario",
-          "category": "Scenario Analysis",
-          "question": "Alice wants to send a sensitive contract file to Bob over an insecure network. They need fast encryption for the 500 MB file and secure key exchange. Which hybrid cryptosystem approach should they use?",
-          "options": [
-            "A. Encrypt file with RSA private key directly",
-            "B. Use asymmetric encryption (RSA/ECC) to securely exchange a symmetric session key (AES), then encrypt the 500 MB file with AES.",
-            "C. Hash the file with MD5 and email plaintext",
-            "D. Send file unencrypted with a digital signature"
-          ],
-          "answer": "B. Use asymmetric encryption (RSA/ECC) to securely exchange a symmetric session key (AES), then encrypt the 500 MB file with AES.",
-          "explanation": "Modern TLS/SSL uses hybrid cryptography: asymmetric keys establish a fast symmetric session key (AES), combining high speed with key security."
-        },
-        {
-          "id": "ns-q33",
-          "number": 33,
-          "type": "scenario",
-          "category": "Scenario Analysis",
-          "question": "An e-commerce site downloads a software update from a vendor. Before executing the installer, the admin verifies the SHA-256 hash published on the vendor site. What security property are they checking?",
-          "options": [
-            "A. Confidentiality",
-            "B. Integrity",
-            "C. Availability",
-            "D. Accounting"
-          ],
-          "answer": "B. Integrity",
-          "explanation": "Comparing cryptographic file hashes confirms that the file was not altered, corrupted, or injected with malware during download (Integrity)."
-        },
-        {
-          "id": "ns-q34",
-          "number": 34,
-          "type": "scenario",
-          "category": "Scenario Analysis",
-          "question": "A company wants to host an external web server accessible to the public internet while ensuring that an exploit on the web server does not give hackers direct access to internal database servers. Where should the web server be placed?",
-          "options": [
-            "A. Internal Core Subnet",
-            "B. Demilitarized Zone (DMZ)",
-            "C. Management VLAN",
-            "D. Loopback Interface"
-          ],
-          "answer": "B. Demilitarized Zone (DMZ)",
-          "explanation": "Placing public servers in a DMZ isolates them from internal LAN segments using firewalls, preventing lateral compromise."
-        },
-        {
-          "id": "ns-q35",
-          "number": 35,
-          "type": "scenario",
-          "category": "Scenario Analysis",
-          "question": "An executive receives an email claiming their email account will be closed unless they click a link and enter their credentials. The link redirects to a fake login page. What attack is this?",
-          "options": [
-            "A. Phishing (Social Engineering)",
-            "B. Zero-Day Exploit",
-            "C. SQL Injection",
-            "D. Buffer Overflow"
-          ],
-          "answer": "A. Phishing (Social Engineering)",
-          "explanation": "Phishing deceives victims through fraudulent communications into surrendering sensitive credentials or personal information."
-        }
-      ]
-    },
-    {
-      "id": "system-admin",
-      "title": "System Administration & Maintenance",
-      "subtitle": "Reviewer & Practice Exam Questionnaire",
-      "description": "Comprehensive guide covering System vs. Network Admin roles, Infrastructure devices, OS pre-installation, MBR/GPT partitioning, NTFS/ext4 file systems, and maintenance.",
-      "icon": "fa-server",
-      "badge": "System & Network Admin",
-      "themeColor": "#10b981",
-      "accentGradient": "linear-gradient(135deg, #059669 0%, #10b981 100%)",
-      "study": [
-        {
-          "id": "sam-part1",
-          "title": "Part I: Introduction to System & Network Administration",
-          "icon": "fa-network-wired",
+          "id": "m1-part3",
+          "title": "III. What is System Analysis and Design (SAD)?",
+          "icon": "fa-sitemap",
           "sections": [
             {
-              "subtitle": "Core Definitions & Responsibilities",
-              "content": "\n- **System Administration**: Management, maintenance, and support of computer systems, servers, and IT infrastructure to ensure reliability, security, and performance.\n  - *Key Responsibilities*: Server setup & OS installation, user account management & permissions, system backups & disaster recovery, applying OS updates & patches, monitoring system performance & logs.\n- **Network Administration**: Management and maintenance of network infrastructure to ensure connectivity, bandwidth availability, and network security across systems.\n  - *Key Responsibilities*: Configuring routers, switches, and firewalls; managing IP addresses, subnets, and VLANs; monitoring network traffic & troubleshooting connectivity; maintaining network security & VPNs.\n"
+              "subtitle": "Definition and Importance of SAD",
+              "content": "\n**System Analysis and Design (SAD)** is the systematic process of studying an existing or proposed business system, identifying user requirements, and designing an efficient computer-based solution to solve organizational problems.\n\n#### The Danger of Skipping SAD vs. Benefits of Applying SAD:\n- **Without SAD**: Programmers jump straight into coding without consulting stakeholders. Results: missing vital features, wrong reports, poor user adoption, massive budget overruns, and severe software bugs.\n- **With SAD**: Thorough requirements elicitation occurs first. Results: clear roadmap, accurate data modeling, alignment with actual user workflows, robust security, lower maintenance costs, and high user satisfaction.\n"
+            }
+          ]
+        },
+        {
+          "id": "m1-part4",
+          "title": "IV. Role, Responsibilities, and Skills of a System Analyst",
+          "icon": "fa-user-tie",
+          "sections": [
+            {
+              "subtitle": "The Analyst as a Bridge & Key Responsibilities",
+              "content": "\nA **System Analyst** serves as a vital **bridge / translator** between non-technical business stakeholders (clients, managers, end-users) and technical personnel (programmers, database admins, network engineers).\n\n#### Three (3) Core Responsibilities:\n1. **Problem Identification**: Investigating business inefficiencies, bottlenecks, and user complaints in the current operational workflow.\n2. **Requirements Elicitation**: Actively gathering, clarifying, and documenting functional and non-functional requirements from stakeholders.\n3. **Solution Modeling**: Designing technical blueprints, Data Flow Diagrams (DFDs), Entity-Relationship Diagrams (ERDs), and workflow models for developers.\n"
             },
             {
-              "subtitle": "Role Comparison Matrix",
+              "subtitle": "Four (4) Core Skill Sets of a System Analyst",
               "table": {
                 "headers": [
-                  "Feature",
-                  "System Administrator",
-                  "Network Administrator"
+                  "Skill Category",
+                  "Core Focus & Description",
+                  "Real-World Application"
                 ],
                 "rows": [
                   [
-                    "Primary Focus",
-                    "Servers, OS, Users, Applications, Storage",
-                    "Routers, Switches, Firewalls, Cables, Traffic"
+                    "1. Analytical Skills",
+                    "Systems thinking, problem-solving, decomposing complex workflows into logical components.",
+                    "Diagnosing why enrollment queues take 4 hours and mapping data bottlenecks."
                   ],
                   [
-                    "Key Goal",
-                    "Ensure system availability & performance",
-                    "Ensure network connectivity & data flow"
+                    "2. Technical Skills",
+                    "Understanding databases, programming concepts, hardware architecture, networking, and APIs.",
+                    "Communicating effectively with database administrators about foreign keys and index performance."
                   ],
                   [
-                    "Scope",
-                    "Internal host configuration & user support",
-                    "Inter-device communication & perimeter defense"
+                    "3. Management Skills",
+                    "Resource planning, project scheduling, risk mitigation, and budget tracking.",
+                    "Managing timeline milestones and keeping project tasks on schedule."
                   ],
                   [
-                    "Common Tools",
-                    "Active Directory, PowerShell, bash, systemd, msconfig",
-                    "Cisco IOS, Wireshark, traceroute, ping, VLAN managers"
+                    "4. Interpersonal Skills",
+                    "Communication, active listening, negotiation, diplomacy, and conflict resolution.",
+                    "Mediating between conflicting department heads demanding contradictory features."
                   ]
                 ]
               }
-            },
-            {
-              "subtitle": "Key Infrastructure Components",
-              "content": "\n- **Router**: Connects *different networks* (e.g., LAN to WAN / Internet). Operates at Layer 3 (Network Layer) and routes packets based on IP addresses.\n- **Switch**: Connects *devices within the same LAN*. Operates at Layer 2 (Data Link Layer) and forwards frames using MAC addresses.\n- **Firewall**: Filters and protects network traffic based on security rules. Can be hardware or software based.\n- **Server**: Provides services, resources, or data to client systems (e.g., Web Server, File Server, Active Directory Domain Controller).\n"
             }
           ]
         },
         {
-          "id": "sam-part2",
-          "title": "Part II: OS Installation & Configuration",
-          "icon": "fa-server",
+          "id": "m1-part5",
+          "title": "V. Ten (10) Strategic Benefits of SAD",
+          "icon": "fa-chart-line",
           "sections": [
             {
-              "subtitle": "Pre-Installation Hardware Requirements",
-              "content": "\nBefore OS installation, confirm CPU speed, RAM capacity, and disk space meet minimum OS requirements. Cross-reference hardware with manufacturer specs to avoid driver and firmware conflicts. Prepare bootable USB/DVD media or configure a network PXE server.\n"
-            },
-            {
-              "subtitle": "Three Critical Pre-Installation Decisions",
-              "content": "\n1. **Boot Sequence**: Configure BIOS/UEFI firmware settings to prioritize the installation media (USB/DVD/PXE).\n2. **Installation Strategy**:\n   - *Clean Installation*: Formats drive completely, removing all previous OS/data (recommended for new deployment or clean slate).\n   - *Upgrade*: Preserves user files, applications, and settings while updating the OS version.\n3. **Partitioning Scheme**: MBR vs. GPT.\n"
-            },
-            {
-              "subtitle": "Partitioning Schemes: MBR vs. GPT",
-              "table": {
-                "headers": [
-                  "Feature",
-                  "MBR (Master Boot Record)",
-                  "GPT (GUID Partition Table)"
-                ],
-                "rows": [
-                  [
-                    "Architecture",
-                    "Legacy standard",
-                    "Modern standard (UEFI required)"
-                  ],
-                  [
-                    "Max Drive Size",
-                    "2 TB limit",
-                    "Up to 9.4 ZB (Zettabytes)"
-                  ],
-                  [
-                    "Primary Partitions",
-                    "Up to 4 Primary partitions (or 3 Primary + 1 Extended)",
-                    "Up to 128 Primary partitions in Windows"
-                  ],
-                  [
-                    "Redundancy",
-                    "Single boot record (vulnerable to corruption)",
-                    "Backup partition table header at end of disk"
-                  ]
-                ]
-              }
-            },
-            {
-              "subtitle": "File Systems",
-              "content": "\n- **NTFS (New Technology File System)**: Windows default. Supports large files (>4GB), detailed file permissions (ACLs), encryption (EFS), journaling, and compression.\n- **FAT32**: High compatibility across Windows, Mac, Linux, and embedded devices; max file size limit of 4 GB, max volume limit of 32 GB / 2 TB depending on tool.\n- **ext4 (Fourth Extended File System)**: Linux default file system, supports journaling, large file sizes, and high performance.\n"
-            },
-            {
-              "subtitle": "Post-Installation & Maintenance Best Practices",
-              "content": "\n- **Principle of Least Privilege**: Grant users only the minimum level of access required to perform their job duties (prevents unauthorized access & malware spread).\n- **Critical OS Updates**: Install security updates regularly to patch known vulnerabilities.\n- **System Logs**: Use tools like `systemd` / `journalctl` (Linux) or Event Viewer (Windows) to monitor kernel events, service failures, and security audits.\n- **Optimization Tools**: Use `msconfig` / Task Manager (Windows) or `systemctl` / `services.msc` to disable unnecessary startup services.\n- **Device Health**: Check Device Manager to verify all drivers are properly installed without error icons.\n"
+              "subtitle": "10 Strategic Organizational Benefits",
+              "content": "\n1. **Lower Cost of Changes**: Finding errors in the analysis phase is 10x to 50x cheaper than fixing bugs in production.\n2. **Clear Project Scope**: Prevents uncontrolled feature expansion (Scope Creep).\n3. **Higher Software Quality**: Systematic design leads to fewer logic flaws and crashes.\n4. **Improved User Adoption**: Involving users early ensures the system matches daily workflows.\n5. **Accurate Cost & Time Estimates**: Solid planning prevents surprise budget deficits.\n6. **Optimized Resource Allocation**: Assigns personnel and hardware efficiently.\n7. **Robust Documentation**: Enables future developers to maintain and update the codebase.\n8. **Enhanced Data Security**: Identifies role-based access rules and data vulnerabilities during design.\n9. **Better Regulatory Compliance**: Ensures systems meet privacy and accounting laws.\n10. **Scalable Architecture**: Allows the software to grow alongside the business without rebuilding from scratch.\n"
             }
           ]
         },
         {
-          "id": "sam-high-yield",
-          "title": "High-Yield Exam Summary Points",
+          "id": "m1-high-yield",
+          "title": "VI. High-Yield Exam Summary Points",
           "icon": "fa-bolt",
           "sections": [
             {
               "subtitle": "Quick Memory Anchors",
-              "content": "\n- **System Admin** \u2794 Servers, OS, Users, Backups, Permissions, Logs.\n- **Network Admin** \u2794 Routers, Switches, Firewalls, IP Addresses, VLANs, Cabling.\n- **Router** \u2794 Connects DIFFERENT networks (LAN to WAN).\n- **Switch** \u2794 Connects devices within the SAME network (LAN).\n- **Firewall** \u2794 Filters network traffic based on security policies.\n- **Server** \u2794 Host providing central services to clients.\n- **MBR** \u2794 Legacy, 2 TB max size, up to 4 Primary partitions.\n- **GPT** \u2794 Modern, >2 TB support, up to 128 Primary partitions, requires UEFI.\n- **NTFS** \u2794 Windows standard with security ACLs, journaling, EFS.\n- **ext4** \u2794 Standard Linux file system with journaling.\n- **Principle of Least Privilege** \u2794 Limit user rights to essential tasks only.\n- **msconfig** \u2794 Windows startup optimization utility.\n- **systemd** \u2794 Linux init system and service manager.\n"
+              "content": "\n- **System**: Interrelated components working toward a common goal (Input ➔ Process ➔ Output, regulated by Feedback & Control).\n- **Analysis**: **WHAT** the system must do (User requirements, interviews, SRS document).\n- **Design**: **HOW** the system will physically do it (Blueprints, ERDs, DFDs, database schemas, UI wireframes).\n- **System Analyst**: The **bridge / translator** between business clients and software developers.\n- **Interpersonal Skills**: Essential for conflict resolution and stakeholder consensus.\n- **Cost of Fixing Errors**: Lowest during Analysis; highest during Maintenance.\n- **Control Component**: Enforces authorization, permissions (RBAC), and security integrity.\n"
             }
           ]
         }
       ],
       "questions": [
         {
-          "id": "sam-q1",
+          "id": "m1-q1",
           "number": 1,
           "type": "mcq",
           "category": "Multiple Choice",
-          "question": "Which role is primarily responsible for OS installation, user management, and system backups?",
+          "question": "In a school grading system, which component ensures that only authorized faculty members can enter student grades?",
           "options": [
-            "A. Network Administrator",
-            "B. System Administrator",
-            "C. Database Administrator",
-            "D. Web Developer"
+            "A. Input",
+            "B. Process",
+            "C. Control",
+            "D. Feedback"
           ],
-          "answer": "B. System Administrator",
-          "explanation": "System Administrators oversee local host operating systems, user accounts, system configuration, backups, and server maintenance."
+          "answer": "C. Control",
+          "explanation": "Control encompasses rules, authorization safeguards, and access privileges (such as RBAC) ensuring the system operates securely and validly.",
+          "moduleId": "module-1-sad",
+          "moduleTitle": "Module 1: SAD"
         },
         {
-          "id": "sam-q2",
+          "id": "m1-q2",
           "number": 2,
           "type": "mcq",
           "category": "Multiple Choice",
-          "question": "Which role primarily manages routers, switches, IP addresses, and VLANs?",
+          "question": "A student receives a printed Certificate of Registration (COR) after enrolling. In system terminology, this document is classified as:",
           "options": [
-            "A. System Administrator",
-            "B. Helpdesk Technician",
-            "C. Network Administrator",
-            "D. Security Analyst"
+            "A. Input",
+            "B. Output",
+            "C. Process",
+            "D. Feedback"
           ],
-          "answer": "C. Network Administrator",
-          "explanation": "Network Administrators focus on inter-device network connectivity, routers, switches, subnets, VLANs, and firewall perimeter rules."
+          "answer": "B. Output",
+          "explanation": "The Certificate of Registration (COR) is generated information produced by the system for the student and faculty.",
+          "moduleId": "module-1-sad",
+          "moduleTitle": "Module 1: SAD"
         },
         {
-          "id": "sam-q3",
+          "id": "m1-q3",
           "number": 3,
           "type": "mcq",
           "category": "Multiple Choice",
-          "question": "What is the main purpose of a system administrator?",
+          "question": "A developer began coding a hospital billing application without consulting the billing staff or accounting officers. Which fundamental phase did the developer bypass?",
           "options": [
-            "A. Designing websites",
-            "B. Cable installation only",
-            "C. Writing application code",
-            "D. Ensuring system reliability, performance, and security"
+            "A. System Analysis",
+            "B. Compilation",
+            "C. Hardware Setup",
+            "D. User Acceptance Testing"
           ],
-          "answer": "D. Ensuring system reliability, performance, and security",
-          "explanation": "The core objective of System Administration is keeping IT systems operational, secure, updated, and performing reliably."
+          "answer": "A. System Analysis",
+          "explanation": "The developer bypassed analyzing the existing problem and eliciting user requirements directly from hospital stakeholders.",
+          "moduleId": "module-1-sad",
+          "moduleTitle": "Module 1: SAD"
         },
         {
-          "id": "sam-q4",
+          "id": "m1-q4",
           "number": 4,
           "type": "mcq",
           "category": "Multiple Choice",
-          "question": "Which device connects different networks together?",
+          "question": "Which of the following questions is primarily addressed during the System Design phase rather than the System Analysis phase?",
           "options": [
-            "A. Switch",
-            "B. Router",
-            "C. Server",
-            "D. Firewall"
+            "A. 'What are the organization's business requirements?'",
+            "B. 'What problems do current employees encounter with legacy paperwork?'",
+            "C. 'How will the computer-based system physically meet user requirements?'",
+            "D. 'What information does management require in weekly reports?'"
           ],
-          "answer": "B. Router",
-          "explanation": "Routers operate at Layer 3 to route packets across distinct IP networks (e.g. connecting a corporate LAN to the Internet)."
+          "answer": "C. 'How will the computer-based system physically meet user requirements?'",
+          "explanation": "Analysis defines 'WHAT' must be solved; Design defines 'HOW' the technology will physically solve it.",
+          "moduleId": "module-1-sad",
+          "moduleTitle": "Module 1: SAD"
         },
         {
-          "id": "sam-q5",
+          "id": "m1-q5",
           "number": 5,
           "type": "mcq",
           "category": "Multiple Choice",
-          "question": "Which device connects devices within a LAN?",
+          "question": "A System Analyst is frequently described as playing which central role in an IT organization?",
           "options": [
-            "A. Router",
-            "B. Server",
-            "C. Switch",
-            "D. Firewall"
+            "A. A hardware repair technician",
+            "B. A bridge / translator between business users and programmers",
+            "C. An executive solely deciding company salaries",
+            "D. A full-time graphic illustrator"
           ],
-          "answer": "C. Switch",
-          "explanation": "Switches operate at Layer 2 to connect workstations, servers, and printers within a local area network (LAN)."
+          "answer": "B. A bridge / translator between business users and programmers",
+          "explanation": "Analysts translate ambiguous operational needs into technical specifications and blueprints that coders can build.",
+          "moduleId": "module-1-sad",
+          "moduleTitle": "Module 1: SAD"
         },
         {
-          "id": "sam-q6",
+          "id": "m1-q6",
           "number": 6,
           "type": "mcq",
           "category": "Multiple Choice",
-          "question": "Which device filters and protects network traffic?",
+          "question": "Which task is considered a primary daily responsibility of a System Analyst?",
           "options": [
-            "A. Switch",
-            "B. Server",
-            "C. Router",
-            "D. Firewall"
+            "A. Soldering circuit boards",
+            "B. Understanding business problems and gathering requirements",
+            "C. Writing back-end database stored procedures",
+            "D. Performing automated integration testing"
           ],
-          "answer": "D. Firewall",
-          "explanation": "Firewalls inspect incoming and outgoing traffic against access control lists (ACLs) to block malicious or unauthorized access."
+          "answer": "B. Understanding business problems and gathering requirements",
+          "explanation": "Interviewing frontline staff to discover operational pain points and compiling requirements is a core analyst responsibility.",
+          "moduleId": "module-1-sad",
+          "moduleTitle": "Module 1: SAD"
         },
         {
-          "id": "sam-q7",
+          "id": "m1-q7",
           "number": 7,
           "type": "mcq",
           "category": "Multiple Choice",
-          "question": "Which device provides services to clients?",
+          "question": "Which skill category enables an analyst to resolve disagreements between two department heads who demand conflicting system features?",
           "options": [
-            "A. Server",
-            "B. Switch",
-            "C. Router",
-            "D. Firewall"
+            "A. Technical Skills",
+            "B. Interpersonal Skills",
+            "C. Programming Skills",
+            "D. Hardware Architecture Skills"
           ],
-          "answer": "A. Server",
-          "explanation": "A server is a dedicated computer or system that processes requests and delivers services (web, file, domain) to client endpoints."
+          "answer": "B. Interpersonal Skills",
+          "explanation": "Negotiation, diplomacy, conflict resolution, and active listening belong to the interpersonal skill domain.",
+          "moduleId": "module-1-sad",
+          "moduleTitle": "Module 1: SAD"
         },
         {
-          "id": "sam-q8",
+          "id": "m1-q8",
           "number": 8,
           "type": "mcq",
           "category": "Multiple Choice",
-          "question": "Which sequence represents the basic enterprise network overview?",
+          "question": "Data Flow Diagrams (DFDs) and Entity-Relationship Diagrams (ERDs) are primarily constructed during which phase?",
           "options": [
-            "A. Switch -> Internet -> Firewall -> Router -> Server",
-            "B. Internet -> Firewall -> Router -> Switch -> Server",
-            "C. Server -> Internet -> Router -> Switch -> Firewall",
-            "D. Router -> Switch -> Internet -> Server -> Firewall"
+            "A. System Analysis and Design",
+            "B. Hardware Procurement",
+            "C. End-User Training",
+            "D. Decommissioning"
           ],
-          "answer": "B. Internet -> Firewall -> Router -> Switch -> Server",
-          "explanation": "Standard topology: Internet enters through security Firewall, routes through Router, distributes via Switch to internal Servers and workstations."
+          "answer": "A. System Analysis and Design",
+          "explanation": "DFDs and ERDs are standard analytical and design modeling tools used to map data flow and logical data structures.",
+          "moduleId": "module-1-sad",
+          "moduleTitle": "Module 1: SAD"
         },
         {
-          "id": "sam-q9",
+          "id": "m1-q9",
           "number": 9,
           "type": "mcq",
           "category": "Multiple Choice",
-          "question": "What is the first step before installing an operating system?",
+          "question": "Why is detecting and correcting errors during the Analysis phase drastically better than during the Maintenance phase?",
           "options": [
-            "A. Verify system hardware requirements",
-            "B. Install antivirus",
-            "C. Create user accounts",
-            "D. Configure VLANs"
+            "A. Fixing errors during analysis costs a fraction of the time and money compared to post-deployment rework.",
+            "B. Developers do not get paid during the analysis phase.",
+            "C. Users are never affected by bugs in deployed software.",
+            "D. Analysis is handled exclusively by automated AI tools."
           ],
-          "answer": "A. Verify system hardware requirements",
-          "explanation": "Always confirm hardware compatibility (CPU, RAM, disk space) first to prevent failure or instability during OS installation."
+          "answer": "A. Fixing errors during analysis costs a fraction of the time and money compared to post-deployment rework.",
+          "explanation": "Software engineering studies show fixing defects post-release is 10x to 50x more expensive due to redesign, re-testing, and redeployment.",
+          "moduleId": "module-1-sad",
+          "moduleTitle": "Module 1: SAD"
         },
         {
-          "id": "sam-q10",
+          "id": "m1-q10",
           "number": 10,
           "type": "mcq",
           "category": "Multiple Choice",
-          "question": "Where do you configure the system boot sequence?",
+          "question": "Incorporating Role-Based Access Control (RBAC) so that only cashiers can accept tuition payments directly supports which system component?",
           "options": [
-            "A. Control Panel",
-            "B. BIOS/UEFI",
-            "C. Task Manager",
-            "D. Device Manager"
+            "A. Control",
+            "B. Input",
+            "C. Feedback",
+            "D. Output"
           ],
-          "answer": "B. BIOS/UEFI",
-          "explanation": "System boot priorities (USB, hard drive, PXE network boot) are configured in the motherboard firmware (BIOS/UEFI)."
+          "answer": "A. Control",
+          "explanation": "Role-based permissions (RBAC) restrict unauthorized actions, functioning as a vital system control mechanism.",
+          "moduleId": "module-1-sad",
+          "moduleTitle": "Module 1: SAD"
         },
         {
-          "id": "sam-q11",
+          "id": "m1-q11",
           "number": 11,
-          "type": "mcq",
-          "category": "Multiple Choice",
-          "question": "Which installation type removes all existing data on the target partition?",
+          "type": "identification",
+          "category": "Identification / Terminology",
+          "question": "The component of a system consisting of information or signals used to make adjustments and evaluate system performance:",
           "options": [
-            "A. Repair Installation",
-            "B. Upgrade Installation",
-            "C. In-place Installation",
-            "D. Clean Installation"
+            "Feedback",
+            "Control",
+            "Process",
+            "Output"
           ],
-          "answer": "D. Clean Installation",
-          "explanation": "A Clean Installation formats the target drive partition, erasing existing OS and files to build a fresh system."
+          "answer": "Feedback",
+          "explanation": "Feedback consists of information returning from the environment or user to adjust, evaluate, or confirm system performance.",
+          "moduleId": "module-1-sad",
+          "moduleTitle": "Module 1: SAD"
         },
         {
-          "id": "sam-q12",
+          "id": "m1-q12",
           "number": 12,
-          "type": "mcq",
-          "category": "Multiple Choice",
-          "question": "Which partitioning scheme is modern?",
+          "type": "identification",
+          "category": "Identification / Terminology",
+          "question": "The specific IT professional responsible for studying business problems, gathering user requirements, and designing solutions:",
           "options": [
-            "A. MBR",
-            "B. GPT",
-            "C. FAT",
-            "D. NTFS"
+            "System Analyst",
+            "Database Administrator",
+            "Network Engineer",
+            "Hardware Technician"
           ],
-          "answer": "B. GPT",
-          "explanation": "GPT (GUID Partition Table) is the modern standard replacing legacy MBR, supporting disks larger than 2TB and up to 128 partitions."
+          "answer": "System Analyst",
+          "explanation": "A System Analyst is the IT specialist who acts as a liaison and solution designer between business stakeholders and technical developers.",
+          "moduleId": "module-1-sad",
+          "moduleTitle": "Module 1: SAD"
         },
         {
-          "id": "sam-q13",
+          "id": "m1-q13",
           "number": 13,
-          "type": "mcq",
-          "category": "Multiple Choice",
-          "question": "What is the MBR disk size limit stated in the lesson?",
+          "type": "identification",
+          "category": "Identification / Terminology",
+          "question": "The developmental phase that serves as the technical 'blueprint' detailing user interfaces, database tables, and system architecture:",
           "options": [
-            "A. 500 GB",
-            "B. 1 TB",
-            "C. 2 TB",
-            "D. 4 TB"
+            "System Design",
+            "System Analysis",
+            "Maintenance",
+            "Testing"
           ],
-          "answer": "C. 2 TB",
-          "explanation": "MBR uses 32-bit logical block addressing, restricting maximum usable disk size to 2 Terabytes."
+          "answer": "System Design",
+          "explanation": "System Design is the architectural and physical blueprint phase detailing how the software will physically meet user requirements.",
+          "moduleId": "module-1-sad",
+          "moduleTitle": "Module 1: SAD"
         },
         {
-          "id": "sam-q14",
+          "id": "m1-q14",
           "number": 14,
-          "type": "mcq",
-          "category": "Multiple Choice",
-          "question": "How many primary partitions can MBR support according to the lesson?",
+          "type": "identification",
+          "category": "Identification / Terminology",
+          "question": "The term for data, resources, or raw facts entered into an information system:",
           "options": [
-            "A. 2",
-            "B. 4",
-            "C. 8",
-            "D. Unlimited"
+            "Input",
+            "Output",
+            "Feedback",
+            "Control"
           ],
-          "answer": "B. 4",
-          "explanation": "MBR partition table structure allocates slots for up to 4 Primary partitions (or 3 Primary + 1 Extended)."
+          "answer": "Input",
+          "explanation": "Input represents the raw data, transactions, and resources injected into the system for processing.",
+          "moduleId": "module-1-sad",
+          "moduleTitle": "Module 1: SAD"
         },
         {
-          "id": "sam-q15",
+          "id": "m1-q15",
           "number": 15,
-          "type": "mcq",
-          "category": "Multiple Choice",
-          "question": "What is the purpose of an extended partition?",
+          "type": "identification",
+          "category": "Identification / Terminology",
+          "question": "The core framework / acronym that encompasses understanding organizational problems and architecting effective computer-based solutions:",
           "options": [
-            "A. It provides internet access",
-            "B. It contains multiple logical partitions",
-            "C. It boosts RAM performance",
-            "D. It formats the drive"
+            "System Analysis and Design (SAD)",
+            "SDLC",
+            "RBAC",
+            "ERD"
           ],
-          "answer": "B. It contains multiple logical partitions",
-          "explanation": "An Extended Partition overcomes MBR's 4-primary partition limit by acting as a container for multiple logical drives."
+          "answer": "System Analysis and Design (SAD)",
+          "explanation": "System Analysis and Design (SAD) is the overall structured methodology of studying organizational problems and designing computer-based solutions.",
+          "moduleId": "module-1-sad",
+          "moduleTitle": "Module 1: SAD"
         },
         {
-          "id": "sam-q16",
+          "id": "m1-q16",
           "number": 16,
-          "type": "mcq",
-          "category": "Multiple Choice",
-          "question": "Which file system is standard for modern Windows operating systems?",
+          "type": "tf",
+          "category": "True or False",
+          "question": "System Analysis focuses primarily on 'HOW' the software will be technically coded, while System Design focuses on 'WHAT' the business needs.",
           "options": [
-            "A. FAT32",
-            "B. NTFS",
-            "C. ext4",
-            "D. exFAT"
+            "True",
+            "False"
           ],
-          "answer": "B. NTFS",
-          "explanation": "NTFS (New Technology File System) is the native file system for modern Windows, offering ACL security, encryption, and journaling."
+          "answer": "False",
+          "explanation": "False — Analysis focuses on 'WHAT' the system must do; Design focuses on 'HOW' the technical solution will be constructed.",
+          "moduleId": "module-1-sad",
+          "moduleTitle": "Module 1: SAD"
         },
         {
-          "id": "sam-q17",
+          "id": "m1-q17",
           "number": 17,
-          "type": "mcq",
-          "category": "Multiple Choice",
-          "question": "Which file system is standard for Linux OS installation?",
+          "type": "tf",
+          "category": "True or False",
+          "question": "System Analysts require strong business acumen because software must strictly align with organizational goals and commercial workflows.",
           "options": [
-            "A. NTFS",
-            "B. FAT32",
-            "C. ext4",
-            "D. MBR"
+            "True",
+            "False"
           ],
-          "answer": "C. ext4",
-          "explanation": "ext4 (Fourth Extended File System) is the default, high-performance Linux file system."
+          "answer": "True",
+          "explanation": "True — Analysts must understand business workflows, accounting, and organizational objectives to design practical, effective software.",
+          "moduleId": "module-1-sad",
+          "moduleTitle": "Module 1: SAD"
         },
         {
-          "id": "sam-q18",
+          "id": "m1-q18",
           "number": 18,
-          "type": "mcq",
-          "category": "Multiple Choice",
-          "question": "What limitation exists in FAT32?",
+          "type": "tf",
+          "category": "True or False",
+          "question": "Skipping System Analysis and Design usually accelerates total project completion and drastically reduces long-term software maintenance costs.",
           "options": [
-            "A. Max disk size of 100 MB",
-            "B. Max file size of 4 GB",
-            "C. No support for USB drives",
-            "D. Works only on Linux"
+            "True",
+            "False"
           ],
-          "answer": "B. Max file size of 4 GB",
-          "explanation": "FAT32 cannot store individual files larger than 4 Gigabytes (4,294,967,295 bytes)."
+          "answer": "False",
+          "explanation": "False — Skipping SAD leads to massive rework, feature omissions, budget overruns, and expensive post-release maintenance.",
+          "moduleId": "module-1-sad",
+          "moduleTitle": "Module 1: SAD"
         },
         {
-          "id": "sam-q19",
+          "id": "m1-q19",
           "number": 19,
-          "type": "mcq",
-          "category": "Multiple Choice",
-          "question": "Which component is required before starting OS installation from a flash drive?",
+          "type": "tf",
+          "category": "True or False",
+          "question": "Control procedures in a system ensure that only authorized users can perform sensitive transactions such as updating grades or issuing refunds.",
           "options": [
-            "A. Bootable installation media",
-            "B. Mouse",
-            "C. Keyboard",
-            "D. Monitor"
+            "True",
+            "False"
           ],
-          "answer": "A. Bootable installation media",
-          "explanation": "A bootable USB/DVD containing OS setup files is essential to initialize the installer upon boot."
+          "answer": "True",
+          "explanation": "True — Control mechanisms enforce security, auditing, and authorization policies across system operations.",
+          "moduleId": "module-1-sad",
+          "moduleTitle": "Module 1: SAD"
         },
         {
-          "id": "sam-q20",
+          "id": "m1-q20",
           "number": 20,
-          "type": "mcq",
-          "category": "Multiple Choice",
-          "question": "Which Windows tool can be used to optimize startup?",
+          "type": "tf",
+          "category": "True or False",
+          "question": "An effective System Analyst only needs programming knowledge; interpersonal and communication skills are completely optional.",
           "options": [
-            "A. systemd",
-            "B. Anaconda",
-            "C. msconfig",
-            "D. BIOS"
+            "True",
+            "False"
           ],
-          "answer": "C. msconfig",
-          "explanation": "msconfig (System Configuration utility) allows Windows admins to enable/disable startup services and boot parameters."
+          "answer": "False",
+          "explanation": "False — Communication, negotiation, diplomacy, and interpersonal skills are equally or more critical than coding for an analyst.",
+          "moduleId": "module-1-sad",
+          "moduleTitle": "Module 1: SAD"
         },
         {
-          "id": "sam-q21",
+          "id": "m1-q21",
           "number": 21,
-          "type": "mcq",
-          "category": "Multiple Choice",
-          "question": "Which Linux component is mentioned for managing system startup/services?",
+          "type": "scenario",
+          "category": "Scenario Application",
+          "question": "A programmer is hired to build a School Enrollment System. Eager to show progress, he immediately begins writing code in Visual Studio Code without speaking with the registrar, cashiers, teachers, or students. What is the most critical consequence of this mistake?",
           "options": [
-            "A. msconfig",
-            "B. systemd",
-            "C. Device Manager",
-            "D. setup.exe"
+            "A. The programmer will write faster code with no syntax errors.",
+            "B. Crucial business rules (like prerequisites and scholarship discounts) will be missed, resulting in massive rework and user rejection.",
+            "C. The school will save money because documentation is unnecessary.",
+            "D. Hardware requirements will automatically decrease."
           ],
-          "answer": "B. systemd",
-          "explanation": "systemd is the standard Linux suite providing system initialization and service management (`systemctl`)."
+          "answer": "B. Crucial business rules (like prerequisites and scholarship discounts) will be missed, resulting in massive rework and user rejection.",
+          "explanation": "Model Analysis: 1) Missing Crucial Features: Prerequisite checks, discounts, or specific report formats will be omitted without stakeholder consultation. 2) Usability Failure: Illogical UI for office staff. 3) Faulty Reporting: Non-compliance with regulatory standards. SAD prevents this by conducting stakeholder interviews first (requirements), constructing UI mockups (design), and setting validation rules before coding.",
+          "moduleId": "module-1-sad",
+          "moduleTitle": "Module 1: SAD"
         },
         {
-          "id": "sam-q22",
+          "id": "m1-q22",
           "number": 22,
-          "type": "mcq",
-          "category": "Multiple Choice",
-          "question": "What does the Principle of Least Privilege mean?",
+          "type": "scenario",
+          "category": "Scenario Application",
+          "question": "In an Online Food Delivery Application (e.g., GrabFood or Foodpanda), which pairing correctly identifies a system component and its real-world implementation?",
           "options": [
-            "A. Everyone should have administrator access",
-            "B. Users should only have the access necessary for their work",
-            "C. Disable all user accounts",
-            "D. Share passwords among team members"
+            "A. Input — A printed receipt handed to the customer",
+            "B. Process — Customer address and credit card information typed into the app",
+            "C. Feedback — Customer star rating (1-5 stars) and driver review submitted after delivery",
+            "D. Control — Calculating the subtotal, delivery fee, and applicable discounts"
           ],
-          "answer": "B. Users should only have the access necessary for their work",
-          "explanation": "Least Privilege ensures users and processes operate with the minimal essential permissions to restrict security risks."
+          "answer": "C. Feedback — Customer star rating (1-5 stars) and driver review submitted after delivery",
+          "explanation": "Food Delivery App Components: 1. Input: Customer address, cart items, payment details. 2. Process: Computing subtotal/fees, matching nearest GPS rider. 3. Output: Digital order receipt, real-time rider tracking map. 4. Feedback: Star ratings and written reviews to evaluate service. 5. Control: OTP/2FA authentication and restaurant merchant verification.",
+          "moduleId": "module-1-sad",
+          "moduleTitle": "Module 1: SAD"
         },
         {
-          "id": "sam-q23",
+          "id": "m1-q23",
           "number": 23,
           "type": "mcq",
           "category": "Multiple Choice",
-          "question": "Which installer is commonly associated with Fedora/Red Hat Linux distributions?",
+          "question": "Which strategic benefit of System Analysis and Design ensures that an information system can easily accommodate expanding student populations and transactions without requiring complete architectural replacement?",
           "options": [
-            "A. Rufus",
-            "B. Ventoy",
-            "C. Anaconda",
-            "D. BalenaEtcher"
+            "A. Scalable Architecture",
+            "B. Eliminating all need for servers",
+            "C. Replacing all human employees",
+            "D. Allowing unverified public database writes"
           ],
-          "answer": "C. Anaconda",
-          "explanation": "Anaconda is the graphical installer engine used by Fedora, RHEL, and CentOS Linux distributions."
+          "answer": "A. Scalable Architecture",
+          "explanation": "Scalable architecture allows an information system to grow gracefully in data volume and traffic load over time without catastrophic architectural rebuilds.",
+          "moduleId": "module-1-sad",
+          "moduleTitle": "Module 1: SAD"
         },
         {
-          "id": "sam-q24",
+          "id": "m1-q24",
           "number": 24,
-          "type": "mcq",
-          "category": "Multiple Choice",
-          "question": "Why is PXE boot useful in enterprise environments?",
+          "type": "identification",
+          "category": "Identification / Core Skills",
+          "question": "The specific skill set of a System Analyst encompassing project scheduling, resource allocation, and risk mitigation:",
           "options": [
-            "A. It installs OS without CPU",
-            "B. It allows OS installation over the network",
-            "C. It replaces switches",
-            "D. It formats hard drives automatically without confirmation"
+            "Management Skills",
+            "Analytical Skills",
+            "Technical Skills",
+            "Interpersonal Skills"
           ],
-          "answer": "B. It allows OS installation over the network",
-          "explanation": "Preboot Execution Environment (PXE) enables machines to boot and install operating systems directly from a network deployment server."
+          "answer": "Management Skills",
+          "explanation": "Management skills involve resource planning, scheduling milestones, controlling budget, and mitigating project risks.",
+          "moduleId": "module-1-sad",
+          "moduleTitle": "Module 1: SAD"
         },
         {
-          "id": "sam-q25",
+          "id": "m1-q25",
           "number": 25,
-          "type": "mcq",
-          "category": "Multiple Choice",
-          "question": "What is the primary role of a domain controller?",
-          "options": [
-            "A. Route external internet traffic",
-            "B. Play multimedia content",
-            "C. Manage user authentication and security policies across a domain",
-            "D. Monitor CPU temperature"
-          ],
-          "answer": "C. Manage user authentication and security policies across a domain",
-          "explanation": "Domain Controllers (e.g. Windows Active Directory) centrally authenticate users and enforce centralized group security policies."
-        },
-        {
-          "id": "sam-q26",
-          "number": 26,
-          "type": "mcq",
-          "category": "Multiple Choice",
-          "question": "Which of the following is a network administration task?",
-          "options": [
-            "A. Installing local software apps",
-            "B. Configuring router subnets and VLANs",
-            "C. Resetting local user passwords",
-            "D. Replacing laptop keyboards"
-          ],
-          "answer": "B. Configuring router subnets and VLANs",
-          "explanation": "Managing subnets, IP routing, and VLAN segmentation is a core responsibility of Network Administrators."
-        },
-        {
-          "id": "sam-q27",
-          "number": 27,
-          "type": "mcq",
-          "category": "Multiple Choice",
-          "question": "Why should critical OS updates be installed?",
-          "options": [
-            "A. To change the wallpaper",
-            "B. To close known vulnerabilities",
-            "C. To increase monitor resolution",
-            "D. To create VLANs"
-          ],
-          "answer": "B. To close known vulnerabilities",
-          "explanation": "Regular OS updates fix security flaws and patch software vulnerabilities that could otherwise be exploited by attackers."
-        },
-        {
-          "id": "sam-q28",
-          "number": 28,
-          "type": "mcq",
-          "category": "Multiple Choice",
-          "question": "What can system logs help monitor?",
-          "options": [
-            "A. Kernel events and service failures",
-            "B. Monitor brightness",
-            "C. Keyboard layout only",
-            "D. CPU brand"
-          ],
-          "answer": "A. Kernel events and service failures",
-          "explanation": "Logs capture operational history, kernel events, driver faults, security audit events, and service failures for troubleshooting."
-        },
-        {
-          "id": "sam-q29",
-          "number": 29,
-          "type": "mcq",
-          "category": "Multiple Choice",
-          "question": "Which tool is mentioned for maintaining hardware health?",
-          "options": [
-            "A. Device Manager",
-            "B. Router Manager",
-            "C. Cable Tester",
-            "D. Subnet Calculator"
-          ],
-          "answer": "A. Device Manager",
-          "explanation": "Device Manager inspects hardware state, driver status, resource conflicts, and malfunctioning peripheral devices in Windows."
-        },
-        {
-          "id": "sam-q30",
-          "number": 30,
-          "type": "mcq",
-          "category": "Multiple Choice",
-          "question": "Which credential or certification is often associated with entry-level network administration?",
-          "options": [
-            "A. RHCE",
-            "B. PMP",
-            "C. CCNA",
-            "D. CEH"
-          ],
-          "answer": "C. CCNA",
-          "explanation": "Cisco Certified Network Associate (CCNA) is a premier foundational certification for network administration."
-        },
-        {
-          "id": "sam-q31",
-          "number": 31,
-          "type": "identification",
-          "category": "Identification",
-          "question": "The management and maintenance of computer systems, servers, and IT infrastructure.",
-          "answer": "System Administration",
-          "explanation": "System Administration is the field dealing with host maintenance, OS configuration, backups, and server operations."
-        },
-        {
-          "id": "sam-q32",
-          "number": 32,
-          "type": "identification",
-          "category": "Identification",
-          "question": "The administration role focused on network devices and communication between systems.",
-          "answer": "Network Administration",
-          "explanation": "Network Administration ensures seamless inter-system communication, network device management, and traffic security."
-        },
-        {
-          "id": "sam-q33",
-          "number": 33,
-          "type": "identification",
-          "category": "Identification",
-          "question": "A device that connects different networks.",
-          "answer": "Router",
-          "explanation": "Routers forward packets between distinct logical or physical network boundaries (Layer 3)."
-        },
-        {
-          "id": "sam-q34",
-          "number": 34,
-          "type": "identification",
-          "category": "Identification",
-          "question": "A device that connects devices within a LAN.",
-          "answer": "Switch",
-          "explanation": "Switches interconnect nodes inside a localized network segment using MAC addresses (Layer 2)."
-        },
-        {
-          "id": "sam-q35",
-          "number": 35,
-          "type": "identification",
-          "category": "Identification",
-          "question": "A device that filters and protects traffic.",
-          "answer": "Firewall",
-          "explanation": "Firewalls enforce access control security policies by filtering incoming and outgoing network traffic."
-        },
-        {
-          "id": "sam-q36",
-          "number": 36,
-          "type": "identification",
-          "category": "Identification",
-          "question": "The modern disk partitioning scheme that supports drive sizes larger than 2 TB.",
-          "answer": "GPT",
-          "explanation": "GUID Partition Table (GPT) supports disk volumes up to 9.4 Zettabytes."
-        },
-        {
-          "id": "sam-q37",
-          "number": 37,
-          "type": "identification",
-          "category": "Identification",
-          "question": "The legacy partitioning scheme limited to 4 primary partitions.",
-          "answer": "MBR",
-          "explanation": "Master Boot Record (MBR) is limited to 4 primary partition table entries."
-        },
-        {
-          "id": "sam-q38",
-          "number": 38,
-          "type": "identification",
-          "category": "Identification",
-          "question": "The primary file system used by Windows OS.",
-          "answer": "NTFS",
-          "explanation": "NTFS is Microsoft's primary file system for modern Windows environments."
-        },
-        {
-          "id": "sam-q39",
-          "number": 39,
-          "type": "identification",
-          "category": "Identification",
-          "question": "The default file system commonly used in Linux installations.",
-          "answer": "ext4",
-          "explanation": "ext4 is the 4th extended file system widely used across Linux distributions."
-        },
-        {
-          "id": "sam-q40",
-          "number": 40,
-          "type": "identification",
-          "category": "Identification",
-          "question": "The security principle stating users should only have rights necessary for their tasks.",
-          "answer": "Principle of Least Privilege",
-          "explanation": "Least privilege limits user rights to essential functions only, reducing administrative risk."
-        },
-        {
-          "id": "sam-q41",
-          "number": 41,
-          "type": "identification",
-          "category": "Identification",
-          "question": "Windows tool used to manage startup applications.",
-          "answer": "msconfig",
-          "explanation": "System Configuration utility (msconfig) manages Windows startup items and services."
-        },
-        {
-          "id": "sam-q42",
-          "number": 42,
-          "type": "identification",
-          "category": "Identification",
-          "question": "Linux system initialization and service manager.",
-          "answer": "systemd",
-          "explanation": "systemd is the standard background service init framework in modern Linux."
-        },
-        {
-          "id": "sam-q43",
-          "number": 43,
-          "type": "identification",
-          "category": "Identification",
-          "question": "Term used when a RAID array is operating with a failed disk but still functional.",
-          "answer": "Degraded",
-          "explanation": "A degraded RAID state indicates a lost drive in a fault-tolerant array (e.g. RAID 1/5) operating without redundancy."
-        },
-        {
-          "id": "sam-q44",
-          "number": 44,
-          "type": "identification",
-          "category": "Identification",
-          "question": "Technology that creates a virtual software version of a physical machine.",
-          "answer": "Virtualization",
-          "explanation": "Virtualization allows running multiple guest OS instances on a single hypervisor host."
-        },
-        {
-          "id": "sam-q45",
-          "number": 45,
-          "type": "identification",
-          "category": "Identification",
-          "question": "Installer framework used by Fedora and Red Hat Linux distributions.",
-          "answer": "Anaconda",
-          "explanation": "Anaconda is the standard OS installer software for Red Hat family Linux distributions."
-        },
-        {
-          "id": "sam-q46",
-          "number": 46,
-          "type": "identification",
-          "category": "Identification",
-          "question": "Method of installing an OS over the network without local physical media.",
-          "answer": "PXE boot",
-          "explanation": "Preboot Execution Environment (PXE) loads installer files over network protocols."
-        },
-        {
-          "id": "sam-q47",
-          "number": 47,
-          "type": "identification",
-          "category": "Identification",
-          "question": "Process of preserving data to recover from system failure.",
-          "answer": "Backup",
-          "explanation": "System Backups create copies of data/OS states for disaster recovery."
-        },
-        {
-          "id": "sam-q48",
-          "number": 48,
-          "type": "identification",
-          "category": "Identification",
-          "question": "Windows feature that allows centralized control over computer settings across an organization.",
-          "answer": "Group Policy",
-          "explanation": "Group Policy Management (GPO) enforces system and user configurations in Windows Active Directory domains."
-        },
-        {
-          "id": "sam-q49",
-          "number": 49,
-          "type": "identification",
-          "category": "Identification",
-          "question": "Hardware firmware standard replacing legacy BIOS.",
-          "answer": "UEFI",
-          "explanation": "Unified Extensible Firmware Interface (UEFI) is the modern system initialization firmware replacing BIOS."
-        },
-        {
-          "id": "sam-q50",
-          "number": 50,
-          "type": "identification",
-          "category": "Identification",
-          "question": "Role responsible for maintaining file servers and user credentials.",
-          "answer": "System Administrator",
-          "explanation": "System Admins manage file shares, user directory permissions, and user credentials."
-        },
-        {
-          "id": "sam-q51",
-          "number": 51,
           "type": "tf",
-          "category": "True / False",
-          "question": "A System Administrator manages routers and switches as their primary daily task.",
-          "options": [
-            "True",
-            "False"
-          ],
-          "answer": "False",
-          "explanation": "False: Managing routers and switches is primarily the daily responsibility of a Network Administrator."
-        },
-        {
-          "id": "sam-q52",
-          "number": 52,
-          "type": "tf",
-          "category": "True / False",
-          "question": "MBR supports hard drives up to 10 TB natively without partitions.",
-          "options": [
-            "True",
-            "False"
-          ],
-          "answer": "False",
-          "explanation": "False: MBR has a maximum disk size limit of 2 TB."
-        },
-        {
-          "id": "sam-q53",
-          "number": 53,
-          "type": "tf",
-          "category": "True / False",
-          "question": "GPT supports more than 4 primary partitions in Windows environments.",
+          "category": "True or False",
+          "question": "The primary tangible deliverable produced at the culmination of the System Analysis phase is the Software Requirements Specification (SRS).",
           "options": [
             "True",
             "False"
           ],
           "answer": "True",
-          "explanation": "True: GPT supports up to 128 primary partitions in Windows."
-        },
-        {
-          "id": "sam-q54",
-          "number": 54,
-          "type": "tf",
-          "category": "True / False",
-          "question": "FAT32 file system allows single file sizes larger than 4 GB.",
-          "options": [
-            "True",
-            "False"
-          ],
-          "answer": "False",
-          "explanation": "False: FAT32 has an absolute single file size limit of 4 GB."
-        },
-        {
-          "id": "sam-q55",
-          "number": 55,
-          "type": "tf",
-          "category": "True / False",
-          "question": "Clean installation completely replaces all data on the target partition.",
-          "options": [
-            "True",
-            "False"
-          ],
-          "answer": "True",
-          "explanation": "True: A clean installation formats the target drive partition."
-        },
-        {
-          "id": "sam-q56",
-          "number": 56,
-          "type": "tf",
-          "category": "True / False",
-          "question": "Switches are used to connect different networks over the internet.",
-          "options": [
-            "True",
-            "False"
-          ],
-          "answer": "False",
-          "explanation": "False: Routers connect different networks over the internet; switches connect devices within a single LAN."
-        },
-        {
-          "id": "sam-q57",
-          "number": 57,
-          "type": "tf",
-          "category": "True / False",
-          "question": "Least privilege policy enhances system security by restricting unnecessary user permissions.",
-          "options": [
-            "True",
-            "False"
-          ],
-          "answer": "True",
-          "explanation": "True: Minimizing user access levels prevents security breaches and accidental modifications."
-        },
-        {
-          "id": "sam-q58",
-          "number": 58,
-          "type": "tf",
-          "category": "True / False",
-          "question": "BIOS/UEFI settings must be adjusted to boot from a flash drive when performing an OS installation.",
-          "options": [
-            "True",
-            "False"
-          ],
-          "answer": "True",
-          "explanation": "True: System firmware boot priority must list the installation USB before internal storage drives."
-        },
-        {
-          "id": "sam-q59",
-          "number": 59,
-          "type": "tf",
-          "category": "True / False",
-          "question": "Event logs are useful tools for diagnosing system errors and service failures.",
-          "options": [
-            "True",
-            "False"
-          ],
-          "answer": "True",
-          "explanation": "True: Event logs store operational logs crucial for diagnostic analysis."
-        },
-        {
-          "id": "sam-q60",
-          "number": 60,
-          "type": "tf",
-          "category": "True / False",
-          "question": "Network Administrators commonly manage VLAN configuration and IP routing.",
-          "options": [
-            "True",
-            "False"
-          ],
-          "answer": "True",
-          "explanation": "True: VLANs and IP subnets/routing are core network administration areas."
-        },
-        {
-          "id": "sam-q61",
-          "number": 61,
-          "type": "scenario",
-          "category": "Scenario Analysis",
-          "question": "An employee cannot log into their desktop computer because their local account password expired. Which administrator should handle this issue?",
-          "options": [
-            "A. System Administrator",
-            "B. Network Administrator",
-            "C. Hardware Vendor",
-            "D. ISP Specialist"
-          ],
-          "answer": "A. System Administrator",
-          "explanation": "System Administrator \u2014 the issue involves user account authentication and local OS security permissions."
-        },
-        {
-          "id": "sam-q62",
-          "number": 62,
-          "type": "scenario",
-          "category": "Scenario Analysis",
-          "question": "The office cannot access the internet because the default gateway router is misconfigured. Which administrator should handle the problem?",
-          "options": [
-            "A. System Administrator",
-            "B. Network Administrator",
-            "C. Database Administrator",
-            "D. Web Designer"
-          ],
-          "answer": "B. Network Administrator",
-          "explanation": "Network Administrator \u2014 default gateway routers and WAN internet access fall directly under network administration."
-        },
-        {
-          "id": "sam-q63",
-          "number": 63,
-          "type": "scenario",
-          "category": "Scenario Analysis",
-          "question": "A company needs to install Windows Server on a new physical machine. Which role is primarily responsible?",
-          "options": [
-            "A. Network Administrator",
-            "B. System Administrator",
-            "C. Security Auditor",
-            "D. Telecom Engineer"
-          ],
-          "answer": "B. System Administrator",
-          "explanation": "System Administrator \u2014 server OS deployment, configuration, and server role commissioning are system administration duties."
-        },
-        {
-          "id": "sam-q64",
-          "number": 64,
-          "type": "scenario",
-          "category": "Scenario Analysis",
-          "question": "Users cannot communicate between VLAN 10 and VLAN 20. Which administrator should investigate?",
-          "options": [
-            "A. System Administrator",
-            "B. Network Administrator",
-            "C. Storage Administrator",
-            "D. Application Developer"
-          ],
-          "answer": "B. Network Administrator",
-          "explanation": "Network Administrator \u2014 inter-VLAN routing and switch configuration belong to network administration."
-        },
-        {
-          "id": "sam-q65",
-          "number": 65,
-          "type": "scenario",
-          "category": "Scenario Analysis",
-          "question": "A server's hard drive must be backed up before scheduled system maintenance. Which admin performs this task?",
-          "options": [
-            "A. System Administrator",
-            "B. Network Administrator",
-            "C. Cable Technician",
-            "D. Helpdesk Level 1"
-          ],
-          "answer": "A. System Administrator",
-          "explanation": "System Administrator \u2014 performing server backups and system image snapshots is a system admin duty."
-        },
-        {
-          "id": "sam-q66",
-          "number": 66,
-          "type": "scenario",
-          "category": "Scenario Analysis",
-          "question": "A technician tries to format a 4 TB drive using MBR partition scheme, but can only utilize 2 TB. What is the cause?",
-          "options": [
-            "A. Broken hard drive",
-            "B. MBR 2 TB size limit limitation",
-            "C. Corrupted cable",
-            "D. Insufficient RAM"
-          ],
-          "answer": "B. MBR 2 TB size limit limitation",
-          "explanation": "MBR partitioning uses 32-bit sector addressing, limiting max addressable disk capacity to 2 TB. Upgrading to GPT resolves this."
-        },
-        {
-          "id": "sam-q67",
-          "number": 67,
-          "type": "scenario",
-          "category": "Scenario Analysis",
-          "question": "A user cannot copy a single 6 GB ISO file to an external drive formatted in FAT32, despite having 100 GB of free space. Why?",
-          "options": [
-            "A. FAT32 4 GB max file size limit",
-            "B. External drive is broken",
-            "C. Windows blocking ISO files",
-            "D. Computer lacks USB 3.0"
-          ],
-          "answer": "A. FAT32 4 GB max file size limit",
-          "explanation": "FAT32 file system cannot store any single file exceeding 4 GB. Reformatting the drive to NTFS or exFAT solves the issue."
-        },
-        {
-          "id": "sam-q68",
-          "number": 68,
-          "type": "scenario",
-          "category": "Scenario Analysis",
-          "question": "A company wants to deploy 50 identical laptops without creating USB boot keys for each. What solution should be used?",
-          "options": [
-            "A. Manual DVD insertion",
-            "B. PXE Network Boot Deployment",
-            "C. Downloading installer on each laptop",
-            "D. Upgrading MBR to GPT manually"
-          ],
-          "answer": "B. PXE Network Boot Deployment",
-          "explanation": "PXE network booting combined with automated deployment servers allows mass OS installation across local networks without physical media."
-        },
-        {
-          "id": "sam-q69",
-          "number": 69,
-          "type": "scenario",
-          "category": "Scenario Analysis",
-          "question": "An administrator wants to prevent users from installing unauthorized software on office PCs. Which security principle applies?",
-          "options": [
-            "A. High Availability",
-            "B. Principle of Least Privilege",
-            "C. Maximum Redundancy",
-            "D. Open Access"
-          ],
-          "answer": "B. Principle of Least Privilege",
-          "explanation": "By removing local administrator rights and giving standard user privileges (Least Privilege), users cannot execute unapproved software installers."
-        },
-        {
-          "id": "sam-q70",
-          "number": 70,
-          "type": "scenario",
-          "category": "Scenario Analysis",
-          "question": "A Linux server crashes during startup after a service modification. Which log viewer or init tool is used to inspect the service status?",
-          "options": [
-            "A. msconfig",
-            "B. systemd / journalctl",
-            "C. Device Manager",
-            "D. BIOS Setup"
-          ],
-          "answer": "B. systemd / journalctl",
-          "explanation": "systemd and journalctl are Linux system logging commands used to inspect service logs and locate boot errors."
+          "explanation": "True — The SRS document formally captures the verified business and user requirements compiled during system analysis.",
+          "moduleId": "module-1-sad",
+          "moduleTitle": "Module 1: SAD"
         }
       ]
+    },
+    {
+      "id": "module-2-sdlc",
+      "title": "Module 2: Software Development Lifecycle (SDLC)",
+      "subtitle": "7 Sequential Phases, Testing Methodologies & Lifecycle Pros/Cons",
+      "description": "Complete guide covering the 7 SDLC phases (Planning, Analysis, Design, Coding, Testing, Deployment, Maintenance), key deliverables (SRS, SDD), the 4 core testing levels (Unit, Integration, System, UAT), and lifecycle pros/cons.",
+      "icon": "fa-arrows-spin",
+      "badge": "MELEC 9: System Need Analysis",
+      "themeColor": "#10b981",
+      "accentGradient": "linear-gradient(135deg, #059669 0%, #10b981 100%)",
+      "study": [
+        {
+          "id": "m2-part1",
+          "title": "I. Definition and Core Purpose of the SDLC",
+          "icon": "fa-circle-notch",
+          "sections": [
+            {
+              "subtitle": "What is the SDLC?",
+              "content": "\nThe **Software Development Life Cycle (SDLC)** is a structured, step-by-step framework used by software engineering teams to plan, design, build, test, deploy, and maintain information systems throughout their entire operational life.\n\n#### Why is SDLC Indispensable?\nWithout a disciplined lifecycle, software development devolves into chaos — deadlines are missed, costs skyrocket, code is full of bugs, and the final application fails to solve the client's actual business problems. SDLC provides a predictable roadmap that guarantees quality, accountability, risk reduction, and cost control.\n"
+            }
+          ]
+        },
+        {
+          "id": "m2-part2",
+          "title": "II. The Seven (7) Sequential Phases of the SDLC",
+          "icon": "fa-list-ol",
+          "sections": [
+            {
+              "subtitle": "Phases, Objectives & Key Deliverables",
+              "content": "\nIn foundational linear/sequential software development, each phase produces specific tangible deliverables that serve as mandatory prerequisites for the succeeding stage:\n"
+            },
+            {
+              "subtitle": "The 7 Phases Matrix",
+              "table": {
+                "headers": [
+                  "Phase No. & Name",
+                  "Primary Objective & Activities",
+                  "Key Deliverable / Output"
+                ],
+                "rows": [
+                  [
+                    "1. Planning",
+                    "Determine project feasibility, estimate budget, establish timelines, identify risks, and assign team personnel.",
+                    "Project Charter, Feasibility Study, Budget & Schedule."
+                  ],
+                  [
+                    "2. Requirements Analysis",
+                    "Gather detailed business needs from stakeholders via interviews, surveys, and observation; clarify functional rules.",
+                    "Software Requirements Specification (SRS)."
+                  ],
+                  [
+                    "3. System Design",
+                    "Architect the technical blueprint: database ERDs, UI wireframes, process flowcharts, system architecture, and security rules.",
+                    "System Design Document (SDD), ERD, UI Mockups."
+                  ],
+                  [
+                    "4. Development (Coding)",
+                    "Programmers write source code, compile executable modules, build APIs, and construct the actual physical database tables.",
+                    "Source Code, Executable Application, Database Schema."
+                  ],
+                  [
+                    "5. Testing",
+                    "Execute test cases to detect logic flaws, security bugs, interface errors, and verify compliance with SRS requirements.",
+                    "Test Plan, Test Cases, Defect Log / Bug Reports."
+                  ],
+                  [
+                    "6. Deployment (Implementation)",
+                    "Install software on production servers, conduct user training, migrate legacy databases, and launch the system.",
+                    "User Manuals, Production Deployment, Live System."
+                  ],
+                  [
+                    "7. Maintenance",
+                    "Provide ongoing software support, patch security vulnerabilities, correct user-reported bugs, and implement feature upgrades.",
+                    "Change Requests, Bug Fixes, Patches, Version Updates."
+                  ]
+                ]
+              }
+            }
+          ]
+        },
+        {
+          "id": "m2-part3",
+          "title": "III. Deep-Dive: Phase 5 Software Testing Methodologies",
+          "icon": "fa-vial-circle-check",
+          "sections": [
+            {
+              "subtitle": "The Four (4) Critical Testing Levels",
+              "content": "\nTesting occurs hierarchically from the smallest programmatic units up to real-world end-user acceptance:\n"
+            },
+            {
+              "subtitle": "Testing Hierarchy Matrix",
+              "table": {
+                "headers": [
+                  "Testing Level",
+                  "Scope & Objective",
+                  "Executed By",
+                  "Real-World Example"
+                ],
+                "rows": [
+                  [
+                    "1. Unit Testing",
+                    "Testing individual functions, classes, or routines in total isolation.",
+                    "Software Developers",
+                    "Testing that `calculateDiscount()` correctly calculates a 10% student discount."
+                  ],
+                  [
+                    "2. Integration Testing",
+                    "Verifying that combined software units/modules exchange data accurately.",
+                    "Developers & QA Engineers",
+                    "Testing that Student Registration data successfully passes into the Billing module."
+                  ],
+                  [
+                    "3. System Testing",
+                    "Evaluating the complete, end-to-end integrated application against SRS specifications.",
+                    "Dedicated QA Team",
+                    "Simulating 1,000 simultaneous users logging in and testing full system workflows."
+                  ],
+                  [
+                    "4. User Acceptance Testing (UAT)",
+                    "Final verification by actual end-users in an operational environment before formal sign-off.",
+                    "Actual Clients & End-Users",
+                    "School registrar verifies that student records match university graduation policies."
+                  ]
+                ]
+              }
+            }
+          ]
+        },
+        {
+          "id": "m2-part4",
+          "title": "IV. Advantages and Disadvantages of the SDLC",
+          "icon": "fa-scale-balanced",
+          "sections": [
+            {
+              "subtitle": "Strategic Trade-Offs",
+              "table": {
+                "headers": [
+                  "Category",
+                  "Key Points & Details"
+                ],
+                "rows": [
+                  [
+                    "Advantages",
+                    "• Structured, predictable roadmap with clear accountability and milestones.<br>• Thorough documentation ensures maintainability even if developers leave.<br>• Errors detected early in planning/analysis save up to 50x in repair costs.<br>• High-quality output with rigorous stage-gate verification."
+                  ],
+                  [
+                    "Disadvantages",
+                    "• Highly rigid: Backtracking to modify approved requirements mid-project is costly.<br>• Delayed working software: Working code is not delivered until late in the lifecycle.<br>• Heavy administrative overhead and documentation burden.<br>• Assumes requirements are completely known and unchanging upfront."
+                  ]
+                ]
+              }
+            }
+          ]
+        },
+        {
+          "id": "m2-high-yield",
+          "title": "V. High-Yield Exam Summary Points",
+          "icon": "fa-bolt",
+          "sections": [
+            {
+              "subtitle": "Quick Memory Anchors",
+              "content": "\n- **SDLC Sequence**: Planning ➔ Analysis ➔ Design ➔ Coding ➔ Testing ➔ Deployment ➔ Maintenance.\n- **SRS (Software Requirements Specification)**: Output of Phase 2 (Analysis); acts as a formal contract between client and developers.\n- **Unit Testing**: Tests isolated functions/code units (conducted by developers).\n- **Integration Testing**: Tests interfaces and data exchange between linked modules.\n- **System Testing**: End-to-end full system testing by QA engineers.\n- **UAT (User Acceptance Testing)**: Conducted by **actual end-users / clients** prior to production rollout.\n- **Maintenance**: Typically the longest and most costly phase over the software's lifespan.\n- **Backtracking**: Modifying requirements in later phases causes massive budget and time inflation.\n"
+            }
+          ]
+        }
+      ],
+      "questions": [
+        {
+          "id": "m2-q1",
+          "number": 1,
+          "type": "mcq",
+          "category": "Multiple Choice",
+          "question": "What is the official tangible deliverable produced at the conclusion of the Requirements Analysis phase?",
+          "options": [
+            "A. Entity-Relationship Diagram (ERD)",
+            "B. Software Requirements Specification (SRS)",
+            "C. Executable Application File (.exe)",
+            "D. Post-Implementation Review Report"
+          ],
+          "answer": "B. Software Requirements Specification (SRS)",
+          "explanation": "The Software Requirements Specification (SRS) is the formal document containing all functional and non-functional requirements compiled during requirements analysis.",
+          "moduleId": "module-2-sdlc",
+          "moduleTitle": "Module 2: SDLC"
+        },
+        {
+          "id": "m2-q2",
+          "number": 2,
+          "type": "mcq",
+          "category": "Multiple Choice",
+          "question": "In which phase of the SDLC do programmers physically write application source code and configure databases?",
+          "options": [
+            "A. System Design",
+            "B. Development (Coding)",
+            "C. Requirements Analysis",
+            "D. Deployment"
+          ],
+          "answer": "B. Development (Coding)",
+          "explanation": "Actual programming, scripting, database schema generation, and source code development occur during Phase 4: Development (Coding).",
+          "moduleId": "module-2-sdlc",
+          "moduleTitle": "Module 2: SDLC"
+        },
+        {
+          "id": "m2-q3",
+          "number": 3,
+          "type": "mcq",
+          "category": "Multiple Choice",
+          "question": "Testing an individual function in isolation (such as a discount calculation formula) is classified as:",
+          "options": [
+            "A. User Acceptance Testing (UAT)",
+            "B. Integration Testing",
+            "C. Unit Testing",
+            "D. Stress Testing"
+          ],
+          "answer": "C. Unit Testing",
+          "explanation": "Unit testing verifies that individual functions, routines, methods, or components operate correctly in complete isolation.",
+          "moduleId": "module-2-sdlc",
+          "moduleTitle": "Module 2: SDLC"
+        },
+        {
+          "id": "m2-q4",
+          "number": 4,
+          "type": "mcq",
+          "category": "Multiple Choice",
+          "question": "Which SDLC phase occurs immediately after System Design is officially approved?",
+          "options": [
+            "A. Testing",
+            "B. Planning",
+            "C. Development (Coding)",
+            "D. Deployment"
+          ],
+          "answer": "C. Development (Coding)",
+          "explanation": "Once the architectural blueprint (System Design) is completed and approved, developers proceed to Phase 4: Development (Coding).",
+          "moduleId": "module-2-sdlc",
+          "moduleTitle": "Module 2: SDLC"
+        },
+        {
+          "id": "m2-q5",
+          "number": 5,
+          "type": "mcq",
+          "category": "Multiple Choice",
+          "question": "Conducting user training, migrating legacy databases to production servers, and officially launching the software belongs to:",
+          "options": [
+            "A. Maintenance",
+            "B. Deployment",
+            "C. System Design",
+            "D. Feasibility Analysis"
+          ],
+          "answer": "B. Deployment",
+          "explanation": "Deployment encompasses server provisioning, data migration, user onboarding/training, and official live rollout.",
+          "moduleId": "module-2-sdlc",
+          "moduleTitle": "Module 2: SDLC"
+        },
+        {
+          "id": "m2-q6",
+          "number": 6,
+          "type": "mcq",
+          "category": "Multiple Choice",
+          "question": "A university registrar officially validates that the enrollment system operates according to university policies before sign-off. What type of testing is this?",
+          "options": [
+            "A. Unit Testing",
+            "B. Regression Testing",
+            "C. User Acceptance Testing (UAT)",
+            "D. Syntax Checking"
+          ],
+          "answer": "C. User Acceptance Testing (UAT)",
+          "explanation": "User Acceptance Testing (UAT) is the critical final verification where actual end-users/clients confirm the software fulfills business requirements.",
+          "moduleId": "module-2-sdlc",
+          "moduleTitle": "Module 2: SDLC"
+        },
+        {
+          "id": "m2-q7",
+          "number": 7,
+          "type": "mcq",
+          "category": "Multiple Choice",
+          "question": "Six months after deployment, a university decides to add an automated GCash payment gateway. Which phase manages this modification?",
+          "options": [
+            "A. Maintenance",
+            "B. System Design",
+            "C. Planning",
+            "D. Unit Testing"
+          ],
+          "answer": "A. Maintenance",
+          "explanation": "Post-launch software enhancements, new API integrations, and bug fixes belong exclusively to the Maintenance phase.",
+          "moduleId": "module-2-sdlc",
+          "moduleTitle": "Module 2: SDLC"
+        },
+        {
+          "id": "m2-q8",
+          "number": 8,
+          "type": "mcq",
+          "category": "Multiple Choice",
+          "question": "Creating UI wireframes, page mockups, and database table structures occurs during which phase?",
+          "options": [
+            "A. System Design",
+            "B. Requirements Analysis",
+            "C. Development",
+            "D. Maintenance"
+          ],
+          "answer": "A. System Design",
+          "explanation": "System Design constructs the architectural blueprints: ERDs, UI mockups, interface layouts, and technical data schemas.",
+          "moduleId": "module-2-sdlc",
+          "moduleTitle": "Module 2: SDLC"
+        },
+        {
+          "id": "m2-q9",
+          "number": 9,
+          "type": "mcq",
+          "category": "Multiple Choice",
+          "question": "Which phase is widely recognized as the foundational phase determining project viability and budget constraints?",
+          "options": [
+            "A. Planning",
+            "B. Coding",
+            "C. Testing",
+            "D. Deployment"
+          ],
+          "answer": "A. Planning",
+          "explanation": "Planning establishes project feasibility, resource allocations, timeline schedules, risk assessments, and financial budgets.",
+          "moduleId": "module-2-sdlc",
+          "moduleTitle": "Module 2: SDLC"
+        },
+        {
+          "id": "m2-q10",
+          "number": 10,
+          "type": "mcq",
+          "category": "Multiple Choice",
+          "question": "Testing whether the Student Registration module correctly transfers student data into the Billing module is an example of:",
+          "options": [
+            "A. Unit Testing",
+            "B. Integration Testing",
+            "C. Acceptance Testing",
+            "D. Alpha Testing"
+          ],
+          "answer": "B. Integration Testing",
+          "explanation": "Integration testing verifies that distinct software units or sub-systems interface and exchange data seamlessly without errors.",
+          "moduleId": "module-2-sdlc",
+          "moduleTitle": "Module 2: SDLC"
+        },
+        {
+          "id": "m2-q11",
+          "number": 11,
+          "type": "identification",
+          "category": "Identification / Sequence",
+          "question": "The type of testing conducted to ensure that distinct software modules interface and exchange data seamlessly:",
+          "options": [
+            "Integration Testing",
+            "Unit Testing",
+            "System Testing",
+            "User Acceptance Testing (UAT)"
+          ],
+          "answer": "Integration Testing",
+          "explanation": "Integration Testing verifies communication, protocols, and data exchange across module boundaries.",
+          "moduleId": "module-2-sdlc",
+          "moduleTitle": "Module 2: SDLC"
+        },
+        {
+          "id": "m2-q12",
+          "number": 12,
+          "type": "identification",
+          "category": "Identification / Sequence",
+          "question": "The final phase of the SDLC where software is continuously patched, enhanced, and supported post-launch:",
+          "options": [
+            "Maintenance",
+            "Deployment",
+            "Testing",
+            "Planning"
+          ],
+          "answer": "Maintenance",
+          "explanation": "Maintenance is the ongoing, long-term phase dedicated to bug fixes, system updates, and feature enhancements.",
+          "moduleId": "module-2-sdlc",
+          "moduleTitle": "Module 2: SDLC"
+        },
+        {
+          "id": "m2-q13",
+          "number": 13,
+          "type": "identification",
+          "category": "Identification / Sequence",
+          "question": "The deliverable produced during the System Design phase that outlines database tables and relationships:",
+          "options": [
+            "Entity-Relationship Diagram (ERD) / Database Schema",
+            "SRS",
+            "Test Cases",
+            "Project Charter"
+          ],
+          "answer": "Entity-Relationship Diagram (ERD) / Database Schema",
+          "explanation": "An Entity-Relationship Diagram (ERD) or Database Schema maps entities, attributes, primary/foreign keys, and data relationships.",
+          "moduleId": "module-2-sdlc",
+          "moduleTitle": "Module 2: SDLC"
+        },
+        {
+          "id": "m2-q14",
+          "number": 14,
+          "type": "identification",
+          "category": "Identification / Sequence",
+          "question": "The phase that answers the core question: 'What should the software actually do from the user's perspective?':",
+          "options": [
+            "Requirements Analysis",
+            "System Design",
+            "Coding",
+            "Testing"
+          ],
+          "answer": "Requirements Analysis",
+          "explanation": "Requirements Analysis focuses on uncovering and detailing stakeholder needs and defining 'WHAT' the system must accomplish.",
+          "moduleId": "module-2-sdlc",
+          "moduleTitle": "Module 2: SDLC"
+        },
+        {
+          "id": "m2-q15",
+          "number": 15,
+          "type": "identification",
+          "category": "Identification / Sequence",
+          "question": "The phase during which end-users undergo formal training and the software is installed onto operational servers:",
+          "options": [
+            "Deployment",
+            "Planning",
+            "System Design",
+            "Testing"
+          ],
+          "answer": "Deployment",
+          "explanation": "Deployment (Implementation) encompasses server rollout, data migration, user onboarding/training, and go-live operations.",
+          "moduleId": "module-2-sdlc",
+          "moduleTitle": "Module 2: SDLC"
+        },
+        {
+          "id": "m2-q16",
+          "number": 16,
+          "type": "tf",
+          "category": "True or False",
+          "question": "In standard SDLC methodology, programmers should begin writing code prior to finalizing system requirements and design blueprints.",
+          "options": [
+            "True",
+            "False"
+          ],
+          "answer": "False",
+          "explanation": "False — Coding before requirements and architecture are established causes severe defects, misaligned features, and costly redesign.",
+          "moduleId": "module-2-sdlc",
+          "moduleTitle": "Module 2: SDLC"
+        },
+        {
+          "id": "m2-q17",
+          "number": 17,
+          "type": "tf",
+          "category": "True or False",
+          "question": "User Acceptance Testing (UAT) is performed exclusively by internal software developers without involving any actual end-users.",
+          "options": [
+            "True",
+            "False"
+          ],
+          "answer": "False",
+          "explanation": "False — UAT must be performed by actual clients and end-users to confirm the system solves real-world workflow needs.",
+          "moduleId": "module-2-sdlc",
+          "moduleTitle": "Module 2: SDLC"
+        },
+        {
+          "id": "m2-q18",
+          "number": 18,
+          "type": "tf",
+          "category": "True or False",
+          "question": "The Software Requirements Specification (SRS) acts as an agreed-upon contract between the client and the development team.",
+          "options": [
+            "True",
+            "False"
+          ],
+          "answer": "True",
+          "explanation": "True — The SRS establishes a binding, agreed baseline of functional and non-functional requirements between clients and engineers.",
+          "moduleId": "module-2-sdlc",
+          "moduleTitle": "Module 2: SDLC"
+        },
+        {
+          "id": "m2-q19",
+          "number": 19,
+          "type": "tf",
+          "category": "True or False",
+          "question": "Maintenance is often the longest and most resource-intensive phase across the full operational life of enterprise software.",
+          "options": [
+            "True",
+            "False"
+          ],
+          "answer": "True",
+          "explanation": "True — While development takes months, maintenance typically spans 5 to 15+ years throughout the software's active operational life.",
+          "moduleId": "module-2-sdlc",
+          "moduleTitle": "Module 2: SDLC"
+        },
+        {
+          "id": "m2-q20",
+          "number": 20,
+          "type": "tf",
+          "category": "True or False",
+          "question": "One recognized drawback of the traditional SDLC is that changing requirements mid-development can significantly escalate costs.",
+          "options": [
+            "True",
+            "False"
+          ],
+          "answer": "True",
+          "explanation": "True — In sequential SDLC models, late requirement changes force extensive backtracking through design, code, and test cases.",
+          "moduleId": "module-2-sdlc",
+          "moduleTitle": "Module 2: SDLC"
+        },
+        {
+          "id": "m2-q21",
+          "number": 21,
+          "type": "scenario",
+          "category": "Scenario Application",
+          "question": "In an Online Library Management System for a college, which set represents valid functional user requirements documented during Requirements Analysis?",
+          "options": [
+            "A. Book search & real-time cataloging, automated reservations, overdue fine computation, borrowing history, and inventory management",
+            "B. Choosing between PostgreSQL and MySQL for database clustering",
+            "C. Soldering network cables and purchasing server rack chassis",
+            "D. Writing unit tests in Jest for mathematical functions"
+          ],
+          "answer": "A. Book search & real-time cataloging, automated reservations, overdue fine computation, borrowing history, and inventory management",
+          "explanation": "Model Answer: Functional requirements define what capabilities users need: 1) Book search/cataloging, 2) Online borrowing/reservation, 3) Automated overdue fine computation (e.g., Php 10/day), 4) Account borrowing history, 5) Librarian acquisition and inventory management. (Options B, C, and D represent design, hardware procurement, and testing).",
+          "moduleId": "module-2-sdlc",
+          "moduleTitle": "Module 2: SDLC"
+        },
+        {
+          "id": "m2-q22",
+          "number": 22,
+          "type": "scenario",
+          "category": "Scenario Application",
+          "question": "A team manager suggests skipping the Testing phase to release an enterprise student portal two weeks early. What catastrophic consequences does this risk?",
+          "options": [
+            "A. Developers will get bored with no code to write.",
+            "B. Production crashes under enrollment traffic, data corruption in tuition balances, and critical security vulnerabilities like SQL injection.",
+            "C. The server CPU usage will permanently drop to zero.",
+            "D. Users will praise the speed of the deployment."
+          ],
+          "answer": "B. Production crashes under enrollment traffic, data corruption in tuition balances, and critical security vulnerabilities like SQL injection.",
+          "explanation": "Model Answer: Testing prevents three catastrophic production outcomes: 1) Data Corruption & Inaccurate Calculations (e.g., faulty tuition fees or dropped records), 2) High-Traffic Downtime & Server Crashes (failure to handle peak student traffic), and 3) Security Breaches & Data Leaks (unpatched SQL injection or broken authorization exposing student records).",
+          "moduleId": "module-2-sdlc",
+          "moduleTitle": "Module 2: SDLC"
+        },
+        {
+          "id": "m2-q23",
+          "number": 23,
+          "type": "mcq",
+          "category": "Multiple Choice",
+          "question": "In which testing methodology is the full, integrated system rigorously evaluated from end to end by a dedicated QA team against SRS specifications?",
+          "options": [
+            "A. Unit Testing",
+            "B. System Testing",
+            "C. Component Testing",
+            "D. Code Syntax Verification"
+          ],
+          "answer": "B. System Testing",
+          "explanation": "System Testing evaluates the entire compiled application as a complete system to ensure it strictly meets all functional and non-functional SRS requirements.",
+          "moduleId": "module-2-sdlc",
+          "moduleTitle": "Module 2: SDLC"
+        },
+        {
+          "id": "m2-q24",
+          "number": 24,
+          "type": "identification",
+          "category": "Identification / Deliverables",
+          "question": "The formal document created in Phase 3 that specifies user interface wireframes, network architecture, and database tables:",
+          "options": [
+            "System Design Document (SDD)",
+            "Project Charter",
+            "Test Plan",
+            "Bug Report"
+          ],
+          "answer": "System Design Document (SDD)",
+          "explanation": "The System Design Document (SDD) serves as the technical blueprint outlining the technical architecture, UI layouts, and database schemas.",
+          "moduleId": "module-2-sdlc",
+          "moduleTitle": "Module 2: SDLC"
+        },
+        {
+          "id": "m2-q25",
+          "number": 25,
+          "type": "tf",
+          "category": "True or False",
+          "question": "The traditional sequential SDLC easily accommodates major client requirement changes during Phase 5 (Testing) without significant cost inflation.",
+          "options": [
+            "True",
+            "False"
+          ],
+          "answer": "False",
+          "explanation": "False — Making major requirement changes during testing forces backward iteration through design and coding, which inflates project expenses and timelines.",
+          "moduleId": "module-2-sdlc",
+          "moduleTitle": "Module 2: SDLC"
+        }
+      ]
+    },
+    {
+      "id": "module-3-planning",
+      "title": "Module 3: Project Planning & Feasibility Study",
+      "subtitle": "6 Core Plan Components, Team Roles & The TELOS Framework",
+      "description": "Master project planning fundamentals, the 6 core components (Objectives, Scope, Budget, Schedule, Resources, Risk), team roles (PM, Analyst, Dev, QA, Sponsor), and the complete TELOS feasibility evaluation framework.",
+      "icon": "fa-list-check",
+      "badge": "MELEC 9: System Need Analysis",
+      "themeColor": "#f59e0b",
+      "accentGradient": "linear-gradient(135deg, #d97706 0%, #fbbf24 100%)",
+      "study": [
+        {
+          "id": "m3-part1",
+          "title": "I. Understanding Project Planning",
+          "icon": "fa-compass",
+          "sections": [
+            {
+              "subtitle": "What is Project Planning?",
+              "content": "\n**Project Planning** is the foundational process of organizing, estimating, and scheduling everything needed before software construction begins. It serves as the master roadmap that guides developers, management, and clients throughout the software lifecycle.\n\n#### Fundamental Planning Inquiries:\n- **What** specific system will be built?\n- **Who** will develop, test, and manage it?\n- **How much** capital/funding is required?\n- **How long** will development take?\n- **What resources** (hardware, software, personnel) are required?\n"
+            }
+          ]
+        },
+        {
+          "id": "m3-part2",
+          "title": "II. Six (6) Core Components of a Project Plan",
+          "icon": "fa-layer-group",
+          "sections": [
+            {
+              "subtitle": "The 6 Essential Plan Elements",
+              "content": "\nEvery enterprise software project plan requires six mutually reinforcing components:\n"
+            },
+            {
+              "subtitle": "Project Plan Components Matrix",
+              "table": {
+                "headers": [
+                  "Component",
+                  "Core Purpose & Definition",
+                  "School Enrollment System Example"
+                ],
+                "rows": [
+                  [
+                    "1. Project Objectives",
+                    "The explicit, high-level business goals and deliverables of the initiative.",
+                    "Develop and deploy a cloud-based Online Enrollment and Grading System for the university."
+                  ],
+                  [
+                    "2. Scope",
+                    "Defines the precise boundaries: what is explicitly INCLUDED and what is EXCLUDED.",
+                    "Included: Student registration, subject enrollment, grade viewing.<br>Excluded: Payroll, HR, and bookstore inventory."
+                  ],
+                  [
+                    "3. Budget",
+                    "Detailed financial estimates required to procure equipment, pay talent, and test.",
+                    "Total: Php 800,000 (Php 500k dev salaries, Php 200k cloud servers, Php 100k contingency)."
+                  ],
+                  [
+                    "4. Schedule & Milestones",
+                    "Timelines, deadlines, and key stage-gate completion dates (Gantt chart).",
+                    "Requirements: Month 1 | Design: Month 2 | Coding: Month 3 | UAT: Month 4 | Launch: Month 5."
+                  ],
+                  [
+                    "5. Resource Allocation",
+                    "Assigning Human (analysts, devs), Hardware (servers, PCs), and Software (IDEs, DBMS).",
+                    "3 Developers, 1 Analyst, 1 QA Tester, AWS Cloud Instance, MySQL Database."
+                  ],
+                  [
+                    "6. Risk Management",
+                    "Identifying potential threats and formulating contingency and mitigation strategies.",
+                    "Risk: Campus internet failure during finals.<br>Mitigation: Implement offline local cache and redundant 4G/5G backup."
+                  ]
+                ]
+              }
+            },
+            {
+              "subtitle": "Critical Warning: Scope Creep",
+              "content": "\n**Scope Creep** refers to the uncontrolled, gradual addition of new features or demands without corresponding increases in budget, time, or resources. Clearly documenting what is **OUT OF SCOPE** is just as important as documenting what is IN SCOPE.\n"
+            }
+          ]
+        },
+        {
+          "id": "m3-part3",
+          "title": "III. Project Team Roles and Responsibilities",
+          "icon": "fa-users-gear",
+          "sections": [
+            {
+              "subtitle": "Team Member Matrix",
+              "table": {
+                "headers": [
+                  "Role",
+                  "Primary Responsibilities",
+                  "Core Deliverables"
+                ],
+                "rows": [
+                  [
+                    "Project Manager (PM)",
+                    "Overall project leadership, budget tracking, milestone monitoring, risk management, and client coordination.",
+                    "Project Charter, Gantt Chart, Status Reports, Budget Ledger."
+                  ],
+                  [
+                    "System Analyst",
+                    "Requirements elicitation, business process analysis, and architectural system blueprint design.",
+                    "SRS Document, DFDs, ERDs, UI Mockups."
+                  ],
+                  [
+                    "Software Developer / Programmer",
+                    "Writing clean source code, building APIs, compiling applications, and creating database tables.",
+                    "Application Code, Database Schema, Executable Builds."
+                  ],
+                  [
+                    "Quality Assurance (QA) Tester",
+                    "Designing and executing test plans, logging defects, verifying fixes, and stress-testing performance.",
+                    "Test Plan, Test Scripts, Defect / Bug Log."
+                  ],
+                  [
+                    "End-User / Client Sponsor",
+                    "Providing domain requirements, clarifying operational rules, and performing final acceptance testing.",
+                    "Business Needs, Feedback, UAT Sign-Off."
+                  ]
+                ]
+              }
+            }
+          ]
+        },
+        {
+          "id": "m3-part4",
+          "title": "IV. Feasibility Study: The TELOS Framework",
+          "icon": "fa-magnifying-glass-chart",
+          "sections": [
+            {
+              "subtitle": "What is a Feasibility Study?",
+              "content": "\nA **Feasibility Study** answers the pivotal question: **\"Should we build this project?\"** It evaluates the technical, financial, and organizational viability before significant capital and labor are committed.\n"
+            },
+            {
+              "subtitle": "The TELOS Framework Matrix",
+              "table": {
+                "headers": [
+                  "TELOS Dimension",
+                  "Key Inquiry & Scope",
+                  "Evaluation Focus"
+                ],
+                "rows": [
+                  [
+                    "T - Technical Feasibility",
+                    "\"Do we have the technology and expertise?\"",
+                    "Assesses team technical skills, hardware capability, network stability, and software compatibility."
+                  ],
+                  [
+                    "E - Economic Feasibility",
+                    "\"Is the project financially worthwhile?\"",
+                    "Cost-Benefit Analysis, Return on Investment (ROI), ongoing operational maintenance expenses vs savings."
+                  ],
+                  [
+                    "L - Legal Feasibility",
+                    "\"Does the project comply with laws and contracts?\"",
+                    "Data privacy laws (e.g. Philippine DPA of 2012), open-source license compliance, copyright, and industry regulations."
+                  ],
+                  [
+                    "O - Operational Feasibility",
+                    "\"Will the organization actually adopt and use it?\"",
+                    "Staff acceptance, organizational culture, ease of use, training needs, and resistance to change."
+                  ],
+                  [
+                    "S - Schedule Feasibility",
+                    "\"Can we finish within the required timeframe?\"",
+                    "Milestone timelines, development velocity, hard deadlines (e.g., semester opening, tax season)."
+                  ]
+                ]
+              }
+            }
+          ]
+        },
+        {
+          "id": "m3-high-yield",
+          "title": "V. High-Yield Exam Summary Points",
+          "icon": "fa-bolt",
+          "sections": [
+            {
+              "subtitle": "Quick Memory Anchors",
+              "content": "\n- **Project Plan Components**: Objectives, Scope, Budget, Schedule, Resources, Risk Management.\n- **Scope Creep**: Uncontrolled feature additions without budget/timeline adjustments.\n- **Project Manager (PM)**: Directs budget, milestones, timeline pacing, and resource allocations.\n- **TELOS Framework**:\n  - **T (Technical)**: Hardware, software, infrastructure, team technical skills.\n  - **E (Economic)**: Costs, ROI, Cost-Benefit Analysis.\n  - **L (Legal)**: Regulatory laws, Data Privacy Act (DPA 2012), licenses, copyright.\n  - **O (Operational)**: User willingness, job workflow fit, training, change resistance.\n  - **S (Schedule)**: Completion deadlines, time constraints.\n- **Failure in Operational Feasibility**: Software can be technically flawless and profitable, but fail completely because staff refuse to use it.\n"
+            }
+          ]
+        }
+      ],
+      "questions": [
+        {
+          "id": "m3-q1",
+          "number": 1,
+          "type": "mcq",
+          "category": "Multiple Choice",
+          "question": "What is the fundamental question answered by a Feasibility Study prior to starting a software project?",
+          "options": [
+            "A. 'How many lines of code can we write in one day?'",
+            "B. 'Should we build this project?'",
+            "C. 'Which programming font is most aesthetic?'",
+            "D. 'How many monitors does each developer need?'"
+          ],
+          "answer": "B. 'Should we build this project?'",
+          "explanation": "A feasibility study establishes overall viability, risk, and strategic justification before an organization commits funding and human resources.",
+          "moduleId": "module-3-planning",
+          "moduleTitle": "Module 3: Project Planning"
+        },
+        {
+          "id": "m3-q2",
+          "number": 2,
+          "type": "mcq",
+          "category": "Multiple Choice",
+          "question": "An analyst checks whether the school's existing computer hardware and campus Wi-Fi can run a proposed cloud portal. Which feasibility type is this?",
+          "options": [
+            "A. Legal Feasibility",
+            "B. Technical Feasibility",
+            "C. Economic Feasibility",
+            "D. Schedule Feasibility"
+          ],
+          "answer": "B. Technical Feasibility",
+          "explanation": "Evaluating existing physical hardware, Wi-Fi networks, server capacities, and technical tools falls directly under Technical Feasibility.",
+          "moduleId": "module-3-planning",
+          "moduleTitle": "Module 3: Project Planning"
+        },
+        {
+          "id": "m3-q3",
+          "number": 3,
+          "type": "mcq",
+          "category": "Multiple Choice",
+          "question": "Calculating Return on Investment (ROI) by comparing an initial cost of Php 500,000 against projected savings of Php 900,000 is evaluated under:",
+          "options": [
+            "A. Operational Feasibility",
+            "B. Economic Feasibility",
+            "C. Technical Feasibility",
+            "D. Schedule Feasibility"
+          ],
+          "answer": "B. Economic Feasibility",
+          "explanation": "Cost-Benefit Analysis, ROI calculations, and capital expenditure forecasts are evaluated under Economic Feasibility.",
+          "moduleId": "module-3-planning",
+          "moduleTitle": "Module 3: Project Planning"
+        },
+        {
+          "id": "m3-q4",
+          "number": 4,
+          "type": "mcq",
+          "category": "Multiple Choice",
+          "question": "Ensuring that a student portal strictly adheres to the Philippine Data Privacy Act of 2012 is a primary concern of:",
+          "options": [
+            "A. Schedule Feasibility",
+            "B. Legal Feasibility",
+            "C. Technical Feasibility",
+            "D. Operational Feasibility"
+          ],
+          "answer": "B. Legal Feasibility",
+          "explanation": "Statutory privacy regulations, copyright laws, and intellectual property compliance are assessed under Legal Feasibility.",
+          "moduleId": "module-3-planning",
+          "moduleTitle": "Module 3: Project Planning"
+        },
+        {
+          "id": "m3-q5",
+          "number": 5,
+          "type": "mcq",
+          "category": "Multiple Choice",
+          "question": "If teachers refuse to use a newly deployed grading system because they find it too difficult and complicated, which feasibility dimension failed?",
+          "options": [
+            "A. Operational Feasibility",
+            "B. Legal Feasibility",
+            "C. Technical Feasibility",
+            "D. Economic Feasibility"
+          ],
+          "answer": "A. Operational Feasibility",
+          "explanation": "Operational Feasibility gauges whether end-users will accept, embrace, and easily operate the system within organizational workflows.",
+          "moduleId": "module-3-planning",
+          "moduleTitle": "Module 3: Project Planning"
+        },
+        {
+          "id": "m3-q6",
+          "number": 6,
+          "type": "mcq",
+          "category": "Multiple Choice",
+          "question": "A university mandates that the new enrollment portal must be 100% operational before the August semester opens. Assessing if this can be achieved is:",
+          "options": [
+            "A. Technical Feasibility",
+            "B. Operational Feasibility",
+            "C. Schedule Feasibility",
+            "D. Economic Feasibility"
+          ],
+          "answer": "C. Schedule Feasibility",
+          "explanation": "Schedule Feasibility evaluates whether the project can be planned, built, tested, and rolled out within strict timeline deadlines.",
+          "moduleId": "module-3-planning",
+          "moduleTitle": "Module 3: Project Planning"
+        },
+        {
+          "id": "m3-q7",
+          "number": 7,
+          "type": "mcq",
+          "category": "Multiple Choice",
+          "question": "In a Project Plan, clearly identifying that the system will handle 'Student Enrollment' but will NOT include 'Payroll' defines the project's:",
+          "options": [
+            "A. Scope",
+            "B. Schedule",
+            "C. Budget",
+            "D. Resources"
+          ],
+          "answer": "A. Scope",
+          "explanation": "The Project Scope establishes explicit boundaries by declaring what deliverables are included and what are excluded.",
+          "moduleId": "module-3-planning",
+          "moduleTitle": "Module 3: Project Planning"
+        },
+        {
+          "id": "m3-q8",
+          "number": 8,
+          "type": "mcq",
+          "category": "Multiple Choice",
+          "question": "Which software team role is primarily responsible for tracking project milestones, controlling budgets, and coordinating team activities?",
+          "options": [
+            "A. System Analyst",
+            "B. Database Administrator",
+            "C. Project Manager (PM)",
+            "D. QA Tester"
+          ],
+          "answer": "C. Project Manager (PM)",
+          "explanation": "The Project Manager (PM) oversees resource allocation, timeline adherence, budget tracking, risk response, and team coordination.",
+          "moduleId": "module-3-planning",
+          "moduleTitle": "Module 3: Project Planning"
+        },
+        {
+          "id": "m3-q9",
+          "number": 9,
+          "type": "mcq",
+          "category": "Multiple Choice",
+          "question": "Which tool is categorized as a Software Resource in a software development project plan?",
+          "options": [
+            "A. Dell PowerEdge Server",
+            "B. MySQL Database / Visual Studio Code",
+            "C. Quality Assurance Tester",
+            "D. Core i7 Laptop"
+          ],
+          "answer": "B. MySQL Database / Visual Studio Code",
+          "explanation": "DBMS software (MySQL), IDEs (VS Code), and compilers are classified as Software Resources. (Servers and laptops are Hardware; testers are Human Resources).",
+          "moduleId": "module-3-planning",
+          "moduleTitle": "Module 3: Project Planning"
+        },
+        {
+          "id": "m3-q10",
+          "number": 10,
+          "type": "mcq",
+          "category": "Multiple Choice",
+          "question": "What undesirable phenomenon occurs when extra features are continuously added to a project without expanding budget or timeline?",
+          "options": [
+            "A. Scope Creep",
+            "B. Refactoring",
+            "C. Regression Testing",
+            "D. Feasibility Expansion"
+          ],
+          "answer": "A. Scope Creep",
+          "explanation": "Scope Creep is the uncontrolled, creeping expansion of product features without necessary adjustments to budget, time, or resources.",
+          "moduleId": "module-3-planning",
+          "moduleTitle": "Module 3: Project Planning"
+        },
+        {
+          "id": "m3-q11",
+          "number": 11,
+          "type": "identification",
+          "category": "TELOS Classification",
+          "question": "Assessing whether the school has sufficient funds to hire three senior Python developers and buy enterprise cloud licenses:",
+          "options": [
+            "Economic Feasibility",
+            "Technical Feasibility",
+            "Legal Feasibility",
+            "Operational Feasibility",
+            "Schedule Feasibility"
+          ],
+          "answer": "Economic Feasibility",
+          "explanation": "Economic Feasibility — Evaluates financial costs, funding availability, salaries, cloud licenses, and projected financial return.",
+          "moduleId": "module-3-planning",
+          "moduleTitle": "Module 3: Project Planning"
+        },
+        {
+          "id": "m3-q12",
+          "number": 12,
+          "type": "identification",
+          "category": "TELOS Classification",
+          "question": "Evaluating whether existing clinic staff have the basic computer literacy needed to operate an electronic health records system:",
+          "options": [
+            "Operational Feasibility",
+            "Technical Feasibility",
+            "Economic Feasibility",
+            "Legal Feasibility",
+            "Schedule Feasibility"
+          ],
+          "answer": "Operational Feasibility",
+          "explanation": "Operational Feasibility — Evaluates staff competence, user readiness, training overhead, and workplace workflow integration.",
+          "moduleId": "module-3-planning",
+          "moduleTitle": "Module 3: Project Planning"
+        },
+        {
+          "id": "m3-q13",
+          "number": 13,
+          "type": "identification",
+          "category": "TELOS Classification",
+          "question": "Checking if third-party open-source libraries used in the software require royalty fees or violate proprietary copyright agreements:",
+          "options": [
+            "Legal Feasibility",
+            "Technical Feasibility",
+            "Economic Feasibility",
+            "Operational Feasibility",
+            "Schedule Feasibility"
+          ],
+          "answer": "Legal Feasibility",
+          "explanation": "Legal Feasibility — Assesses software licensing, copyright, open-source constraints, and regulatory liabilities.",
+          "moduleId": "module-3-planning",
+          "moduleTitle": "Module 3: Project Planning"
+        },
+        {
+          "id": "m3-q14",
+          "number": 14,
+          "type": "identification",
+          "category": "TELOS Classification",
+          "question": "Investigating if the development team has enough specialized knowledge in biometric facial recognition algorithms:",
+          "options": [
+            "Technical Feasibility",
+            "Economic Feasibility",
+            "Legal Feasibility",
+            "Operational Feasibility",
+            "Schedule Feasibility"
+          ],
+          "answer": "Technical Feasibility",
+          "explanation": "Technical Feasibility — Evaluates technical engineering expertise, algorithmic competence, and hardware/software capabilities.",
+          "moduleId": "module-3-planning",
+          "moduleTitle": "Module 3: Project Planning"
+        },
+        {
+          "id": "m3-q15",
+          "number": 15,
+          "type": "identification",
+          "category": "TELOS Classification",
+          "question": "Determining whether a 16-week timeline is adequate to complete coding, testing, and deployment before annual accreditation:",
+          "options": [
+            "Schedule Feasibility",
+            "Technical Feasibility",
+            "Economic Feasibility",
+            "Legal Feasibility",
+            "Operational Feasibility"
+          ],
+          "answer": "Schedule Feasibility",
+          "explanation": "Schedule Feasibility — Evaluates project milestones against rigid external deadlines and calendar constraints.",
+          "moduleId": "module-3-planning",
+          "moduleTitle": "Module 3: Project Planning"
+        },
+        {
+          "id": "m3-q16",
+          "number": 16,
+          "type": "tf",
+          "category": "True or False",
+          "question": "A project can be technically feasible and economically attractive, yet still fail completely due to poor operational feasibility.",
+          "options": [
+            "True",
+            "False"
+          ],
+          "answer": "True",
+          "explanation": "True — Even technically sophisticated and profitable systems fail if end-users resist adoption or find them too disruptive to use.",
+          "moduleId": "module-3-planning",
+          "moduleTitle": "Module 3: Project Planning"
+        },
+        {
+          "id": "m3-q17",
+          "number": 17,
+          "type": "tf",
+          "category": "True or False",
+          "question": "The project scope should only describe features that are included; documenting excluded features is considered bad practice.",
+          "options": [
+            "True",
+            "False"
+          ],
+          "answer": "False",
+          "explanation": "False — Documenting out-of-scope (excluded) features is mandatory to manage stakeholder expectations and prevent scope creep.",
+          "moduleId": "module-3-planning",
+          "moduleTitle": "Module 3: Project Planning"
+        },
+        {
+          "id": "m3-q18",
+          "number": 18,
+          "type": "tf",
+          "category": "True or False",
+          "question": "Economic feasibility focuses solely on software purchase price and ignores developer salaries, hardware, and ongoing maintenance.",
+          "options": [
+            "True",
+            "False"
+          ],
+          "answer": "False",
+          "explanation": "False — Economic feasibility must evaluate Total Cost of Ownership (TCO), including salaries, training, hardware, and maintenance.",
+          "moduleId": "module-3-planning",
+          "moduleTitle": "Module 3: Project Planning"
+        },
+        {
+          "id": "m3-q19",
+          "number": 19,
+          "type": "tf",
+          "category": "True or False",
+          "question": "Legal feasibility includes ensuring that user data handling conforms to data privacy, confidentiality, and statutory guidelines.",
+          "options": [
+            "True",
+            "False"
+          ],
+          "answer": "True",
+          "explanation": "True — Legal feasibility guarantees adherence to statutory privacy legislation (such as the DPA of 2012) and contractual rules.",
+          "moduleId": "module-3-planning",
+          "moduleTitle": "Module 3: Project Planning"
+        },
+        {
+          "id": "m3-q20",
+          "number": 20,
+          "type": "tf",
+          "category": "True or False",
+          "question": "Conducting a feasibility study guarantees that a project will have zero technical challenges during programming.",
+          "options": [
+            "True",
+            "False"
+          ],
+          "answer": "False",
+          "explanation": "False — A feasibility study identifies risks and viable pathways; it cannot eliminate standard programming bugs or technical challenges.",
+          "moduleId": "module-3-planning",
+          "moduleTitle": "Module 3: Project Planning"
+        },
+        {
+          "id": "m3-q21",
+          "number": 21,
+          "type": "scenario",
+          "category": "Case Study / Scenario",
+          "question": "City General Hospital evaluates an AI Triage System: Development cost is Php 1.2M; projected savings is Php 2.8M over 4 years. However, senior nurses actively refuse to use tablets, and emergency ward Wi-Fi is unstable. What is the soundest recommendation?",
+          "options": [
+            "A. Proceed with deployment immediately because the project has positive ROI.",
+            "B. Do NOT proceed as-is. Upgrade emergency room network infrastructure (Technical) and conduct change management, ergonomic tablet testing, and nurse training (Operational) first.",
+            "C. Fire all senior nurses and replace them with programmers.",
+            "D. Cancel the project permanently and prohibit all hospital software forever."
+          ],
+          "answer": "B. Do NOT proceed as-is. Upgrade emergency room network infrastructure (Technical) and conduct change management, ergonomic tablet testing, and nurse training (Operational) first.",
+          "explanation": "Model Analysis: • Economic: Feasible (Php 1.6M net savings = excellent ROI). • Technical: Not currently feasible due to unstable ER Wi-Fi causing life-or-death disconnections. • Operational: Not currently feasible due to senior nurse resistance. Recommendation: Do NOT proceed as-is. Remediate technical network bottlenecks and conduct change management/training first.",
+          "moduleId": "module-3-planning",
+          "moduleTitle": "Module 3: Project Planning"
+        },
+        {
+          "id": "m3-q22",
+          "number": 22,
+          "type": "scenario",
+          "category": "Case Study / Scenario",
+          "question": "Why is defining the Project Scope regarded as one of the most critical steps in project planning? What happens when scope is ambiguous?",
+          "options": [
+            "A. Ambiguous scope results in Scope Creep, missed deadlines, budget overruns, and disputed deliverables at launch.",
+            "B. Ambiguous scope makes programmers write code in faster languages.",
+            "C. Scope only matters for small freelance projects, not enterprise systems.",
+            "D. Defining scope automatically generates all SQL tables."
+          ],
+          "answer": "A. Ambiguous scope results in Scope Creep, missed deadlines, budget overruns, and disputed deliverables at launch.",
+          "explanation": "Model Analysis: Project scope defines the explicit boundary agreement between developers and stakeholders. Poorly communicated scope leads to: 1) Scope Creep (unending unbudgeted requests), 2) Schedule Delays & Cost Overruns (building unapproved features), and 3) Disputed Deliverables (clients withholding payment because divergent expectations were not aligned).",
+          "moduleId": "module-3-planning",
+          "moduleTitle": "Module 3: Project Planning"
+        },
+        {
+          "id": "m3-q23",
+          "number": 23,
+          "type": "mcq",
+          "category": "Multiple Choice",
+          "question": "In a software project plan, which core component identifies external threats (e.g., campus power failure or server downtime) and defines contingency actions?",
+          "options": [
+            "A. Risk Management",
+            "B. Scope Statement",
+            "C. Financial Invoice",
+            "D. Syntax Checker"
+          ],
+          "answer": "A. Risk Management",
+          "explanation": "Risk management systematically identifies project risks, evaluates their impact, and establishes mitigation and recovery protocols.",
+          "moduleId": "module-3-planning",
+          "moduleTitle": "Module 3: Project Planning"
+        },
+        {
+          "id": "m3-q24",
+          "number": 24,
+          "type": "identification",
+          "category": "TELOS Classification",
+          "question": "Determining whether an organization's existing servers have enough CPU cores, RAM, and SSD storage to host a new DBMS cluster:",
+          "options": [
+            "Technical Feasibility",
+            "Economic Feasibility",
+            "Legal Feasibility",
+            "Operational Feasibility",
+            "Schedule Feasibility"
+          ],
+          "answer": "Technical Feasibility",
+          "explanation": "Assessing physical server hardware, memory capacity, and computing infrastructure falls under Technical Feasibility.",
+          "moduleId": "module-3-planning",
+          "moduleTitle": "Module 3: Project Planning"
+        },
+        {
+          "id": "m3-q25",
+          "number": 25,
+          "type": "tf",
+          "category": "True or False",
+          "question": "Evaluating Total Cost of Ownership (TCO) in Economic Feasibility requires accounting for recurring software maintenance, cloud hosting, and staff training expenses.",
+          "options": [
+            "True",
+            "False"
+          ],
+          "answer": "True",
+          "explanation": "True — Economic feasibility must evaluate total lifecycle costs, not merely initial development expenditures.",
+          "moduleId": "module-3-planning",
+          "moduleTitle": "Module 3: Project Planning"
+        }
+      ]
+    },
+    {
+      "id": "module-4-requirements",
+      "title": "Module 4: Requirements Gathering Techniques",
+      "subtitle": "Interviews, Observation, Questionnaires & Document Analysis",
+      "description": "Master the 4 primary elicitation techniques: Interviews (Structured, Unstructured, Semi-structured), Observation (Passive vs Active, Hawthorne Effect), Questionnaires (Open vs Closed-ended), and Document Analysis; strengths, weaknesses, and hybrid strategies.",
+      "icon": "fa-comments",
+      "badge": "MELEC 9: System Need Analysis",
+      "themeColor": "#8b5cf6",
+      "accentGradient": "linear-gradient(135deg, #7c3aed 0%, #a855f7 100%)",
+      "study": [
+        {
+          "id": "m4-part1",
+          "title": "I. Concept and Critical Importance of Requirements Gathering",
+          "icon": "fa-lightbulb",
+          "sections": [
+            {
+              "subtitle": "What is Requirements Gathering?",
+              "content": "\n**Requirements Gathering (Elicitation)** is the systematic process of collecting, discovering, analyzing, and refining information from stakeholders to determine exactly what a new software system must accomplish and how it should perform.\n\n#### Why is it Considered the Most Critical Phase?\nRequirements errors represent over **50% of all software project failures**. Building the wrong system perfectly is completely useless. Requirements gathering ensures developers solve the real business problems, prevent feature bloat (gold plating), and avoid catastrophic post-release redesigns.\n"
+            }
+          ]
+        },
+        {
+          "id": "m4-part2",
+          "title": "II. The Four (4) Primary Elicitation Techniques",
+          "icon": "fa-toolbox",
+          "sections": [
+            {
+              "subtitle": "Comparison of Elicitation Techniques",
+              "content": "\nAnalysts utilize four primary methodologies to extract requirements, each tailored for different stakeholder types and operational contexts:\n"
+            },
+            {
+              "subtitle": "The 4 Primary Techniques Matrix",
+              "table": {
+                "headers": [
+                  "Technique",
+                  "Core Definition & Subtypes",
+                  "Key Advantages",
+                  "Key Limitations"
+                ],
+                "rows": [
+                  [
+                    "1. Interview",
+                    "Direct conversation (face-to-face, video, phone) between analyst and stakeholder.<br>• Structured: Scripted, identical question order.<br>• Unstructured: Free-flowing, open discussion.<br>• Semi-Structured: Core questions + flexible probes (Most common).",
+                    "• Rich qualitative depth.<br>• Immediate clarification.<br>• Uncovers political/hidden concerns.<br>• Builds stakeholder trust.",
+                    "• Highly time-consuming.<br>• Expensive per participant.<br>• Reaches small sample size.<br>• Interviewer bias can skew answers."
+                  ],
+                  [
+                    "2. Observation",
+                    "Watching end-users execute their real daily workflow in their natural work environment.<br>• Passive: Watching silently without interrupting.<br>• Active: Asking real-time questions while the user performs tasks.",
+                    "• Uncovers undocumented shortcuts & unofficial workarounds.<br>• Captures high physical fidelity.<br>• Verifies statements from interviews.",
+                    "• Hawthorne Effect (subjects alter behavior when observed).<br>• Unusual/rare edge-case scenarios may not occur during observation window."
+                  ],
+                  [
+                    "3. Questionnaire / Survey",
+                    "Distributing a standardized set of written or online questions to a large population of respondents.<br>• Closed-ended: Predefined choices (Yes/No, Rating 1-5, Multiple Choice).<br>• Open-ended: Free-text subjective input.",
+                    "• Massive sample reach (thousands of users).<br>• Extremely low marginal cost per respondent.<br>• Rapid statistical & quantitative analysis.<br>• Anonymity encourages honest answers.",
+                    "• Rigid: Cannot probe unexpected insights or clarify misunderstandings.<br>• Low response rates.<br>• Superficial qualitative depth."
+                  ],
+                  [
+                    "4. Document Analysis",
+                    "Systematic review of existing organizational documentation, forms, invoices, SOPs, legacy code, and user manuals.",
+                    "• Extracts formal business rules & data entities.<br>• Zero interruption of busy employees.<br>• Reveals historical context & regulatory requirements.",
+                    "• Documents often reflect idealized policies rather than messy actual reality.<br>• Outdated or obsolete documentation can mislead analysts."
+                  ]
+                ]
+              }
+            }
+          ]
+        },
+        {
+          "id": "m4-part3",
+          "title": "III. Strategic Technique Selection: When to Use Which?",
+          "icon": "fa-bullseye",
+          "sections": [
+            {
+              "subtitle": "Context-Driven Selection Matrix",
+              "table": {
+                "headers": [
+                  "Target Stakeholder / Scenario",
+                  "Recommended Technique",
+                  "Strategic Rationale"
+                ],
+                "rows": [
+                  [
+                    "Senior Executives & Top Leadership",
+                    "Semi-Structured Interview",
+                    "Executives have high strategic insights and low availability; 1-on-1 dialogue extracts strategic priorities efficiently."
+                  ],
+                  [
+                    "Mass End-User Base (e.g., 5,000 students)",
+                    "Online Questionnaire / Survey",
+                    "Surveys are the only cost-effective way to gather broad quantitative feedback across large dispersed populations."
+                  ],
+                  [
+                    "Uncovering Workarounds & Operational Bottlenecks",
+                    "Observation (Passive / Active)",
+                    "Employees rarely confess to violating official protocols in interviews; watching them reveals real physical shortcuts."
+                  ],
+                  [
+                    "Extracting Hard Formulas & Legal Data Entities",
+                    "Document Analysis",
+                    "Tax codes, invoice fields, and accounting validation rules are accurately captured in paper records without interrupting staff."
+                  ]
+                ]
+              }
+            },
+            {
+              "subtitle": "The Hybrid Triangulation Strategy",
+              "content": "\nNo single technique is sufficient on its own. Seasoned system analysts employ **methodological triangulation**:\n1. **Document Analysis First**: Learn institutional vocabulary, paper forms, and business rules without wasting staff time.\n2. **Surveys / Questionnaires Second**: Gather high-level quantitative trends and pain points from the general user base.\n3. **Targeted Interviews Third**: Drill down into conflicting issues, edge-cases, and strategic goals with department heads.\n4. **Observation Fourth**: Shadow frontline workers to verify that interview statements match daily physical operational reality.\n"
+            }
+          ]
+        },
+        {
+          "id": "m4-high-yield",
+          "title": "IV. High-Yield Exam Summary Points",
+          "icon": "fa-bolt",
+          "sections": [
+            {
+              "subtitle": "Quick Memory Anchors",
+              "content": "\n- **Hawthorne Effect**: Workers alter their behavior when they know they are being observed.\n- **Semi-Structured Interview**: Most common interview style in SAD; blends mandatory questions with spontaneous follow-up probes.\n- **Passive Observation**: Silent watching; **Active Observation**: Interrupting the worker to ask real-time questions.\n- **Closed-Ended Questions**: Predefined choices (Yes/No, Likert scale); easy to analyze statistically.\n- **Document Analysis**: Best for discovering database entities and formal rules, but misses informal employee workarounds.\n- **Triangulation**: Combining multiple elicitation methods to validate requirements and eliminate blind spots.\n"
+            }
+          ]
+        }
+      ],
+      "questions": [
+        {
+          "id": "m4-q1",
+          "number": 1,
+          "type": "mcq",
+          "category": "Multiple Choice",
+          "question": "Which requirements elicitation technique is most effective when an analyst needs to gather opinions from 5,000 enrolled university students?",
+          "options": [
+            "A. In-depth face-to-face interviews",
+            "B. Online questionnaire / survey",
+            "C. Active observation of every student",
+            "D. Reviewing university financial ledgers"
+          ],
+          "answer": "B. Online questionnaire / survey",
+          "explanation": "Surveys provide rapid, low-cost distribution across thousands of respondents, making them the only scalable option for large populations like 5,000 students.",
+          "moduleId": "module-4-requirements",
+          "moduleTitle": "Module 4: Requirements Gathering"
+        },
+        {
+          "id": "m4-q2",
+          "number": 2,
+          "type": "mcq",
+          "category": "Multiple Choice",
+          "question": "An analyst sits silently beside a billing clerk for two hours without asking questions or speaking. This is an example of:",
+          "options": [
+            "A. Active Observation",
+            "B. Passive Observation",
+            "C. Structured Interview",
+            "D. Document Sampling"
+          ],
+          "answer": "B. Passive Observation",
+          "explanation": "Passive observation requires the analyst to watch silently without engaging, interrupting, or interacting with the subject.",
+          "moduleId": "module-4-requirements",
+          "moduleTitle": "Module 4: Requirements Gathering"
+        },
+        {
+          "id": "m4-q3",
+          "number": 3,
+          "type": "mcq",
+          "category": "Multiple Choice",
+          "question": "What major psychological phenomenon describes users altering their regular work behavior because they know an analyst is watching them?",
+          "options": [
+            "A. Placebo Effect",
+            "B. Hawthorne Effect",
+            "C. Halo Effect",
+            "D. Murphy's Law"
+          ],
+          "answer": "B. Hawthorne Effect",
+          "explanation": "The Hawthorne Effect is the documented psychological phenomenon where individuals modify or improve an aspect of their behavior in response to being observed.",
+          "moduleId": "module-4-requirements",
+          "moduleTitle": "Module 4: Requirements Gathering"
+        },
+        {
+          "id": "m4-q4",
+          "number": 4,
+          "type": "mcq",
+          "category": "Multiple Choice",
+          "question": "Which interview type utilizes a fixed, pre-written list of questions asked in identical sequence to all interviewees to facilitate direct comparison?",
+          "options": [
+            "A. Unstructured Interview",
+            "B. Structured Interview",
+            "C. Semi-structured Interview",
+            "D. Focus Group Discussion"
+          ],
+          "answer": "B. Structured Interview",
+          "explanation": "Structured interviews use a rigid, pre-defined question sequence to standardize responses and allow direct comparative analysis across subjects.",
+          "moduleId": "module-4-requirements",
+          "moduleTitle": "Module 4: Requirements Gathering"
+        },
+        {
+          "id": "m4-q5",
+          "number": 5,
+          "type": "mcq",
+          "category": "Multiple Choice",
+          "question": "If an analyst wants to uncover the exact fields printed on a school's official billing invoice without interrupting employees, which technique is ideal?",
+          "options": [
+            "A. Document Analysis",
+            "B. Student Survey",
+            "C. Active Observation",
+            "D. Brainstorming Session"
+          ],
+          "answer": "A. Document Analysis",
+          "explanation": "Document analysis inspects invoices, forms, receipts, and reports to establish exact data entity specifications without taking up employee time.",
+          "moduleId": "module-4-requirements",
+          "moduleTitle": "Module 4: Requirements Gathering"
+        },
+        {
+          "id": "m4-q6",
+          "number": 6,
+          "type": "mcq",
+          "category": "Multiple Choice",
+          "question": "What is the single most commonly used interview style in modern systems analysis because it balances structure with conversational flexibility?",
+          "options": [
+            "A. Completely Unstructured",
+            "B. Semi-Structured",
+            "C. Strictly Scripted",
+            "D. Cross-Examination"
+          ],
+          "answer": "B. Semi-Structured",
+          "explanation": "Semi-structured interviews allow an analyst to cover mandatory agenda items while freely investigating unexpected insights through adaptive follow-up probes.",
+          "moduleId": "module-4-requirements",
+          "moduleTitle": "Module 4: Requirements Gathering"
+        },
+        {
+          "id": "m4-q7",
+          "number": 7,
+          "type": "mcq",
+          "category": "Multiple Choice",
+          "question": "Which of the following is a recognized disadvantage of distributing questionnaires?",
+          "options": [
+            "A. Extremely high cost per respondent",
+            "B. Cannot clarify questions that respondents misunderstand",
+            "C. Requires the analyst to travel to every respondent",
+            "D. Impossible to analyze statistically"
+          ],
+          "answer": "B. Cannot clarify questions that respondents misunderstand",
+          "explanation": "Once distributed, ambiguous survey questions cannot be re-explained in real-time, risking skewed or flawed responses.",
+          "moduleId": "module-4-requirements",
+          "moduleTitle": "Module 4: Requirements Gathering"
+        },
+        {
+          "id": "m4-q8",
+          "number": 8,
+          "type": "mcq",
+          "category": "Multiple Choice",
+          "question": "During requirements gathering, an analyst asks a cashier: 'Why do you re-write this student number on paper before typing it into the computer?' Which technique is this?",
+          "options": [
+            "A. Passive Observation",
+            "B. Active Observation",
+            "C. Document Archival",
+            "D. Closed Survey"
+          ],
+          "answer": "B. Active Observation",
+          "explanation": "Active observation involves conversing with and interrupting the user during their workflow to ask immediate clarifying questions.",
+          "moduleId": "module-4-requirements",
+          "moduleTitle": "Module 4: Requirements Gathering"
+        },
+        {
+          "id": "m4-q9",
+          "number": 9,
+          "type": "mcq",
+          "category": "Multiple Choice",
+          "question": "Why is reviewing organizational documents alone insufficient for gathering all system requirements?",
+          "options": [
+            "A. Documents are illegal to read without a court warrant.",
+            "B. Documents often describe idealized formal policies rather than actual day-to-day workarounds.",
+            "C. Documents cannot contain numbers.",
+            "D. Modern systems never use paper records."
+          ],
+          "answer": "B. Documents often describe idealized formal policies rather than actual day-to-day workarounds.",
+          "explanation": "Documents describe what should happen formally on paper; observation and interviews are required to discover how work is actually conducted in practice.",
+          "moduleId": "module-4-requirements",
+          "moduleTitle": "Module 4: Requirements Gathering"
+        },
+        {
+          "id": "m4-q10",
+          "number": 10,
+          "type": "mcq",
+          "category": "Multiple Choice",
+          "question": "In requirements gathering, questions where respondents must choose from predefined choices (e.g. Yes/No or Rating 1-5) are called:",
+          "options": [
+            "A. Open-ended questions",
+            "B. Closed-ended questions",
+            "C. Rhetorical questions",
+            "D. Exploratory questions"
+          ],
+          "answer": "B. Closed-ended questions",
+          "explanation": "Closed-ended questions limit respondents to predefined selections, making them easy to quantify and analyze statistically.",
+          "moduleId": "module-4-requirements",
+          "moduleTitle": "Module 4: Requirements Gathering"
+        },
+        {
+          "id": "m4-q11",
+          "number": 11,
+          "type": "identification",
+          "category": "Technique Matching",
+          "question": "Eliciting deeply nuanced, strategic project expectations and institutional goals directly from the University President:",
+          "options": [
+            "Interview",
+            "Observation",
+            "Questionnaire",
+            "Document Analysis"
+          ],
+          "answer": "Interview",
+          "explanation": "Interview — Strategic executive direction and high-level priorities require direct, nuanced one-on-one dialogue with top leadership.",
+          "moduleId": "module-4-requirements",
+          "moduleTitle": "Module 4: Requirements Gathering"
+        },
+        {
+          "id": "m4-q12",
+          "number": 12,
+          "type": "identification",
+          "category": "Technique Matching",
+          "question": "Discovering that warehouse staff regularly bypass an error message by unplugging the barcode scanner:",
+          "options": [
+            "Observation",
+            "Interview",
+            "Questionnaire",
+            "Document Analysis"
+          ],
+          "answer": "Observation",
+          "explanation": "Observation — Workers rarely report breaking protocols during interviews; shadowing them physically reveals real-world shortcuts and workarounds.",
+          "moduleId": "module-4-requirements",
+          "moduleTitle": "Module 4: Requirements Gathering"
+        },
+        {
+          "id": "m4-q13",
+          "number": 13,
+          "type": "identification",
+          "category": "Technique Matching",
+          "question": "Extracting statutory tax calculation formulas and deduction rules from the national employee benefits manual:",
+          "options": [
+            "Document Analysis",
+            "Interview",
+            "Observation",
+            "Questionnaire"
+          ],
+          "answer": "Document Analysis",
+          "explanation": "Document Analysis — Formal tax formulas, legal deduction percentages, and company policies are documented in written manuals with legal accuracy.",
+          "moduleId": "module-4-requirements",
+          "moduleTitle": "Module 4: Requirements Gathering"
+        },
+        {
+          "id": "m4-q14",
+          "number": 14,
+          "type": "identification",
+          "category": "Technique Matching",
+          "question": "Measuring overall customer satisfaction with a banking mobile app across 10,000 nationwide mobile app users:",
+          "options": [
+            "Questionnaire",
+            "Interview",
+            "Observation",
+            "Document Analysis"
+          ],
+          "answer": "Questionnaire",
+          "explanation": "Questionnaire — Reaching 10,000 dispersed users nationwide requires an automated, low-cost digital survey.",
+          "moduleId": "module-4-requirements",
+          "moduleTitle": "Module 4: Requirements Gathering"
+        },
+        {
+          "id": "m4-q15",
+          "number": 15,
+          "type": "identification",
+          "category": "Technique Matching",
+          "question": "Reconciling a situation where two senior managers provide contradictory descriptions of the approval chain:",
+          "options": [
+            "Interview",
+            "Observation",
+            "Questionnaire",
+            "Document Analysis"
+          ],
+          "answer": "Interview",
+          "explanation": "Interview — Diplomatic, private one-on-one interviews are needed to uncover reasons behind conflicting managerial viewpoints and negotiate alignment.",
+          "moduleId": "module-4-requirements",
+          "moduleTitle": "Module 4: Requirements Gathering"
+        },
+        {
+          "id": "m4-q16",
+          "number": 16,
+          "type": "tf",
+          "category": "True or False",
+          "question": "Closed-ended questions in questionnaires provide rich qualitative descriptions but are nearly impossible to analyze statistically.",
+          "options": [
+            "True",
+            "False"
+          ],
+          "answer": "False",
+          "explanation": "False — Closed-ended questions produce quantitative numerical data that is very easy to compile and analyze statistically.",
+          "moduleId": "module-4-requirements",
+          "moduleTitle": "Module 4: Requirements Gathering"
+        },
+        {
+          "id": "m4-q17",
+          "number": 17,
+          "type": "tf",
+          "category": "True or False",
+          "question": "The primary reason for combining multiple requirements gathering techniques is that each technique has unique blind spots and limitations.",
+          "options": [
+            "True",
+            "False"
+          ],
+          "answer": "True",
+          "explanation": "True — Methodological triangulation combines multiple techniques to cross-verify data and eliminate individual weaknesses.",
+          "moduleId": "module-4-requirements",
+          "moduleTitle": "Module 4: Requirements Gathering"
+        },
+        {
+          "id": "m4-q18",
+          "number": 18,
+          "type": "tf",
+          "category": "True or False",
+          "question": "In active observation, the system analyst never speaks to or interrupts the employee while they work.",
+          "options": [
+            "True",
+            "False"
+          ],
+          "answer": "False",
+          "explanation": "False — In active observation, the analyst specifically interrupts the worker to ask real-time questions about their process.",
+          "moduleId": "module-4-requirements",
+          "moduleTitle": "Module 4: Requirements Gathering"
+        },
+        {
+          "id": "m4-q19",
+          "number": 19,
+          "type": "tf",
+          "category": "True or False",
+          "question": "Document analysis can reveal official business rules, but it often fails to uncover unofficial employee shortcuts.",
+          "options": [
+            "True",
+            "False"
+          ],
+          "answer": "True",
+          "explanation": "True — Written records describe the ideal formal policy; employees frequently devise informal shortcuts not documented in manuals.",
+          "moduleId": "module-4-requirements",
+          "moduleTitle": "Module 4: Requirements Gathering"
+        },
+        {
+          "id": "m4-q20",
+          "number": 20,
+          "type": "tf",
+          "category": "True or False",
+          "question": "Requirements gathering is only necessary if the software developers are completely unfamiliar with the programming language.",
+          "options": [
+            "True",
+            "False"
+          ],
+          "answer": "False",
+          "explanation": "False — Requirements gathering is vital for every project to ensure the software solves the actual operational business needs of users.",
+          "moduleId": "module-4-requirements",
+          "moduleTitle": "Module 4: Requirements Gathering"
+        },
+        {
+          "id": "m4-q21",
+          "number": 21,
+          "type": "scenario",
+          "category": "Scenario Application",
+          "question": "You are appointed Lead Analyst for a university Online Enrollment System. Which requirements gathering technique should you execute FIRST, and why?",
+          "options": [
+            "A. Document Analysis — Collect and inspect current forms, syllabi, fee slips, and prerequisite guidelines first to build domain vocabulary and avoid asking redundant questions.",
+            "B. Immediately interview the university president without reading any documents.",
+            "C. Conduct observation of 10,000 students while taking exams.",
+            "D. Send a survey asking students how to write SQL databases."
+          ],
+          "answer": "A. Document Analysis — Collect and inspect current forms, syllabi, fee slips, and prerequisite guidelines first to build domain vocabulary and avoid asking redundant questions.",
+          "explanation": "Model Answer: Recommended First Technique: Document Analysis. Justification: Studying existing enrollment forms, subject evaluation sheets, billing slips, and course catalogs enables the analyst to: 1) Master university terminology and data entities without wasting staff time, 2) Avoid asking basic, repetitive questions in upcoming stakeholder interviews, and 3) Target confusing paperwork in subsequent interviews.",
+          "moduleId": "module-4-requirements",
+          "moduleTitle": "Module 4: Requirements Gathering"
+        },
+        {
+          "id": "m4-q22",
+          "number": 22,
+          "type": "scenario",
+          "category": "Scenario Application",
+          "question": "When comparing Interviews against Questionnaires, in which circumstance is an Interview clearly the superior elicitation technique?",
+          "options": [
+            "A. When you need to survey 50,000 remote customers on a $100 budget.",
+            "B. When exploring complex, sensitive, or political problems with top executives and seeking deep, nuanced explanations of conflicting workflows.",
+            "C. When you only need basic quantitative ratings on a scale of 1 to 5.",
+            "D. When you want complete anonymity and zero verbal dialogue."
+          ],
+          "answer": "B. When exploring complex, sensitive, or political problems with top executives and seeking deep, nuanced explanations of conflicting workflows.",
+          "explanation": "Model Answer: Comparison: • Depth: Interviews provide rich qualitative depth; surveys provide broad, shallow quantitative data. • Cost & Time: Interviews are costly and time-intensive; questionnaires have low marginal cost per respondent. • Flexibility: Interviews allow spontaneous follow-ups; surveys are rigid. When to Choose Interviews: When engaging senior leaders, reconciling disputed processes, or probing complex business rules.",
+          "moduleId": "module-4-requirements",
+          "moduleTitle": "Module 4: Requirements Gathering"
+        },
+        {
+          "id": "m4-q23",
+          "number": 23,
+          "type": "mcq",
+          "category": "Multiple Choice",
+          "question": "Why do system analysts commonly prefer Semi-Structured Interviews over Strictly Scripted Interviews?",
+          "options": [
+            "A. Semi-structured interviews take zero preparation time.",
+            "B. They balance covering mandatory agenda questions with the agility to probe unexpected user insights.",
+            "C. They allow the analyst to skip meeting the client.",
+            "D. They can be answered by automated software scripts."
+          ],
+          "answer": "B. They balance covering mandatory agenda questions with the agility to probe unexpected user insights.",
+          "explanation": "Semi-structured interviews ensure standard core requirements are explored while giving the interviewer freedom to probe unanticipated discoveries.",
+          "moduleId": "module-4-requirements",
+          "moduleTitle": "Module 4: Requirements Gathering"
+        },
+        {
+          "id": "m4-q24",
+          "number": 24,
+          "type": "identification",
+          "category": "Technique Matching",
+          "question": "Watching a cashier in real time to count how many seconds each student transaction takes and noticing manual calculator steps:",
+          "options": [
+            "Observation",
+            "Questionnaire",
+            "Document Analysis",
+            "Literature Review"
+          ],
+          "answer": "Observation",
+          "explanation": "Observation involves watching workers perform actual physical tasks in their workplace environment to detect timing and undocumented steps.",
+          "moduleId": "module-4-requirements",
+          "moduleTitle": "Module 4: Requirements Gathering"
+        },
+        {
+          "id": "m4-q25",
+          "number": 25,
+          "type": "tf",
+          "category": "True or False",
+          "question": "In requirements gathering, methodological triangulation means combining multiple elicitation techniques to cross-verify findings and eliminate blind spots.",
+          "options": [
+            "True",
+            "False"
+          ],
+          "answer": "True",
+          "explanation": "True — Methodological triangulation uses multiple techniques (e.g., documents + surveys + interviews + observation) to validate requirements.",
+          "moduleId": "module-4-requirements",
+          "moduleTitle": "Module 4: Requirements Gathering"
+        }
+      ]
+    }
+  ],
+  "comprehensiveQuestions": [
+    {
+      "id": "m1-q1",
+      "number": 1,
+      "type": "mcq",
+      "category": "Multiple Choice",
+      "question": "In a school grading system, which component ensures that only authorized faculty members can enter student grades?",
+      "options": [
+        "A. Input",
+        "B. Process",
+        "C. Control",
+        "D. Feedback"
+      ],
+      "answer": "C. Control",
+      "explanation": "Control encompasses rules, authorization safeguards, and access privileges (such as RBAC) ensuring the system operates securely and validly.",
+      "moduleId": "module-1-sad",
+      "moduleTitle": "Module 1: SAD"
+    },
+    {
+      "id": "m1-q2",
+      "number": 2,
+      "type": "mcq",
+      "category": "Multiple Choice",
+      "question": "A student receives a printed Certificate of Registration (COR) after enrolling. In system terminology, this document is classified as:",
+      "options": [
+        "A. Input",
+        "B. Output",
+        "C. Process",
+        "D. Feedback"
+      ],
+      "answer": "B. Output",
+      "explanation": "The Certificate of Registration (COR) is generated information produced by the system for the student and faculty.",
+      "moduleId": "module-1-sad",
+      "moduleTitle": "Module 1: SAD"
+    },
+    {
+      "id": "m1-q3",
+      "number": 3,
+      "type": "mcq",
+      "category": "Multiple Choice",
+      "question": "A developer began coding a hospital billing application without consulting the billing staff or accounting officers. Which fundamental phase did the developer bypass?",
+      "options": [
+        "A. System Analysis",
+        "B. Compilation",
+        "C. Hardware Setup",
+        "D. User Acceptance Testing"
+      ],
+      "answer": "A. System Analysis",
+      "explanation": "The developer bypassed analyzing the existing problem and eliciting user requirements directly from hospital stakeholders.",
+      "moduleId": "module-1-sad",
+      "moduleTitle": "Module 1: SAD"
+    },
+    {
+      "id": "m1-q4",
+      "number": 4,
+      "type": "mcq",
+      "category": "Multiple Choice",
+      "question": "Which of the following questions is primarily addressed during the System Design phase rather than the System Analysis phase?",
+      "options": [
+        "A. 'What are the organization's business requirements?'",
+        "B. 'What problems do current employees encounter with legacy paperwork?'",
+        "C. 'How will the computer-based system physically meet user requirements?'",
+        "D. 'What information does management require in weekly reports?'"
+      ],
+      "answer": "C. 'How will the computer-based system physically meet user requirements?'",
+      "explanation": "Analysis defines 'WHAT' must be solved; Design defines 'HOW' the technology will physically solve it.",
+      "moduleId": "module-1-sad",
+      "moduleTitle": "Module 1: SAD"
+    },
+    {
+      "id": "m1-q5",
+      "number": 5,
+      "type": "mcq",
+      "category": "Multiple Choice",
+      "question": "A System Analyst is frequently described as playing which central role in an IT organization?",
+      "options": [
+        "A. A hardware repair technician",
+        "B. A bridge / translator between business users and programmers",
+        "C. An executive solely deciding company salaries",
+        "D. A full-time graphic illustrator"
+      ],
+      "answer": "B. A bridge / translator between business users and programmers",
+      "explanation": "Analysts translate ambiguous operational needs into technical specifications and blueprints that coders can build.",
+      "moduleId": "module-1-sad",
+      "moduleTitle": "Module 1: SAD"
+    },
+    {
+      "id": "m1-q6",
+      "number": 6,
+      "type": "mcq",
+      "category": "Multiple Choice",
+      "question": "Which task is considered a primary daily responsibility of a System Analyst?",
+      "options": [
+        "A. Soldering circuit boards",
+        "B. Understanding business problems and gathering requirements",
+        "C. Writing back-end database stored procedures",
+        "D. Performing automated integration testing"
+      ],
+      "answer": "B. Understanding business problems and gathering requirements",
+      "explanation": "Interviewing frontline staff to discover operational pain points and compiling requirements is a core analyst responsibility.",
+      "moduleId": "module-1-sad",
+      "moduleTitle": "Module 1: SAD"
+    },
+    {
+      "id": "m1-q7",
+      "number": 7,
+      "type": "mcq",
+      "category": "Multiple Choice",
+      "question": "Which skill category enables an analyst to resolve disagreements between two department heads who demand conflicting system features?",
+      "options": [
+        "A. Technical Skills",
+        "B. Interpersonal Skills",
+        "C. Programming Skills",
+        "D. Hardware Architecture Skills"
+      ],
+      "answer": "B. Interpersonal Skills",
+      "explanation": "Negotiation, diplomacy, conflict resolution, and active listening belong to the interpersonal skill domain.",
+      "moduleId": "module-1-sad",
+      "moduleTitle": "Module 1: SAD"
+    },
+    {
+      "id": "m1-q8",
+      "number": 8,
+      "type": "mcq",
+      "category": "Multiple Choice",
+      "question": "Data Flow Diagrams (DFDs) and Entity-Relationship Diagrams (ERDs) are primarily constructed during which phase?",
+      "options": [
+        "A. System Analysis and Design",
+        "B. Hardware Procurement",
+        "C. End-User Training",
+        "D. Decommissioning"
+      ],
+      "answer": "A. System Analysis and Design",
+      "explanation": "DFDs and ERDs are standard analytical and design modeling tools used to map data flow and logical data structures.",
+      "moduleId": "module-1-sad",
+      "moduleTitle": "Module 1: SAD"
+    },
+    {
+      "id": "m1-q9",
+      "number": 9,
+      "type": "mcq",
+      "category": "Multiple Choice",
+      "question": "Why is detecting and correcting errors during the Analysis phase drastically better than during the Maintenance phase?",
+      "options": [
+        "A. Fixing errors during analysis costs a fraction of the time and money compared to post-deployment rework.",
+        "B. Developers do not get paid during the analysis phase.",
+        "C. Users are never affected by bugs in deployed software.",
+        "D. Analysis is handled exclusively by automated AI tools."
+      ],
+      "answer": "A. Fixing errors during analysis costs a fraction of the time and money compared to post-deployment rework.",
+      "explanation": "Software engineering studies show fixing defects post-release is 10x to 50x more expensive due to redesign, re-testing, and redeployment.",
+      "moduleId": "module-1-sad",
+      "moduleTitle": "Module 1: SAD"
+    },
+    {
+      "id": "m1-q10",
+      "number": 10,
+      "type": "mcq",
+      "category": "Multiple Choice",
+      "question": "Incorporating Role-Based Access Control (RBAC) so that only cashiers can accept tuition payments directly supports which system component?",
+      "options": [
+        "A. Control",
+        "B. Input",
+        "C. Feedback",
+        "D. Output"
+      ],
+      "answer": "A. Control",
+      "explanation": "Role-based permissions (RBAC) restrict unauthorized actions, functioning as a vital system control mechanism.",
+      "moduleId": "module-1-sad",
+      "moduleTitle": "Module 1: SAD"
+    },
+    {
+      "id": "m1-q11",
+      "number": 11,
+      "type": "identification",
+      "category": "Identification / Terminology",
+      "question": "The component of a system consisting of information or signals used to make adjustments and evaluate system performance:",
+      "options": [
+        "Feedback",
+        "Control",
+        "Process",
+        "Output"
+      ],
+      "answer": "Feedback",
+      "explanation": "Feedback consists of information returning from the environment or user to adjust, evaluate, or confirm system performance.",
+      "moduleId": "module-1-sad",
+      "moduleTitle": "Module 1: SAD"
+    },
+    {
+      "id": "m1-q12",
+      "number": 12,
+      "type": "identification",
+      "category": "Identification / Terminology",
+      "question": "The specific IT professional responsible for studying business problems, gathering user requirements, and designing solutions:",
+      "options": [
+        "System Analyst",
+        "Database Administrator",
+        "Network Engineer",
+        "Hardware Technician"
+      ],
+      "answer": "System Analyst",
+      "explanation": "A System Analyst is the IT specialist who acts as a liaison and solution designer between business stakeholders and technical developers.",
+      "moduleId": "module-1-sad",
+      "moduleTitle": "Module 1: SAD"
+    },
+    {
+      "id": "m1-q13",
+      "number": 13,
+      "type": "identification",
+      "category": "Identification / Terminology",
+      "question": "The developmental phase that serves as the technical 'blueprint' detailing user interfaces, database tables, and system architecture:",
+      "options": [
+        "System Design",
+        "System Analysis",
+        "Maintenance",
+        "Testing"
+      ],
+      "answer": "System Design",
+      "explanation": "System Design is the architectural and physical blueprint phase detailing how the software will physically meet user requirements.",
+      "moduleId": "module-1-sad",
+      "moduleTitle": "Module 1: SAD"
+    },
+    {
+      "id": "m1-q14",
+      "number": 14,
+      "type": "identification",
+      "category": "Identification / Terminology",
+      "question": "The term for data, resources, or raw facts entered into an information system:",
+      "options": [
+        "Input",
+        "Output",
+        "Feedback",
+        "Control"
+      ],
+      "answer": "Input",
+      "explanation": "Input represents the raw data, transactions, and resources injected into the system for processing.",
+      "moduleId": "module-1-sad",
+      "moduleTitle": "Module 1: SAD"
+    },
+    {
+      "id": "m1-q15",
+      "number": 15,
+      "type": "identification",
+      "category": "Identification / Terminology",
+      "question": "The core framework / acronym that encompasses understanding organizational problems and architecting effective computer-based solutions:",
+      "options": [
+        "System Analysis and Design (SAD)",
+        "SDLC",
+        "RBAC",
+        "ERD"
+      ],
+      "answer": "System Analysis and Design (SAD)",
+      "explanation": "System Analysis and Design (SAD) is the overall structured methodology of studying organizational problems and designing computer-based solutions.",
+      "moduleId": "module-1-sad",
+      "moduleTitle": "Module 1: SAD"
+    },
+    {
+      "id": "m1-q16",
+      "number": 16,
+      "type": "tf",
+      "category": "True or False",
+      "question": "System Analysis focuses primarily on 'HOW' the software will be technically coded, while System Design focuses on 'WHAT' the business needs.",
+      "options": [
+        "True",
+        "False"
+      ],
+      "answer": "False",
+      "explanation": "False — Analysis focuses on 'WHAT' the system must do; Design focuses on 'HOW' the technical solution will be constructed.",
+      "moduleId": "module-1-sad",
+      "moduleTitle": "Module 1: SAD"
+    },
+    {
+      "id": "m1-q17",
+      "number": 17,
+      "type": "tf",
+      "category": "True or False",
+      "question": "System Analysts require strong business acumen because software must strictly align with organizational goals and commercial workflows.",
+      "options": [
+        "True",
+        "False"
+      ],
+      "answer": "True",
+      "explanation": "True — Analysts must understand business workflows, accounting, and organizational objectives to design practical, effective software.",
+      "moduleId": "module-1-sad",
+      "moduleTitle": "Module 1: SAD"
+    },
+    {
+      "id": "m1-q18",
+      "number": 18,
+      "type": "tf",
+      "category": "True or False",
+      "question": "Skipping System Analysis and Design usually accelerates total project completion and drastically reduces long-term software maintenance costs.",
+      "options": [
+        "True",
+        "False"
+      ],
+      "answer": "False",
+      "explanation": "False — Skipping SAD leads to massive rework, feature omissions, budget overruns, and expensive post-release maintenance.",
+      "moduleId": "module-1-sad",
+      "moduleTitle": "Module 1: SAD"
+    },
+    {
+      "id": "m1-q19",
+      "number": 19,
+      "type": "tf",
+      "category": "True or False",
+      "question": "Control procedures in a system ensure that only authorized users can perform sensitive transactions such as updating grades or issuing refunds.",
+      "options": [
+        "True",
+        "False"
+      ],
+      "answer": "True",
+      "explanation": "True — Control mechanisms enforce security, auditing, and authorization policies across system operations.",
+      "moduleId": "module-1-sad",
+      "moduleTitle": "Module 1: SAD"
+    },
+    {
+      "id": "m1-q20",
+      "number": 20,
+      "type": "tf",
+      "category": "True or False",
+      "question": "An effective System Analyst only needs programming knowledge; interpersonal and communication skills are completely optional.",
+      "options": [
+        "True",
+        "False"
+      ],
+      "answer": "False",
+      "explanation": "False — Communication, negotiation, diplomacy, and interpersonal skills are equally or more critical than coding for an analyst.",
+      "moduleId": "module-1-sad",
+      "moduleTitle": "Module 1: SAD"
+    },
+    {
+      "id": "m1-q21",
+      "number": 21,
+      "type": "scenario",
+      "category": "Scenario Application",
+      "question": "A programmer is hired to build a School Enrollment System. Eager to show progress, he immediately begins writing code in Visual Studio Code without speaking with the registrar, cashiers, teachers, or students. What is the most critical consequence of this mistake?",
+      "options": [
+        "A. The programmer will write faster code with no syntax errors.",
+        "B. Crucial business rules (like prerequisites and scholarship discounts) will be missed, resulting in massive rework and user rejection.",
+        "C. The school will save money because documentation is unnecessary.",
+        "D. Hardware requirements will automatically decrease."
+      ],
+      "answer": "B. Crucial business rules (like prerequisites and scholarship discounts) will be missed, resulting in massive rework and user rejection.",
+      "explanation": "Model Analysis: 1) Missing Crucial Features: Prerequisite checks, discounts, or specific report formats will be omitted without stakeholder consultation. 2) Usability Failure: Illogical UI for office staff. 3) Faulty Reporting: Non-compliance with regulatory standards. SAD prevents this by conducting stakeholder interviews first (requirements), constructing UI mockups (design), and setting validation rules before coding.",
+      "moduleId": "module-1-sad",
+      "moduleTitle": "Module 1: SAD"
+    },
+    {
+      "id": "m1-q22",
+      "number": 22,
+      "type": "scenario",
+      "category": "Scenario Application",
+      "question": "In an Online Food Delivery Application (e.g., GrabFood or Foodpanda), which pairing correctly identifies a system component and its real-world implementation?",
+      "options": [
+        "A. Input — A printed receipt handed to the customer",
+        "B. Process — Customer address and credit card information typed into the app",
+        "C. Feedback — Customer star rating (1-5 stars) and driver review submitted after delivery",
+        "D. Control — Calculating the subtotal, delivery fee, and applicable discounts"
+      ],
+      "answer": "C. Feedback — Customer star rating (1-5 stars) and driver review submitted after delivery",
+      "explanation": "Food Delivery App Components: 1. Input: Customer address, cart items, payment details. 2. Process: Computing subtotal/fees, matching nearest GPS rider. 3. Output: Digital order receipt, real-time rider tracking map. 4. Feedback: Star ratings and written reviews to evaluate service. 5. Control: OTP/2FA authentication and restaurant merchant verification.",
+      "moduleId": "module-1-sad",
+      "moduleTitle": "Module 1: SAD"
+    },
+    {
+      "id": "m1-q23",
+      "number": 23,
+      "type": "mcq",
+      "category": "Multiple Choice",
+      "question": "Which strategic benefit of System Analysis and Design ensures that an information system can easily accommodate expanding student populations and transactions without requiring complete architectural replacement?",
+      "options": [
+        "A. Scalable Architecture",
+        "B. Eliminating all need for servers",
+        "C. Replacing all human employees",
+        "D. Allowing unverified public database writes"
+      ],
+      "answer": "A. Scalable Architecture",
+      "explanation": "Scalable architecture allows an information system to grow gracefully in data volume and traffic load over time without catastrophic architectural rebuilds.",
+      "moduleId": "module-1-sad",
+      "moduleTitle": "Module 1: SAD"
+    },
+    {
+      "id": "m1-q24",
+      "number": 24,
+      "type": "identification",
+      "category": "Identification / Core Skills",
+      "question": "The specific skill set of a System Analyst encompassing project scheduling, resource allocation, and risk mitigation:",
+      "options": [
+        "Management Skills",
+        "Analytical Skills",
+        "Technical Skills",
+        "Interpersonal Skills"
+      ],
+      "answer": "Management Skills",
+      "explanation": "Management skills involve resource planning, scheduling milestones, controlling budget, and mitigating project risks.",
+      "moduleId": "module-1-sad",
+      "moduleTitle": "Module 1: SAD"
+    },
+    {
+      "id": "m1-q25",
+      "number": 25,
+      "type": "tf",
+      "category": "True or False",
+      "question": "The primary tangible deliverable produced at the culmination of the System Analysis phase is the Software Requirements Specification (SRS).",
+      "options": [
+        "True",
+        "False"
+      ],
+      "answer": "True",
+      "explanation": "True — The SRS document formally captures the verified business and user requirements compiled during system analysis.",
+      "moduleId": "module-1-sad",
+      "moduleTitle": "Module 1: SAD"
+    },
+    {
+      "id": "m2-q1",
+      "number": 1,
+      "type": "mcq",
+      "category": "Multiple Choice",
+      "question": "What is the official tangible deliverable produced at the conclusion of the Requirements Analysis phase?",
+      "options": [
+        "A. Entity-Relationship Diagram (ERD)",
+        "B. Software Requirements Specification (SRS)",
+        "C. Executable Application File (.exe)",
+        "D. Post-Implementation Review Report"
+      ],
+      "answer": "B. Software Requirements Specification (SRS)",
+      "explanation": "The Software Requirements Specification (SRS) is the formal document containing all functional and non-functional requirements compiled during requirements analysis.",
+      "moduleId": "module-2-sdlc",
+      "moduleTitle": "Module 2: SDLC"
+    },
+    {
+      "id": "m2-q2",
+      "number": 2,
+      "type": "mcq",
+      "category": "Multiple Choice",
+      "question": "In which phase of the SDLC do programmers physically write application source code and configure databases?",
+      "options": [
+        "A. System Design",
+        "B. Development (Coding)",
+        "C. Requirements Analysis",
+        "D. Deployment"
+      ],
+      "answer": "B. Development (Coding)",
+      "explanation": "Actual programming, scripting, database schema generation, and source code development occur during Phase 4: Development (Coding).",
+      "moduleId": "module-2-sdlc",
+      "moduleTitle": "Module 2: SDLC"
+    },
+    {
+      "id": "m2-q3",
+      "number": 3,
+      "type": "mcq",
+      "category": "Multiple Choice",
+      "question": "Testing an individual function in isolation (such as a discount calculation formula) is classified as:",
+      "options": [
+        "A. User Acceptance Testing (UAT)",
+        "B. Integration Testing",
+        "C. Unit Testing",
+        "D. Stress Testing"
+      ],
+      "answer": "C. Unit Testing",
+      "explanation": "Unit testing verifies that individual functions, routines, methods, or components operate correctly in complete isolation.",
+      "moduleId": "module-2-sdlc",
+      "moduleTitle": "Module 2: SDLC"
+    },
+    {
+      "id": "m2-q4",
+      "number": 4,
+      "type": "mcq",
+      "category": "Multiple Choice",
+      "question": "Which SDLC phase occurs immediately after System Design is officially approved?",
+      "options": [
+        "A. Testing",
+        "B. Planning",
+        "C. Development (Coding)",
+        "D. Deployment"
+      ],
+      "answer": "C. Development (Coding)",
+      "explanation": "Once the architectural blueprint (System Design) is completed and approved, developers proceed to Phase 4: Development (Coding).",
+      "moduleId": "module-2-sdlc",
+      "moduleTitle": "Module 2: SDLC"
+    },
+    {
+      "id": "m2-q5",
+      "number": 5,
+      "type": "mcq",
+      "category": "Multiple Choice",
+      "question": "Conducting user training, migrating legacy databases to production servers, and officially launching the software belongs to:",
+      "options": [
+        "A. Maintenance",
+        "B. Deployment",
+        "C. System Design",
+        "D. Feasibility Analysis"
+      ],
+      "answer": "B. Deployment",
+      "explanation": "Deployment encompasses server provisioning, data migration, user onboarding/training, and official live rollout.",
+      "moduleId": "module-2-sdlc",
+      "moduleTitle": "Module 2: SDLC"
+    },
+    {
+      "id": "m2-q6",
+      "number": 6,
+      "type": "mcq",
+      "category": "Multiple Choice",
+      "question": "A university registrar officially validates that the enrollment system operates according to university policies before sign-off. What type of testing is this?",
+      "options": [
+        "A. Unit Testing",
+        "B. Regression Testing",
+        "C. User Acceptance Testing (UAT)",
+        "D. Syntax Checking"
+      ],
+      "answer": "C. User Acceptance Testing (UAT)",
+      "explanation": "User Acceptance Testing (UAT) is the critical final verification where actual end-users/clients confirm the software fulfills business requirements.",
+      "moduleId": "module-2-sdlc",
+      "moduleTitle": "Module 2: SDLC"
+    },
+    {
+      "id": "m2-q7",
+      "number": 7,
+      "type": "mcq",
+      "category": "Multiple Choice",
+      "question": "Six months after deployment, a university decides to add an automated GCash payment gateway. Which phase manages this modification?",
+      "options": [
+        "A. Maintenance",
+        "B. System Design",
+        "C. Planning",
+        "D. Unit Testing"
+      ],
+      "answer": "A. Maintenance",
+      "explanation": "Post-launch software enhancements, new API integrations, and bug fixes belong exclusively to the Maintenance phase.",
+      "moduleId": "module-2-sdlc",
+      "moduleTitle": "Module 2: SDLC"
+    },
+    {
+      "id": "m2-q8",
+      "number": 8,
+      "type": "mcq",
+      "category": "Multiple Choice",
+      "question": "Creating UI wireframes, page mockups, and database table structures occurs during which phase?",
+      "options": [
+        "A. System Design",
+        "B. Requirements Analysis",
+        "C. Development",
+        "D. Maintenance"
+      ],
+      "answer": "A. System Design",
+      "explanation": "System Design constructs the architectural blueprints: ERDs, UI mockups, interface layouts, and technical data schemas.",
+      "moduleId": "module-2-sdlc",
+      "moduleTitle": "Module 2: SDLC"
+    },
+    {
+      "id": "m2-q9",
+      "number": 9,
+      "type": "mcq",
+      "category": "Multiple Choice",
+      "question": "Which phase is widely recognized as the foundational phase determining project viability and budget constraints?",
+      "options": [
+        "A. Planning",
+        "B. Coding",
+        "C. Testing",
+        "D. Deployment"
+      ],
+      "answer": "A. Planning",
+      "explanation": "Planning establishes project feasibility, resource allocations, timeline schedules, risk assessments, and financial budgets.",
+      "moduleId": "module-2-sdlc",
+      "moduleTitle": "Module 2: SDLC"
+    },
+    {
+      "id": "m2-q10",
+      "number": 10,
+      "type": "mcq",
+      "category": "Multiple Choice",
+      "question": "Testing whether the Student Registration module correctly transfers student data into the Billing module is an example of:",
+      "options": [
+        "A. Unit Testing",
+        "B. Integration Testing",
+        "C. Acceptance Testing",
+        "D. Alpha Testing"
+      ],
+      "answer": "B. Integration Testing",
+      "explanation": "Integration testing verifies that distinct software units or sub-systems interface and exchange data seamlessly without errors.",
+      "moduleId": "module-2-sdlc",
+      "moduleTitle": "Module 2: SDLC"
+    },
+    {
+      "id": "m2-q11",
+      "number": 11,
+      "type": "identification",
+      "category": "Identification / Sequence",
+      "question": "The type of testing conducted to ensure that distinct software modules interface and exchange data seamlessly:",
+      "options": [
+        "Integration Testing",
+        "Unit Testing",
+        "System Testing",
+        "User Acceptance Testing (UAT)"
+      ],
+      "answer": "Integration Testing",
+      "explanation": "Integration Testing verifies communication, protocols, and data exchange across module boundaries.",
+      "moduleId": "module-2-sdlc",
+      "moduleTitle": "Module 2: SDLC"
+    },
+    {
+      "id": "m2-q12",
+      "number": 12,
+      "type": "identification",
+      "category": "Identification / Sequence",
+      "question": "The final phase of the SDLC where software is continuously patched, enhanced, and supported post-launch:",
+      "options": [
+        "Maintenance",
+        "Deployment",
+        "Testing",
+        "Planning"
+      ],
+      "answer": "Maintenance",
+      "explanation": "Maintenance is the ongoing, long-term phase dedicated to bug fixes, system updates, and feature enhancements.",
+      "moduleId": "module-2-sdlc",
+      "moduleTitle": "Module 2: SDLC"
+    },
+    {
+      "id": "m2-q13",
+      "number": 13,
+      "type": "identification",
+      "category": "Identification / Sequence",
+      "question": "The deliverable produced during the System Design phase that outlines database tables and relationships:",
+      "options": [
+        "Entity-Relationship Diagram (ERD) / Database Schema",
+        "SRS",
+        "Test Cases",
+        "Project Charter"
+      ],
+      "answer": "Entity-Relationship Diagram (ERD) / Database Schema",
+      "explanation": "An Entity-Relationship Diagram (ERD) or Database Schema maps entities, attributes, primary/foreign keys, and data relationships.",
+      "moduleId": "module-2-sdlc",
+      "moduleTitle": "Module 2: SDLC"
+    },
+    {
+      "id": "m2-q14",
+      "number": 14,
+      "type": "identification",
+      "category": "Identification / Sequence",
+      "question": "The phase that answers the core question: 'What should the software actually do from the user's perspective?':",
+      "options": [
+        "Requirements Analysis",
+        "System Design",
+        "Coding",
+        "Testing"
+      ],
+      "answer": "Requirements Analysis",
+      "explanation": "Requirements Analysis focuses on uncovering and detailing stakeholder needs and defining 'WHAT' the system must accomplish.",
+      "moduleId": "module-2-sdlc",
+      "moduleTitle": "Module 2: SDLC"
+    },
+    {
+      "id": "m2-q15",
+      "number": 15,
+      "type": "identification",
+      "category": "Identification / Sequence",
+      "question": "The phase during which end-users undergo formal training and the software is installed onto operational servers:",
+      "options": [
+        "Deployment",
+        "Planning",
+        "System Design",
+        "Testing"
+      ],
+      "answer": "Deployment",
+      "explanation": "Deployment (Implementation) encompasses server rollout, data migration, user onboarding/training, and go-live operations.",
+      "moduleId": "module-2-sdlc",
+      "moduleTitle": "Module 2: SDLC"
+    },
+    {
+      "id": "m2-q16",
+      "number": 16,
+      "type": "tf",
+      "category": "True or False",
+      "question": "In standard SDLC methodology, programmers should begin writing code prior to finalizing system requirements and design blueprints.",
+      "options": [
+        "True",
+        "False"
+      ],
+      "answer": "False",
+      "explanation": "False — Coding before requirements and architecture are established causes severe defects, misaligned features, and costly redesign.",
+      "moduleId": "module-2-sdlc",
+      "moduleTitle": "Module 2: SDLC"
+    },
+    {
+      "id": "m2-q17",
+      "number": 17,
+      "type": "tf",
+      "category": "True or False",
+      "question": "User Acceptance Testing (UAT) is performed exclusively by internal software developers without involving any actual end-users.",
+      "options": [
+        "True",
+        "False"
+      ],
+      "answer": "False",
+      "explanation": "False — UAT must be performed by actual clients and end-users to confirm the system solves real-world workflow needs.",
+      "moduleId": "module-2-sdlc",
+      "moduleTitle": "Module 2: SDLC"
+    },
+    {
+      "id": "m2-q18",
+      "number": 18,
+      "type": "tf",
+      "category": "True or False",
+      "question": "The Software Requirements Specification (SRS) acts as an agreed-upon contract between the client and the development team.",
+      "options": [
+        "True",
+        "False"
+      ],
+      "answer": "True",
+      "explanation": "True — The SRS establishes a binding, agreed baseline of functional and non-functional requirements between clients and engineers.",
+      "moduleId": "module-2-sdlc",
+      "moduleTitle": "Module 2: SDLC"
+    },
+    {
+      "id": "m2-q19",
+      "number": 19,
+      "type": "tf",
+      "category": "True or False",
+      "question": "Maintenance is often the longest and most resource-intensive phase across the full operational life of enterprise software.",
+      "options": [
+        "True",
+        "False"
+      ],
+      "answer": "True",
+      "explanation": "True — While development takes months, maintenance typically spans 5 to 15+ years throughout the software's active operational life.",
+      "moduleId": "module-2-sdlc",
+      "moduleTitle": "Module 2: SDLC"
+    },
+    {
+      "id": "m2-q20",
+      "number": 20,
+      "type": "tf",
+      "category": "True or False",
+      "question": "One recognized drawback of the traditional SDLC is that changing requirements mid-development can significantly escalate costs.",
+      "options": [
+        "True",
+        "False"
+      ],
+      "answer": "True",
+      "explanation": "True — In sequential SDLC models, late requirement changes force extensive backtracking through design, code, and test cases.",
+      "moduleId": "module-2-sdlc",
+      "moduleTitle": "Module 2: SDLC"
+    },
+    {
+      "id": "m2-q21",
+      "number": 21,
+      "type": "scenario",
+      "category": "Scenario Application",
+      "question": "In an Online Library Management System for a college, which set represents valid functional user requirements documented during Requirements Analysis?",
+      "options": [
+        "A. Book search & real-time cataloging, automated reservations, overdue fine computation, borrowing history, and inventory management",
+        "B. Choosing between PostgreSQL and MySQL for database clustering",
+        "C. Soldering network cables and purchasing server rack chassis",
+        "D. Writing unit tests in Jest for mathematical functions"
+      ],
+      "answer": "A. Book search & real-time cataloging, automated reservations, overdue fine computation, borrowing history, and inventory management",
+      "explanation": "Model Answer: Functional requirements define what capabilities users need: 1) Book search/cataloging, 2) Online borrowing/reservation, 3) Automated overdue fine computation (e.g., Php 10/day), 4) Account borrowing history, 5) Librarian acquisition and inventory management. (Options B, C, and D represent design, hardware procurement, and testing).",
+      "moduleId": "module-2-sdlc",
+      "moduleTitle": "Module 2: SDLC"
+    },
+    {
+      "id": "m2-q22",
+      "number": 22,
+      "type": "scenario",
+      "category": "Scenario Application",
+      "question": "A team manager suggests skipping the Testing phase to release an enterprise student portal two weeks early. What catastrophic consequences does this risk?",
+      "options": [
+        "A. Developers will get bored with no code to write.",
+        "B. Production crashes under enrollment traffic, data corruption in tuition balances, and critical security vulnerabilities like SQL injection.",
+        "C. The server CPU usage will permanently drop to zero.",
+        "D. Users will praise the speed of the deployment."
+      ],
+      "answer": "B. Production crashes under enrollment traffic, data corruption in tuition balances, and critical security vulnerabilities like SQL injection.",
+      "explanation": "Model Answer: Testing prevents three catastrophic production outcomes: 1) Data Corruption & Inaccurate Calculations (e.g., faulty tuition fees or dropped records), 2) High-Traffic Downtime & Server Crashes (failure to handle peak student traffic), and 3) Security Breaches & Data Leaks (unpatched SQL injection or broken authorization exposing student records).",
+      "moduleId": "module-2-sdlc",
+      "moduleTitle": "Module 2: SDLC"
+    },
+    {
+      "id": "m2-q23",
+      "number": 23,
+      "type": "mcq",
+      "category": "Multiple Choice",
+      "question": "In which testing methodology is the full, integrated system rigorously evaluated from end to end by a dedicated QA team against SRS specifications?",
+      "options": [
+        "A. Unit Testing",
+        "B. System Testing",
+        "C. Component Testing",
+        "D. Code Syntax Verification"
+      ],
+      "answer": "B. System Testing",
+      "explanation": "System Testing evaluates the entire compiled application as a complete system to ensure it strictly meets all functional and non-functional SRS requirements.",
+      "moduleId": "module-2-sdlc",
+      "moduleTitle": "Module 2: SDLC"
+    },
+    {
+      "id": "m2-q24",
+      "number": 24,
+      "type": "identification",
+      "category": "Identification / Deliverables",
+      "question": "The formal document created in Phase 3 that specifies user interface wireframes, network architecture, and database tables:",
+      "options": [
+        "System Design Document (SDD)",
+        "Project Charter",
+        "Test Plan",
+        "Bug Report"
+      ],
+      "answer": "System Design Document (SDD)",
+      "explanation": "The System Design Document (SDD) serves as the technical blueprint outlining the technical architecture, UI layouts, and database schemas.",
+      "moduleId": "module-2-sdlc",
+      "moduleTitle": "Module 2: SDLC"
+    },
+    {
+      "id": "m2-q25",
+      "number": 25,
+      "type": "tf",
+      "category": "True or False",
+      "question": "The traditional sequential SDLC easily accommodates major client requirement changes during Phase 5 (Testing) without significant cost inflation.",
+      "options": [
+        "True",
+        "False"
+      ],
+      "answer": "False",
+      "explanation": "False — Making major requirement changes during testing forces backward iteration through design and coding, which inflates project expenses and timelines.",
+      "moduleId": "module-2-sdlc",
+      "moduleTitle": "Module 2: SDLC"
+    },
+    {
+      "id": "m3-q1",
+      "number": 1,
+      "type": "mcq",
+      "category": "Multiple Choice",
+      "question": "What is the fundamental question answered by a Feasibility Study prior to starting a software project?",
+      "options": [
+        "A. 'How many lines of code can we write in one day?'",
+        "B. 'Should we build this project?'",
+        "C. 'Which programming font is most aesthetic?'",
+        "D. 'How many monitors does each developer need?'"
+      ],
+      "answer": "B. 'Should we build this project?'",
+      "explanation": "A feasibility study establishes overall viability, risk, and strategic justification before an organization commits funding and human resources.",
+      "moduleId": "module-3-planning",
+      "moduleTitle": "Module 3: Project Planning"
+    },
+    {
+      "id": "m3-q2",
+      "number": 2,
+      "type": "mcq",
+      "category": "Multiple Choice",
+      "question": "An analyst checks whether the school's existing computer hardware and campus Wi-Fi can run a proposed cloud portal. Which feasibility type is this?",
+      "options": [
+        "A. Legal Feasibility",
+        "B. Technical Feasibility",
+        "C. Economic Feasibility",
+        "D. Schedule Feasibility"
+      ],
+      "answer": "B. Technical Feasibility",
+      "explanation": "Evaluating existing physical hardware, Wi-Fi networks, server capacities, and technical tools falls directly under Technical Feasibility.",
+      "moduleId": "module-3-planning",
+      "moduleTitle": "Module 3: Project Planning"
+    },
+    {
+      "id": "m3-q3",
+      "number": 3,
+      "type": "mcq",
+      "category": "Multiple Choice",
+      "question": "Calculating Return on Investment (ROI) by comparing an initial cost of Php 500,000 against projected savings of Php 900,000 is evaluated under:",
+      "options": [
+        "A. Operational Feasibility",
+        "B. Economic Feasibility",
+        "C. Technical Feasibility",
+        "D. Schedule Feasibility"
+      ],
+      "answer": "B. Economic Feasibility",
+      "explanation": "Cost-Benefit Analysis, ROI calculations, and capital expenditure forecasts are evaluated under Economic Feasibility.",
+      "moduleId": "module-3-planning",
+      "moduleTitle": "Module 3: Project Planning"
+    },
+    {
+      "id": "m3-q4",
+      "number": 4,
+      "type": "mcq",
+      "category": "Multiple Choice",
+      "question": "Ensuring that a student portal strictly adheres to the Philippine Data Privacy Act of 2012 is a primary concern of:",
+      "options": [
+        "A. Schedule Feasibility",
+        "B. Legal Feasibility",
+        "C. Technical Feasibility",
+        "D. Operational Feasibility"
+      ],
+      "answer": "B. Legal Feasibility",
+      "explanation": "Statutory privacy regulations, copyright laws, and intellectual property compliance are assessed under Legal Feasibility.",
+      "moduleId": "module-3-planning",
+      "moduleTitle": "Module 3: Project Planning"
+    },
+    {
+      "id": "m3-q5",
+      "number": 5,
+      "type": "mcq",
+      "category": "Multiple Choice",
+      "question": "If teachers refuse to use a newly deployed grading system because they find it too difficult and complicated, which feasibility dimension failed?",
+      "options": [
+        "A. Operational Feasibility",
+        "B. Legal Feasibility",
+        "C. Technical Feasibility",
+        "D. Economic Feasibility"
+      ],
+      "answer": "A. Operational Feasibility",
+      "explanation": "Operational Feasibility gauges whether end-users will accept, embrace, and easily operate the system within organizational workflows.",
+      "moduleId": "module-3-planning",
+      "moduleTitle": "Module 3: Project Planning"
+    },
+    {
+      "id": "m3-q6",
+      "number": 6,
+      "type": "mcq",
+      "category": "Multiple Choice",
+      "question": "A university mandates that the new enrollment portal must be 100% operational before the August semester opens. Assessing if this can be achieved is:",
+      "options": [
+        "A. Technical Feasibility",
+        "B. Operational Feasibility",
+        "C. Schedule Feasibility",
+        "D. Economic Feasibility"
+      ],
+      "answer": "C. Schedule Feasibility",
+      "explanation": "Schedule Feasibility evaluates whether the project can be planned, built, tested, and rolled out within strict timeline deadlines.",
+      "moduleId": "module-3-planning",
+      "moduleTitle": "Module 3: Project Planning"
+    },
+    {
+      "id": "m3-q7",
+      "number": 7,
+      "type": "mcq",
+      "category": "Multiple Choice",
+      "question": "In a Project Plan, clearly identifying that the system will handle 'Student Enrollment' but will NOT include 'Payroll' defines the project's:",
+      "options": [
+        "A. Scope",
+        "B. Schedule",
+        "C. Budget",
+        "D. Resources"
+      ],
+      "answer": "A. Scope",
+      "explanation": "The Project Scope establishes explicit boundaries by declaring what deliverables are included and what are excluded.",
+      "moduleId": "module-3-planning",
+      "moduleTitle": "Module 3: Project Planning"
+    },
+    {
+      "id": "m3-q8",
+      "number": 8,
+      "type": "mcq",
+      "category": "Multiple Choice",
+      "question": "Which software team role is primarily responsible for tracking project milestones, controlling budgets, and coordinating team activities?",
+      "options": [
+        "A. System Analyst",
+        "B. Database Administrator",
+        "C. Project Manager (PM)",
+        "D. QA Tester"
+      ],
+      "answer": "C. Project Manager (PM)",
+      "explanation": "The Project Manager (PM) oversees resource allocation, timeline adherence, budget tracking, risk response, and team coordination.",
+      "moduleId": "module-3-planning",
+      "moduleTitle": "Module 3: Project Planning"
+    },
+    {
+      "id": "m3-q9",
+      "number": 9,
+      "type": "mcq",
+      "category": "Multiple Choice",
+      "question": "Which tool is categorized as a Software Resource in a software development project plan?",
+      "options": [
+        "A. Dell PowerEdge Server",
+        "B. MySQL Database / Visual Studio Code",
+        "C. Quality Assurance Tester",
+        "D. Core i7 Laptop"
+      ],
+      "answer": "B. MySQL Database / Visual Studio Code",
+      "explanation": "DBMS software (MySQL), IDEs (VS Code), and compilers are classified as Software Resources. (Servers and laptops are Hardware; testers are Human Resources).",
+      "moduleId": "module-3-planning",
+      "moduleTitle": "Module 3: Project Planning"
+    },
+    {
+      "id": "m3-q10",
+      "number": 10,
+      "type": "mcq",
+      "category": "Multiple Choice",
+      "question": "What undesirable phenomenon occurs when extra features are continuously added to a project without expanding budget or timeline?",
+      "options": [
+        "A. Scope Creep",
+        "B. Refactoring",
+        "C. Regression Testing",
+        "D. Feasibility Expansion"
+      ],
+      "answer": "A. Scope Creep",
+      "explanation": "Scope Creep is the uncontrolled, creeping expansion of product features without necessary adjustments to budget, time, or resources.",
+      "moduleId": "module-3-planning",
+      "moduleTitle": "Module 3: Project Planning"
+    },
+    {
+      "id": "m3-q11",
+      "number": 11,
+      "type": "identification",
+      "category": "TELOS Classification",
+      "question": "Assessing whether the school has sufficient funds to hire three senior Python developers and buy enterprise cloud licenses:",
+      "options": [
+        "Economic Feasibility",
+        "Technical Feasibility",
+        "Legal Feasibility",
+        "Operational Feasibility",
+        "Schedule Feasibility"
+      ],
+      "answer": "Economic Feasibility",
+      "explanation": "Economic Feasibility — Evaluates financial costs, funding availability, salaries, cloud licenses, and projected financial return.",
+      "moduleId": "module-3-planning",
+      "moduleTitle": "Module 3: Project Planning"
+    },
+    {
+      "id": "m3-q12",
+      "number": 12,
+      "type": "identification",
+      "category": "TELOS Classification",
+      "question": "Evaluating whether existing clinic staff have the basic computer literacy needed to operate an electronic health records system:",
+      "options": [
+        "Operational Feasibility",
+        "Technical Feasibility",
+        "Economic Feasibility",
+        "Legal Feasibility",
+        "Schedule Feasibility"
+      ],
+      "answer": "Operational Feasibility",
+      "explanation": "Operational Feasibility — Evaluates staff competence, user readiness, training overhead, and workplace workflow integration.",
+      "moduleId": "module-3-planning",
+      "moduleTitle": "Module 3: Project Planning"
+    },
+    {
+      "id": "m3-q13",
+      "number": 13,
+      "type": "identification",
+      "category": "TELOS Classification",
+      "question": "Checking if third-party open-source libraries used in the software require royalty fees or violate proprietary copyright agreements:",
+      "options": [
+        "Legal Feasibility",
+        "Technical Feasibility",
+        "Economic Feasibility",
+        "Operational Feasibility",
+        "Schedule Feasibility"
+      ],
+      "answer": "Legal Feasibility",
+      "explanation": "Legal Feasibility — Assesses software licensing, copyright, open-source constraints, and regulatory liabilities.",
+      "moduleId": "module-3-planning",
+      "moduleTitle": "Module 3: Project Planning"
+    },
+    {
+      "id": "m3-q14",
+      "number": 14,
+      "type": "identification",
+      "category": "TELOS Classification",
+      "question": "Investigating if the development team has enough specialized knowledge in biometric facial recognition algorithms:",
+      "options": [
+        "Technical Feasibility",
+        "Economic Feasibility",
+        "Legal Feasibility",
+        "Operational Feasibility",
+        "Schedule Feasibility"
+      ],
+      "answer": "Technical Feasibility",
+      "explanation": "Technical Feasibility — Evaluates technical engineering expertise, algorithmic competence, and hardware/software capabilities.",
+      "moduleId": "module-3-planning",
+      "moduleTitle": "Module 3: Project Planning"
+    },
+    {
+      "id": "m3-q15",
+      "number": 15,
+      "type": "identification",
+      "category": "TELOS Classification",
+      "question": "Determining whether a 16-week timeline is adequate to complete coding, testing, and deployment before annual accreditation:",
+      "options": [
+        "Schedule Feasibility",
+        "Technical Feasibility",
+        "Economic Feasibility",
+        "Legal Feasibility",
+        "Operational Feasibility"
+      ],
+      "answer": "Schedule Feasibility",
+      "explanation": "Schedule Feasibility — Evaluates project milestones against rigid external deadlines and calendar constraints.",
+      "moduleId": "module-3-planning",
+      "moduleTitle": "Module 3: Project Planning"
+    },
+    {
+      "id": "m3-q16",
+      "number": 16,
+      "type": "tf",
+      "category": "True or False",
+      "question": "A project can be technically feasible and economically attractive, yet still fail completely due to poor operational feasibility.",
+      "options": [
+        "True",
+        "False"
+      ],
+      "answer": "True",
+      "explanation": "True — Even technically sophisticated and profitable systems fail if end-users resist adoption or find them too disruptive to use.",
+      "moduleId": "module-3-planning",
+      "moduleTitle": "Module 3: Project Planning"
+    },
+    {
+      "id": "m3-q17",
+      "number": 17,
+      "type": "tf",
+      "category": "True or False",
+      "question": "The project scope should only describe features that are included; documenting excluded features is considered bad practice.",
+      "options": [
+        "True",
+        "False"
+      ],
+      "answer": "False",
+      "explanation": "False — Documenting out-of-scope (excluded) features is mandatory to manage stakeholder expectations and prevent scope creep.",
+      "moduleId": "module-3-planning",
+      "moduleTitle": "Module 3: Project Planning"
+    },
+    {
+      "id": "m3-q18",
+      "number": 18,
+      "type": "tf",
+      "category": "True or False",
+      "question": "Economic feasibility focuses solely on software purchase price and ignores developer salaries, hardware, and ongoing maintenance.",
+      "options": [
+        "True",
+        "False"
+      ],
+      "answer": "False",
+      "explanation": "False — Economic feasibility must evaluate Total Cost of Ownership (TCO), including salaries, training, hardware, and maintenance.",
+      "moduleId": "module-3-planning",
+      "moduleTitle": "Module 3: Project Planning"
+    },
+    {
+      "id": "m3-q19",
+      "number": 19,
+      "type": "tf",
+      "category": "True or False",
+      "question": "Legal feasibility includes ensuring that user data handling conforms to data privacy, confidentiality, and statutory guidelines.",
+      "options": [
+        "True",
+        "False"
+      ],
+      "answer": "True",
+      "explanation": "True — Legal feasibility guarantees adherence to statutory privacy legislation (such as the DPA of 2012) and contractual rules.",
+      "moduleId": "module-3-planning",
+      "moduleTitle": "Module 3: Project Planning"
+    },
+    {
+      "id": "m3-q20",
+      "number": 20,
+      "type": "tf",
+      "category": "True or False",
+      "question": "Conducting a feasibility study guarantees that a project will have zero technical challenges during programming.",
+      "options": [
+        "True",
+        "False"
+      ],
+      "answer": "False",
+      "explanation": "False — A feasibility study identifies risks and viable pathways; it cannot eliminate standard programming bugs or technical challenges.",
+      "moduleId": "module-3-planning",
+      "moduleTitle": "Module 3: Project Planning"
+    },
+    {
+      "id": "m3-q21",
+      "number": 21,
+      "type": "scenario",
+      "category": "Case Study / Scenario",
+      "question": "City General Hospital evaluates an AI Triage System: Development cost is Php 1.2M; projected savings is Php 2.8M over 4 years. However, senior nurses actively refuse to use tablets, and emergency ward Wi-Fi is unstable. What is the soundest recommendation?",
+      "options": [
+        "A. Proceed with deployment immediately because the project has positive ROI.",
+        "B. Do NOT proceed as-is. Upgrade emergency room network infrastructure (Technical) and conduct change management, ergonomic tablet testing, and nurse training (Operational) first.",
+        "C. Fire all senior nurses and replace them with programmers.",
+        "D. Cancel the project permanently and prohibit all hospital software forever."
+      ],
+      "answer": "B. Do NOT proceed as-is. Upgrade emergency room network infrastructure (Technical) and conduct change management, ergonomic tablet testing, and nurse training (Operational) first.",
+      "explanation": "Model Analysis: • Economic: Feasible (Php 1.6M net savings = excellent ROI). • Technical: Not currently feasible due to unstable ER Wi-Fi causing life-or-death disconnections. • Operational: Not currently feasible due to senior nurse resistance. Recommendation: Do NOT proceed as-is. Remediate technical network bottlenecks and conduct change management/training first.",
+      "moduleId": "module-3-planning",
+      "moduleTitle": "Module 3: Project Planning"
+    },
+    {
+      "id": "m3-q22",
+      "number": 22,
+      "type": "scenario",
+      "category": "Case Study / Scenario",
+      "question": "Why is defining the Project Scope regarded as one of the most critical steps in project planning? What happens when scope is ambiguous?",
+      "options": [
+        "A. Ambiguous scope results in Scope Creep, missed deadlines, budget overruns, and disputed deliverables at launch.",
+        "B. Ambiguous scope makes programmers write code in faster languages.",
+        "C. Scope only matters for small freelance projects, not enterprise systems.",
+        "D. Defining scope automatically generates all SQL tables."
+      ],
+      "answer": "A. Ambiguous scope results in Scope Creep, missed deadlines, budget overruns, and disputed deliverables at launch.",
+      "explanation": "Model Analysis: Project scope defines the explicit boundary agreement between developers and stakeholders. Poorly communicated scope leads to: 1) Scope Creep (unending unbudgeted requests), 2) Schedule Delays & Cost Overruns (building unapproved features), and 3) Disputed Deliverables (clients withholding payment because divergent expectations were not aligned).",
+      "moduleId": "module-3-planning",
+      "moduleTitle": "Module 3: Project Planning"
+    },
+    {
+      "id": "m3-q23",
+      "number": 23,
+      "type": "mcq",
+      "category": "Multiple Choice",
+      "question": "In a software project plan, which core component identifies external threats (e.g., campus power failure or server downtime) and defines contingency actions?",
+      "options": [
+        "A. Risk Management",
+        "B. Scope Statement",
+        "C. Financial Invoice",
+        "D. Syntax Checker"
+      ],
+      "answer": "A. Risk Management",
+      "explanation": "Risk management systematically identifies project risks, evaluates their impact, and establishes mitigation and recovery protocols.",
+      "moduleId": "module-3-planning",
+      "moduleTitle": "Module 3: Project Planning"
+    },
+    {
+      "id": "m3-q24",
+      "number": 24,
+      "type": "identification",
+      "category": "TELOS Classification",
+      "question": "Determining whether an organization's existing servers have enough CPU cores, RAM, and SSD storage to host a new DBMS cluster:",
+      "options": [
+        "Technical Feasibility",
+        "Economic Feasibility",
+        "Legal Feasibility",
+        "Operational Feasibility",
+        "Schedule Feasibility"
+      ],
+      "answer": "Technical Feasibility",
+      "explanation": "Assessing physical server hardware, memory capacity, and computing infrastructure falls under Technical Feasibility.",
+      "moduleId": "module-3-planning",
+      "moduleTitle": "Module 3: Project Planning"
+    },
+    {
+      "id": "m3-q25",
+      "number": 25,
+      "type": "tf",
+      "category": "True or False",
+      "question": "Evaluating Total Cost of Ownership (TCO) in Economic Feasibility requires accounting for recurring software maintenance, cloud hosting, and staff training expenses.",
+      "options": [
+        "True",
+        "False"
+      ],
+      "answer": "True",
+      "explanation": "True — Economic feasibility must evaluate total lifecycle costs, not merely initial development expenditures.",
+      "moduleId": "module-3-planning",
+      "moduleTitle": "Module 3: Project Planning"
+    },
+    {
+      "id": "m4-q1",
+      "number": 1,
+      "type": "mcq",
+      "category": "Multiple Choice",
+      "question": "Which requirements elicitation technique is most effective when an analyst needs to gather opinions from 5,000 enrolled university students?",
+      "options": [
+        "A. In-depth face-to-face interviews",
+        "B. Online questionnaire / survey",
+        "C. Active observation of every student",
+        "D. Reviewing university financial ledgers"
+      ],
+      "answer": "B. Online questionnaire / survey",
+      "explanation": "Surveys provide rapid, low-cost distribution across thousands of respondents, making them the only scalable option for large populations like 5,000 students.",
+      "moduleId": "module-4-requirements",
+      "moduleTitle": "Module 4: Requirements Gathering"
+    },
+    {
+      "id": "m4-q2",
+      "number": 2,
+      "type": "mcq",
+      "category": "Multiple Choice",
+      "question": "An analyst sits silently beside a billing clerk for two hours without asking questions or speaking. This is an example of:",
+      "options": [
+        "A. Active Observation",
+        "B. Passive Observation",
+        "C. Structured Interview",
+        "D. Document Sampling"
+      ],
+      "answer": "B. Passive Observation",
+      "explanation": "Passive observation requires the analyst to watch silently without engaging, interrupting, or interacting with the subject.",
+      "moduleId": "module-4-requirements",
+      "moduleTitle": "Module 4: Requirements Gathering"
+    },
+    {
+      "id": "m4-q3",
+      "number": 3,
+      "type": "mcq",
+      "category": "Multiple Choice",
+      "question": "What major psychological phenomenon describes users altering their regular work behavior because they know an analyst is watching them?",
+      "options": [
+        "A. Placebo Effect",
+        "B. Hawthorne Effect",
+        "C. Halo Effect",
+        "D. Murphy's Law"
+      ],
+      "answer": "B. Hawthorne Effect",
+      "explanation": "The Hawthorne Effect is the documented psychological phenomenon where individuals modify or improve an aspect of their behavior in response to being observed.",
+      "moduleId": "module-4-requirements",
+      "moduleTitle": "Module 4: Requirements Gathering"
+    },
+    {
+      "id": "m4-q4",
+      "number": 4,
+      "type": "mcq",
+      "category": "Multiple Choice",
+      "question": "Which interview type utilizes a fixed, pre-written list of questions asked in identical sequence to all interviewees to facilitate direct comparison?",
+      "options": [
+        "A. Unstructured Interview",
+        "B. Structured Interview",
+        "C. Semi-structured Interview",
+        "D. Focus Group Discussion"
+      ],
+      "answer": "B. Structured Interview",
+      "explanation": "Structured interviews use a rigid, pre-defined question sequence to standardize responses and allow direct comparative analysis across subjects.",
+      "moduleId": "module-4-requirements",
+      "moduleTitle": "Module 4: Requirements Gathering"
+    },
+    {
+      "id": "m4-q5",
+      "number": 5,
+      "type": "mcq",
+      "category": "Multiple Choice",
+      "question": "If an analyst wants to uncover the exact fields printed on a school's official billing invoice without interrupting employees, which technique is ideal?",
+      "options": [
+        "A. Document Analysis",
+        "B. Student Survey",
+        "C. Active Observation",
+        "D. Brainstorming Session"
+      ],
+      "answer": "A. Document Analysis",
+      "explanation": "Document analysis inspects invoices, forms, receipts, and reports to establish exact data entity specifications without taking up employee time.",
+      "moduleId": "module-4-requirements",
+      "moduleTitle": "Module 4: Requirements Gathering"
+    },
+    {
+      "id": "m4-q6",
+      "number": 6,
+      "type": "mcq",
+      "category": "Multiple Choice",
+      "question": "What is the single most commonly used interview style in modern systems analysis because it balances structure with conversational flexibility?",
+      "options": [
+        "A. Completely Unstructured",
+        "B. Semi-Structured",
+        "C. Strictly Scripted",
+        "D. Cross-Examination"
+      ],
+      "answer": "B. Semi-Structured",
+      "explanation": "Semi-structured interviews allow an analyst to cover mandatory agenda items while freely investigating unexpected insights through adaptive follow-up probes.",
+      "moduleId": "module-4-requirements",
+      "moduleTitle": "Module 4: Requirements Gathering"
+    },
+    {
+      "id": "m4-q7",
+      "number": 7,
+      "type": "mcq",
+      "category": "Multiple Choice",
+      "question": "Which of the following is a recognized disadvantage of distributing questionnaires?",
+      "options": [
+        "A. Extremely high cost per respondent",
+        "B. Cannot clarify questions that respondents misunderstand",
+        "C. Requires the analyst to travel to every respondent",
+        "D. Impossible to analyze statistically"
+      ],
+      "answer": "B. Cannot clarify questions that respondents misunderstand",
+      "explanation": "Once distributed, ambiguous survey questions cannot be re-explained in real-time, risking skewed or flawed responses.",
+      "moduleId": "module-4-requirements",
+      "moduleTitle": "Module 4: Requirements Gathering"
+    },
+    {
+      "id": "m4-q8",
+      "number": 8,
+      "type": "mcq",
+      "category": "Multiple Choice",
+      "question": "During requirements gathering, an analyst asks a cashier: 'Why do you re-write this student number on paper before typing it into the computer?' Which technique is this?",
+      "options": [
+        "A. Passive Observation",
+        "B. Active Observation",
+        "C. Document Archival",
+        "D. Closed Survey"
+      ],
+      "answer": "B. Active Observation",
+      "explanation": "Active observation involves conversing with and interrupting the user during their workflow to ask immediate clarifying questions.",
+      "moduleId": "module-4-requirements",
+      "moduleTitle": "Module 4: Requirements Gathering"
+    },
+    {
+      "id": "m4-q9",
+      "number": 9,
+      "type": "mcq",
+      "category": "Multiple Choice",
+      "question": "Why is reviewing organizational documents alone insufficient for gathering all system requirements?",
+      "options": [
+        "A. Documents are illegal to read without a court warrant.",
+        "B. Documents often describe idealized formal policies rather than actual day-to-day workarounds.",
+        "C. Documents cannot contain numbers.",
+        "D. Modern systems never use paper records."
+      ],
+      "answer": "B. Documents often describe idealized formal policies rather than actual day-to-day workarounds.",
+      "explanation": "Documents describe what should happen formally on paper; observation and interviews are required to discover how work is actually conducted in practice.",
+      "moduleId": "module-4-requirements",
+      "moduleTitle": "Module 4: Requirements Gathering"
+    },
+    {
+      "id": "m4-q10",
+      "number": 10,
+      "type": "mcq",
+      "category": "Multiple Choice",
+      "question": "In requirements gathering, questions where respondents must choose from predefined choices (e.g. Yes/No or Rating 1-5) are called:",
+      "options": [
+        "A. Open-ended questions",
+        "B. Closed-ended questions",
+        "C. Rhetorical questions",
+        "D. Exploratory questions"
+      ],
+      "answer": "B. Closed-ended questions",
+      "explanation": "Closed-ended questions limit respondents to predefined selections, making them easy to quantify and analyze statistically.",
+      "moduleId": "module-4-requirements",
+      "moduleTitle": "Module 4: Requirements Gathering"
+    },
+    {
+      "id": "m4-q11",
+      "number": 11,
+      "type": "identification",
+      "category": "Technique Matching",
+      "question": "Eliciting deeply nuanced, strategic project expectations and institutional goals directly from the University President:",
+      "options": [
+        "Interview",
+        "Observation",
+        "Questionnaire",
+        "Document Analysis"
+      ],
+      "answer": "Interview",
+      "explanation": "Interview — Strategic executive direction and high-level priorities require direct, nuanced one-on-one dialogue with top leadership.",
+      "moduleId": "module-4-requirements",
+      "moduleTitle": "Module 4: Requirements Gathering"
+    },
+    {
+      "id": "m4-q12",
+      "number": 12,
+      "type": "identification",
+      "category": "Technique Matching",
+      "question": "Discovering that warehouse staff regularly bypass an error message by unplugging the barcode scanner:",
+      "options": [
+        "Observation",
+        "Interview",
+        "Questionnaire",
+        "Document Analysis"
+      ],
+      "answer": "Observation",
+      "explanation": "Observation — Workers rarely report breaking protocols during interviews; shadowing them physically reveals real-world shortcuts and workarounds.",
+      "moduleId": "module-4-requirements",
+      "moduleTitle": "Module 4: Requirements Gathering"
+    },
+    {
+      "id": "m4-q13",
+      "number": 13,
+      "type": "identification",
+      "category": "Technique Matching",
+      "question": "Extracting statutory tax calculation formulas and deduction rules from the national employee benefits manual:",
+      "options": [
+        "Document Analysis",
+        "Interview",
+        "Observation",
+        "Questionnaire"
+      ],
+      "answer": "Document Analysis",
+      "explanation": "Document Analysis — Formal tax formulas, legal deduction percentages, and company policies are documented in written manuals with legal accuracy.",
+      "moduleId": "module-4-requirements",
+      "moduleTitle": "Module 4: Requirements Gathering"
+    },
+    {
+      "id": "m4-q14",
+      "number": 14,
+      "type": "identification",
+      "category": "Technique Matching",
+      "question": "Measuring overall customer satisfaction with a banking mobile app across 10,000 nationwide mobile app users:",
+      "options": [
+        "Questionnaire",
+        "Interview",
+        "Observation",
+        "Document Analysis"
+      ],
+      "answer": "Questionnaire",
+      "explanation": "Questionnaire — Reaching 10,000 dispersed users nationwide requires an automated, low-cost digital survey.",
+      "moduleId": "module-4-requirements",
+      "moduleTitle": "Module 4: Requirements Gathering"
+    },
+    {
+      "id": "m4-q15",
+      "number": 15,
+      "type": "identification",
+      "category": "Technique Matching",
+      "question": "Reconciling a situation where two senior managers provide contradictory descriptions of the approval chain:",
+      "options": [
+        "Interview",
+        "Observation",
+        "Questionnaire",
+        "Document Analysis"
+      ],
+      "answer": "Interview",
+      "explanation": "Interview — Diplomatic, private one-on-one interviews are needed to uncover reasons behind conflicting managerial viewpoints and negotiate alignment.",
+      "moduleId": "module-4-requirements",
+      "moduleTitle": "Module 4: Requirements Gathering"
+    },
+    {
+      "id": "m4-q16",
+      "number": 16,
+      "type": "tf",
+      "category": "True or False",
+      "question": "Closed-ended questions in questionnaires provide rich qualitative descriptions but are nearly impossible to analyze statistically.",
+      "options": [
+        "True",
+        "False"
+      ],
+      "answer": "False",
+      "explanation": "False — Closed-ended questions produce quantitative numerical data that is very easy to compile and analyze statistically.",
+      "moduleId": "module-4-requirements",
+      "moduleTitle": "Module 4: Requirements Gathering"
+    },
+    {
+      "id": "m4-q17",
+      "number": 17,
+      "type": "tf",
+      "category": "True or False",
+      "question": "The primary reason for combining multiple requirements gathering techniques is that each technique has unique blind spots and limitations.",
+      "options": [
+        "True",
+        "False"
+      ],
+      "answer": "True",
+      "explanation": "True — Methodological triangulation combines multiple techniques to cross-verify data and eliminate individual weaknesses.",
+      "moduleId": "module-4-requirements",
+      "moduleTitle": "Module 4: Requirements Gathering"
+    },
+    {
+      "id": "m4-q18",
+      "number": 18,
+      "type": "tf",
+      "category": "True or False",
+      "question": "In active observation, the system analyst never speaks to or interrupts the employee while they work.",
+      "options": [
+        "True",
+        "False"
+      ],
+      "answer": "False",
+      "explanation": "False — In active observation, the analyst specifically interrupts the worker to ask real-time questions about their process.",
+      "moduleId": "module-4-requirements",
+      "moduleTitle": "Module 4: Requirements Gathering"
+    },
+    {
+      "id": "m4-q19",
+      "number": 19,
+      "type": "tf",
+      "category": "True or False",
+      "question": "Document analysis can reveal official business rules, but it often fails to uncover unofficial employee shortcuts.",
+      "options": [
+        "True",
+        "False"
+      ],
+      "answer": "True",
+      "explanation": "True — Written records describe the ideal formal policy; employees frequently devise informal shortcuts not documented in manuals.",
+      "moduleId": "module-4-requirements",
+      "moduleTitle": "Module 4: Requirements Gathering"
+    },
+    {
+      "id": "m4-q20",
+      "number": 20,
+      "type": "tf",
+      "category": "True or False",
+      "question": "Requirements gathering is only necessary if the software developers are completely unfamiliar with the programming language.",
+      "options": [
+        "True",
+        "False"
+      ],
+      "answer": "False",
+      "explanation": "False — Requirements gathering is vital for every project to ensure the software solves the actual operational business needs of users.",
+      "moduleId": "module-4-requirements",
+      "moduleTitle": "Module 4: Requirements Gathering"
+    },
+    {
+      "id": "m4-q21",
+      "number": 21,
+      "type": "scenario",
+      "category": "Scenario Application",
+      "question": "You are appointed Lead Analyst for a university Online Enrollment System. Which requirements gathering technique should you execute FIRST, and why?",
+      "options": [
+        "A. Document Analysis — Collect and inspect current forms, syllabi, fee slips, and prerequisite guidelines first to build domain vocabulary and avoid asking redundant questions.",
+        "B. Immediately interview the university president without reading any documents.",
+        "C. Conduct observation of 10,000 students while taking exams.",
+        "D. Send a survey asking students how to write SQL databases."
+      ],
+      "answer": "A. Document Analysis — Collect and inspect current forms, syllabi, fee slips, and prerequisite guidelines first to build domain vocabulary and avoid asking redundant questions.",
+      "explanation": "Model Answer: Recommended First Technique: Document Analysis. Justification: Studying existing enrollment forms, subject evaluation sheets, billing slips, and course catalogs enables the analyst to: 1) Master university terminology and data entities without wasting staff time, 2) Avoid asking basic, repetitive questions in upcoming stakeholder interviews, and 3) Target confusing paperwork in subsequent interviews.",
+      "moduleId": "module-4-requirements",
+      "moduleTitle": "Module 4: Requirements Gathering"
+    },
+    {
+      "id": "m4-q22",
+      "number": 22,
+      "type": "scenario",
+      "category": "Scenario Application",
+      "question": "When comparing Interviews against Questionnaires, in which circumstance is an Interview clearly the superior elicitation technique?",
+      "options": [
+        "A. When you need to survey 50,000 remote customers on a $100 budget.",
+        "B. When exploring complex, sensitive, or political problems with top executives and seeking deep, nuanced explanations of conflicting workflows.",
+        "C. When you only need basic quantitative ratings on a scale of 1 to 5.",
+        "D. When you want complete anonymity and zero verbal dialogue."
+      ],
+      "answer": "B. When exploring complex, sensitive, or political problems with top executives and seeking deep, nuanced explanations of conflicting workflows.",
+      "explanation": "Model Answer: Comparison: • Depth: Interviews provide rich qualitative depth; surveys provide broad, shallow quantitative data. • Cost & Time: Interviews are costly and time-intensive; questionnaires have low marginal cost per respondent. • Flexibility: Interviews allow spontaneous follow-ups; surveys are rigid. When to Choose Interviews: When engaging senior leaders, reconciling disputed processes, or probing complex business rules.",
+      "moduleId": "module-4-requirements",
+      "moduleTitle": "Module 4: Requirements Gathering"
+    },
+    {
+      "id": "m4-q23",
+      "number": 23,
+      "type": "mcq",
+      "category": "Multiple Choice",
+      "question": "Why do system analysts commonly prefer Semi-Structured Interviews over Strictly Scripted Interviews?",
+      "options": [
+        "A. Semi-structured interviews take zero preparation time.",
+        "B. They balance covering mandatory agenda questions with the agility to probe unexpected user insights.",
+        "C. They allow the analyst to skip meeting the client.",
+        "D. They can be answered by automated software scripts."
+      ],
+      "answer": "B. They balance covering mandatory agenda questions with the agility to probe unexpected user insights.",
+      "explanation": "Semi-structured interviews ensure standard core requirements are explored while giving the interviewer freedom to probe unanticipated discoveries.",
+      "moduleId": "module-4-requirements",
+      "moduleTitle": "Module 4: Requirements Gathering"
+    },
+    {
+      "id": "m4-q24",
+      "number": 24,
+      "type": "identification",
+      "category": "Technique Matching",
+      "question": "Watching a cashier in real time to count how many seconds each student transaction takes and noticing manual calculator steps:",
+      "options": [
+        "Observation",
+        "Questionnaire",
+        "Document Analysis",
+        "Literature Review"
+      ],
+      "answer": "Observation",
+      "explanation": "Observation involves watching workers perform actual physical tasks in their workplace environment to detect timing and undocumented steps.",
+      "moduleId": "module-4-requirements",
+      "moduleTitle": "Module 4: Requirements Gathering"
+    },
+    {
+      "id": "m4-q25",
+      "number": 25,
+      "type": "tf",
+      "category": "True or False",
+      "question": "In requirements gathering, methodological triangulation means combining multiple elicitation techniques to cross-verify findings and eliminate blind spots.",
+      "options": [
+        "True",
+        "False"
+      ],
+      "answer": "True",
+      "explanation": "True — Methodological triangulation uses multiple techniques (e.g., documents + surveys + interviews + observation) to validate requirements.",
+      "moduleId": "module-4-requirements",
+      "moduleTitle": "Module 4: Requirements Gathering"
     }
   ]
 };
